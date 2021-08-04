@@ -178,26 +178,26 @@
 153. selinux_skb_owned_by
 
 #### Network XFRM
-176. selinux_xfrm_policy_alloc
-177. selinux_xfrm_policy_clone
-178. selinux_xfrm_policy_free
-179. selinux_xfrm_policy_delete
-180. selinux_xfrm_state_alloc
-181. selinux_xfrm_state_alloc_acquire
-182. selinux_xfrm_state_free
-183. selinux_xfrm_state_delete
-184. selinux_xfrm_policy_lookup
-185. selinux_xfrm_state_pol_flow_match
-186. selinux_xfrm_decode_session
+154. selinux_xfrm_policy_alloc
+155. selinux_xfrm_policy_clone
+156. selinux_xfrm_policy_free
+157. selinux_xfrm_policy_delete
+158. selinux_xfrm_state_alloc
+159. selinux_xfrm_state_alloc_acquire
+160. selinux_xfrm_state_free
+161. selinux_xfrm_state_delete
+162. selinux_xfrm_policy_lookup
+163. selinux_xfrm_state_pol_flow_match
+164. selinux_xfrm_decode_session
 
 #### Keys
-190. selinux_key_alloc
-191. selinux_key_free
-192. selinux_key_permission
-193. selinux_key_getsecurity
+165. selinux_key_alloc
+166. selinux_key_free
+167. selinux_key_permission
+168. selinux_key_getsecurity
 
 #### Audit
-196. selinux_audit_rule_init
-197. selinux_audit_rule_known
-198. selinux_audit_rule_match
-199. selinux_audit_rule_free
+169. selinux_audit_rule_init
+170. selinux_audit_rule_known
+171. selinux_audit_rule_match
+172. selinux_audit_rule_free
