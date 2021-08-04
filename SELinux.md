@@ -1,5 +1,5 @@
 
-## **Tomoyo Hook Functions:**
+## **SELinux Hook Functions:**
 
 #### General
 
