@@ -2,9 +2,9 @@
 
 ### Systems
 
-SELinux: [list of SELinux hooks](SELinux.md)</br>
-Tomoyo: [list of Tomoyo hooks](Tomoyo.md)</br>
-AppArmor: [list of AppArmor hooks](AppArmor.md)</br>
+SELinux: [list of SELinux hooks](Mediator-Analysis-Data/SELinux.md)</br>
+Tomoyo: [list of Tomoyo hooks](Mediator-Analysis-Data/Tomoyo.md)</br>
+AppArmor: [list of AppArmor hooks](Mediator-Analysis-Data/AppArmor.md)</br>
 
 ### Legend
 
