@@ -2,7 +2,7 @@
 | ------ | ----------- | -------- | --------------- | ---------------- | --------------- |
 | 6 | | security/tomoyo/tomoyo.c: 380 | operation, static, mediator | purpose, value | E3 |
 | 7 | | security/tomoyo/tomoyo.c: 383 | operation, static, mediator | purpose, value | E3 |
-| path | | security/tomoyo/tomoyo.c: 191 | object, dynamic, external | | |
+| path | | security/tomoyo/tomoyo.c: 376 | object, dynamic, external | purpose. source | E4 |
 | current | | security/tomoyo/util.c: 1005 | subject, dynamic, external | source | E4 |
 | task | | security/tomoyo/util.c: 1005 | subject, dynamic, external | | |
 | tomoyo_request_info | 4 | security/tomoyo/file.c: 712 | all, dynamic, external | purpose | E4 |
