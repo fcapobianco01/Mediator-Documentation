@@ -1,5 +1,5 @@
 | Source (name [type]) | Field (index [id]) | Source Location | Label at Source |
-| ------ | ----------- | -------- | --------------- | ---------------- | --------------- | ------- |
+| ------ | ----------- | -------- | --------------- |
 | bprm [linux_binprm] |  | security/tomoyo/tomoyo.c: 118	| operation, dynamic, input |
 | domain [tomoyo_domain_info] | security/tomoyo/tomoyo.c: 120 | subject, dynamic, input |
 | 1 [TOMOYO_TYPE_READ] | | security/tomoyo/file.c: 759	| operation, static, mediator |
