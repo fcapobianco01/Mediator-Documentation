@@ -9,5 +9,3 @@
 | 82 [OPTIMIZED OUT] |  | /security/apparmor/lsm.c:334 | operation, static, mediator |
 | 11 [OP_RENAME_DEST] |  | /security/apparmor/include/audit.h:64 | operation, static, mediator |
 | 230 [OPTIMIZED OUT] |  | /security/apparmor/lsm.c:339 | operation, static, mediator |
-
-

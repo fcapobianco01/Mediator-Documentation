@@ -18,7 +18,3 @@
 | file [file] | 14 | security/apparmor/lsm.c:378 | object, dynamic, input |
 | inode [file] | 2 | /security/apparmor/lsm.c:397 | object, dynamic, input |
 | 18 [OP_OPEN] |  | /include/linux/nfs4.h:69 | operation, static, external |
-
-
-
-
