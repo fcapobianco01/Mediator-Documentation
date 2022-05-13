@@ -16,8 +16,3 @@
 | 3 | security/tomoyo/common.h: 148 | static, mediator | | |
 | 2 | security/tomoyo/common.h: 227 | static, mediator | | |
 | 4095 | include/linux/stat.h: 9 | static, external | | |
-| | | | | |
-| | | | | |
-
-
-

@@ -8,6 +8,3 @@
 | 512 [FILE__APPEND] |  | /security/selinux/include/av_permissions.h:92 | operation, static, mediator |
 | 4 [FILE__WRITE] |  | /security/selinux/include/av_permissions.h:85 | operation, static, mediator |
 | 1 [FILE__IOCTL] |  | /security/selinux/include/av_permissions.h:83 | operation, static, mediator |
-
-
-
