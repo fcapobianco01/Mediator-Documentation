@@ -158,7 +158,7 @@
 | **_X-SERVER_**                     |                       |                      |                       |                      |                      |                      |                    |
 | dixLookupWindow                    |     :red_circle:      |                      |                       |                      |                      |                      |                    |
 | dixLookupDrawable                  |     :red_circle:      |                      |                       |                      |                      |                      |                    |
-| dixLookupClient |:red_circle:|||||||
+| dixLookupClient                    |     :red_circle:      |                      |                       |                      |                      |                      |                    |
 | dixLookupDevice                    | :large_blue_diamond:  |                      |                       |                      |                      |                      |                    |
 | dixLookupSelection                 |                       |                      |     :red_circle:      |                      |                      |                      |                    |
 | dixLookupProperty                  |                       |                      |     :red_circle:      |                      |                      |                      |                    |
