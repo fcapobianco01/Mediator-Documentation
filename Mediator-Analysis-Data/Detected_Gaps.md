@@ -2,7 +2,7 @@
 
 :large_blue_diamond: : Implicit flows detected
 
-| Funtion                            | sub :arrow_right: obj | sub :arrow_right:op  | obj :arrow_right: sub | obj :arrow_right: op | op:arrow_right: sub  | op :arrow_right: obj |  No cross-domain   |
+| Function                           | sub :arrow_right: obj | sub :arrow_right:op  | obj :arrow_right: sub | obj :arrow_right: op | op:arrow_right: sub  | op :arrow_right: obj |  No cross-domain   |
 | ---------------------------------- | :-------------------: | :------------------: | :-------------------: | :------------------: | :------------------: | :------------------: | :----------------: |
 | **_TOMOYO_**                       |                       |                      |                       |                      |                      |                      |                    |
 | tomoyo_bprm_check_security         | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
@@ -166,7 +166,7 @@
 
 List of functions not being analyzed
 
-| Funtion                          |             Reason             |
+| Function                         |             Reason             |
 | -------------------------------- | :----------------------------: |
 | **_TOMOYO_**                     |                                |
 | tomoyo_cred_alloc_blank          |       Allocation or free       |
