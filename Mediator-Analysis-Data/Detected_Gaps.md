@@ -5,23 +5,23 @@
 | Function                           | sub :arrow_right: obj | sub :arrow_right:op  | obj :arrow_right: sub | obj :arrow_right: op | op:arrow_right: sub  | op :arrow_right: obj |  No cross-domain   |
 | ---------------------------------- | :-------------------: | :------------------: | :-------------------: | :------------------: | :------------------: | :------------------: | :----------------: |
 | **_TOMOYO_**                       |                       |                      |                       |                      |                      |                      |                    |
-| tomoyo_bprm_check_security         | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
+| tomoyo_bprm_check_security         | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | tomoyo_file_fcntl                  | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | tomoyo_file_ioctl                  | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
-| tomoyo_file_open                   | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
+| tomoyo_file_open                   | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | tomoyo_path_truncate               | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_path_unlink                 | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_path_mkdir                  | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_path_rmdir                  | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_path_symlink                | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
-| tomoyo_path_mknod                  | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
+| tomoyo_path_mknod                  | :large_blue_diamond:  | :large_blue_diamond: |                       |                      |                      | :large_blue_diamond: |                    |
 | tomoyo_path_link                   | :large_blue_diamond:  | :large_blue_diamond: |                       |                      |                      | :large_blue_diamond: |                    |
 | tomoyo_path_rename                 | :large_blue_diamond:  | :large_blue_diamond: |                       |                      |                      | :large_blue_diamond: |                    |
 | tomoyo_inode_getattr               | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_path_chmod                  | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_path_chown                  | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | tomoyo_path_chroot                 | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
-| tomoyo_sb_mount                    | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
+| tomoyo_sb_mount                    |                       |                      |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_sb_umount                   | :large_blue_diamond:  | :large_blue_diamond: |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
 | tomoyo_sb_pivotroot                | :large_blue_diamond:  | :large_blue_diamond: |                       |                      |                      | :large_blue_diamond: |                    |
 | tomoyo_socket_bind                 | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
@@ -30,24 +30,24 @@
 | tomoyo_socket_sendmsg              | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | ------                             |                       |                      |                       |                      |                      |                      |                    |
 | **_APPARMOR_**                     |                       |                      |                       |                      |                      |                      |                    |
-| apparmor_path_link                 | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      |                      |                      |                    |
-| apparmor_path_unlink               |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_path_symlink              |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_path_mkdir                |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_path_rmdir                |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_path_mknod                |                       |                      |                       |                      |                      |                      | :white_check_mark: |
+| apparmor_path_link                 |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_path_unlink               |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_path_rmdir                |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_path_symlink              |                       |                      |     :red_circle:      |                      |                      |                      |                    |
+| apparmor_path_mkdir                |                       |                      |     :red_circle:      |                      |                      |                      |                    |
+| apparmor_path_mknod                |                       |                      |     :red_circle:      |                      |                      |                      |                    |
 | apparmor_path_rename               | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      |                      |                      |                    |
-| apparmor_path_chmod                |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_path_chown                |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_path_truncate             |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_inode_getattr             |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_file_open                 | :large_blue_diamond:  |                      |                       |                      |                      |                      |                    |
-| apparmor_file_permission           | :large_blue_diamond:  |                      |                       |                      |                      | :large_blue_diamond: |                    |
-| apparmor_mmap_file                 |                       |                      | :large_blue_diamond:  | :large_blue_diamond: |                      |                      |                    |
-| apparmor_file_mprotect             |                       |                      | :large_blue_diamond:  | :large_blue_diamond: |                      |                      |                    |
-| apparmor_file_lock                 | :large_blue_diamond:  |                      |                       |                      |                      |                      |                    |
-| apparmor_ptrace_access_check       |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| apparmor_ptrace_traceme            |                       |                      |                       |                      |                      |                      | :white_check_mark: |
+| apparmor_path_chmod                |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_path_chown                |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_path_truncate             |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_inode_getattr             |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
+| apparmor_file_open                 | :large_blue_diamond:  | :large_blue_diamond: |                       |                      |                      |                      |                    |
+| apparmor_file_permission           | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
+| apparmor_mmap_file                 | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
+| apparmor_file_mprotect             | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
+| apparmor_file_lock                 | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
+| apparmor_ptrace_access_check       |                       |                      | :large_blue_diamond:  |                      | :large_blue_diamond: |                      |                    |
+| apparmor_ptrace_traceme            | :large_blue_diamond:  |                      |                       |                      |                      |                      |                    |
 | apparmor_capable                   |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | apparmor_task_setrlimit            |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | ------                             |                       |                      |                       |                      |                      |                      |                    |
@@ -56,11 +56,11 @@
 | selinux_ptrace_traceme             | :large_blue_diamond:  |                      |                       |                      |                      |                      |                    |
 | selinux_capget                     |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_capset                     |     :red_circle:      |                      |     :red_circle:      |                      |                      |                      |                    |
-| selinux_capable                    |                       |                      |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
+| selinux_capable                    |     :red_circle:      | :large_blue_diamond: |                       |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_quotactl                   |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
 | selinux_quota_on                   |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
-| selinux_syslog                     |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| selinux_vm_enough_memory           |                       | :large_blue_diamond: |                       |                      | :large_blue_diamond: |                      |                    |
+| selinux_syslog                     |                       |                      |                       |                      | :large_blue_diamond: |                      |                    |
+| selinux_vm_enough_memory           |     :red_circle:      | :large_blue_diamond: |                       |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_netlink_send               |                       |                      | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_sb_kern_mount              |     :red_circle:      |                      |     :red_circle:      |                      |                      |                      |                    |
 | selinux_sb_statfs                  |                       |                      |                       |                      |                      |                      | :white_check_mark: |
@@ -84,11 +84,11 @@
 | selinux_inode_getxattr             |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
 | selinux_inode_listxattr            |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
 | selinux_inode_removexattr          |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
-| selinux_inode_getsecurity          |                       |                      |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
+| selinux_inode_getsecurity          |     :red_circle:      | :large_blue_diamond: |                       |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_file_permission            | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
-| selinux_file_ioctl                 | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
+| selinux_file_ioctl                 |     :red_circle:      |                      | :large_blue_diamond:  |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_mmap_file                  |     :red_circle:      | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
-| selinux_mmap_addr                  |     :red_circle:      |                      |                       |                      |                      |                      |                    |
+| selinux_mmap_addr                  |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_file_mprotect              |     :red_circle:      | :large_blue_diamond: | :large_blue_diamond:  | :large_blue_diamond: | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_file_lock                  | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_file_fcntl                 | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
@@ -127,7 +127,7 @@
 | selinux_sem_semop                  |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_getprocattr                | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      |                      |                      |                    |
 | selinux_setprocattr                | :large_blue_diamond:  |                      |     :red_circle:      |                      |                      |                      |                    |
-| selinux_inode_getsecctx            |                       |                      |                       | :large_blue_diamond: |                      | :large_blue_diamond: |                    |
+| selinux_inode_getsecctx            |     :red_circle:      | :large_blue_diamond: |                       |                      | :large_blue_diamond: | :large_blue_diamond: |                    |
 | selinux_socket_unix_stream_connect |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_socket_unix_may_send       |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_socket_create              |     :red_circle:      |                      |                       |                      |                      |                      |                    |
@@ -144,7 +144,7 @@
 | selinux_socket_shutdown            |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_socket_sock_rcv_skb        | :large_blue_diamond:  |                      | :large_blue_diamond:  |                      |                      |                      |                    |
 | selinux_secmark_relabel_packet     |                       |                      |                       |                      |                      |                      | :white_check_mark: |
-| selinux_tun_dev_create             |                       |                      |                       |                      |                      |                      | :white_check_mark: |
+| selinux_tun_dev_create             |     :red_circle:      |                      |                       |                      |                      |                      |                    |
 | selinux_tun_dev_attach_queue       |                       |                      |                       |                      |                      |                      | :white_check_mark: |
 | selinux_tun_dev_open               |     :red_circle:      |                      |                       |                      |                      |                      |                    |
 | selinux_xfrm_policy_alloc          |                       |                      | :large_blue_diamond:  |                      |                      |                      |                    |
