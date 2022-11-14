@@ -5,7 +5,7 @@
 | Function                           | sub :arrow_right: obj | sub :arrow_right:op | obj :arrow_right: sub | obj :arrow_right: op | op:arrow_right: sub | op :arrow_right: obj |  No cross-domain   |
 | ---------------------------------- | :-------------------: | :-----------------: | :-------------------: | :------------------: | :-----------------: | :------------------: | :----------------: |
 | **_TOMOYO_**                       |                       |                     |                       |                      |                     |                      |                    |
-| tomoyo_bprm_check_security         |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
+| tomoyo_bprm_check_security         |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |                     |                      |                    |
 | tomoyo_file_fcntl                  |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
 | tomoyo_file_ioctl                  |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
 | tomoyo_file_open                   |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
@@ -24,10 +24,10 @@
 | tomoyo_sb_mount                    |                       |                     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
 | tomoyo_sb_umount                   |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
 | tomoyo_sb_pivotroot                |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
-| tomoyo_socket_bind                 |                       |                     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
-| tomoyo_socket_connect              |                       |                     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
+| tomoyo_socket_bind                 |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
+| tomoyo_socket_connect              |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
 | tomoyo_socket_listen               |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
-| tomoyo_socket_sendmsg              |                       |                     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
+| tomoyo_socket_sendmsg              |     :red_circle:      |    :red_circle:     |     :red_circle:      |     :red_circle:     |    :red_circle:     |     :red_circle:     |                    |
 | ------                             |                       |                     |                       |                      |                     |                      |                    |
 | **_APPARMOR_**                     |                       |                     |                       |                      |                     |                      |                    |
 | apparmor_path_link                 |                       |                     |                       |                      |                     |                      | :white_check_mark: |
@@ -92,7 +92,7 @@
 | selinux_file_mprotect              |     :red_circle:      |                     |     :red_circle:      |                      |                     |                      |                    |
 | selinux_file_lock                  |     :red_circle:      |                     |     :red_circle:      |                      |                     |                      |                    |
 | selinux_file_fcntl                 |     :red_circle:      |                     |     :red_circle:      |                      |                     |                      |                    |
-| selinux_file_send_sigiotas         |                       |                     |                       |                      |                     |                      |                    |
+| selinux_file_send_sigiotask        |     :red_circle:      |                     |     :red_circle:      |                      |                     |                      |                    |
 | selinux_file_receive               |     :red_circle:      |                     |     :red_circle:      |                      |                     |                      |                    |
 | selinux_file_open                  |     :red_circle:      |                     |     :red_circle:      |                      |    :red_circle:     |     :red_circle:     |                    |
 | selinux_task_create                |     :red_circle:      |                     |     :red_circle:      |                      |                     |                      |                    |
