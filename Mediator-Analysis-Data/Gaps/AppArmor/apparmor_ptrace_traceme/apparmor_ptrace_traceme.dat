@@ -1,0 +1,395 @@
+Found function match: aa_ptrace
+Found function match: aa_ptrace
+Found function match: aa_ptrace
+locs-=-=:security/apparmor/lsm.c:112
+locs-=-=:security/apparmor/lsm.c:112
+
+ ========= Labeling Sink Functions ========= 
+	Labeling 
+	i32 2
+	at offset: -1
+
+ --------- locs --------- 
+ --------- rlocs --------- 
+ locs size : 0
+ rlocs size : 0
+ relevantLocs size : 0
+ --------- end --------- 
+
+This value has 1 elements.
+Has offset? NO, and the offset is: 0
+Number of elements to constrain: 0
+	Labeling 
+	  %call1 = call %struct.task_struct* @get_current() #7, !dbg !15477
+	at offset: -1
+
+ --------- locs --------- 
+	Node0x53538c0 [shape=record,shape=Mrecord,label="{COLLAPSED: GRE\n@current_task = external global %struct.task_struct*\n|{<s0>0}}"];
+	Node0x53538c0:s0 -> Node0x5357c20;
+ --------- 
+ --------- rlocs --------- 
+	Node0x53538c0 [shape=record,shape=Mrecord,label="{COLLAPSED: GRE\n@current_task = external global %struct.task_struct*\n|{<s0>0}}"];
+	Node0x53538c0:s0 -> Node0x5357c20;
+ --------- 
+	Node0x5357c20 [shape=record,shape=Mrecord,label="{44: i32,  48: i16,  128: i8*,  : MRE\n|{<s0>0|<s1>1|<s2>2|<s3>3|<s4>4|<s5>5|<s6>6|<s7>7|<s8>8|<s9>9|<s10>10|<s11>11|<s12>12|<s13>13|<s14>14|<s15>15|<s16>16|<s17>17|<s18>18|<s19>19|<s20>20|<s21>21|<s22>22|<s23>23|<s24>24|<s25>25|<s26>26|<s27>27|<s28>28|<s29>29|<s30>30|<s31>31|<s32>32|<s33>33|<s34>34|<s35>35|<s36>36|<s37>37|<s38>38|<s39>39|<s40>40|<s41>41|<s42>42|<s43>43|<s44>44|<s45>45|<s46>46|<s47>47|<s48>48|<s49>49|<s50>50|<s51>51|<s52>52|<s53>53|<s54>54|<s55>55|<s56>56|<s57>57|<s58>58|<s59>59|<s60>60|<s61>61|<s62>62|<s63>63|<s64>truncated...}}"];
+	Node0x5357c20:s64 -> Node0x5357ce0;
+ --------- 
+	Node0x5357ce0 [shape=record,shape=Mrecord,label="{0: %struct.aa_profile*,  : MRE\n|{<s0>0|<s1>1|<s2>2|<s3>3|<s4>4|<s5>5|<s6>6|<s7>7|<s8>8|<s9>9|<s10>10|<s11>11|<s12>12|<s13>13|<s14>14|<s15>15|<s16>16|<s17>17|<s18>18|<s19>19|<s20>20|<s21>21|<s22>22|<s23>23|<s24>24|<s25>25|<s26>26|<s27>27|<s28>28|<s29>29|<s30>30|<s31>31}}"];
+	Node0x5357ce0:s0 -> Node0x5357da0;
+ --------- 
+	Node0x5357da0 [shape=record,shape=Mrecord,label="{COLLAPSED: RE\n|{<s0>0}}"];
+	Node0x5357da0:s0 -> Node0x5357e60;
+ --------- 
+	Node0x5357e60 [shape=record,shape=Mrecord,label="{COLLAPSED: RE\n|{<s0>0}}"];
+	Node0x5357e60:s0 -> Node0x5357da0;
+ --------- 
+ locs size : 1
+ rlocs size : 5
+ relevantLocs size : 1
+ --------- end --------- 
+
+This value has 198 elements.
+Has offset? YES, and the offset is: 0
+
+Untaint node at:
+	Node0x53538c0 [shape=record,shape=Mrecord,label="{COLLAPSED: GRE\n@current_task = external global %struct.task_struct*\n|{<s0>0}}"];
+	Node0x53538c0:s0 -> Node0x5357c20;
+%struct.task_struct*
+FOUND 1 elements from the locsForValue
+Number of elements to constrain: 1
+COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||
+	Labeling 
+	%struct.task_struct* %parent
+	at offset: -1
+
+ --------- locs --------- 
+	Node0x5353740 [shape=record,shape=Mrecord,label="{VOID: E\n}"];
+ --------- 
+ --------- rlocs --------- 
+	Node0x5353740 [shape=record,shape=Mrecord,label="{VOID: E\n}"];
+ --------- 
+ locs size : 1
+ rlocs size : 1
+ relevantLocs size : 1
+ --------- end --------- 
+
+This value has 198 elements.
+Has offset? NO, and the offset is: 0
+
+Untaint node at:
+	Node0x5353740 [shape=record,shape=Mrecord,label="{VOID: E\n}"];
+%struct.task_struct*
+FOUND 1 elements from the locsForValue
+Number of elements to constrain: 1
+VOIDTB_TE:_CE:_elem_0:default:||
+
+---- Constraints BEGIN ----
+default:
+CE0x53e6f20[apparmor_ptrace_traceme:_entry|||*SummSource*] <: CE0x53e8390[apparmor_ptrace_traceme:_entry||] ;  [ConsDebugTag-9]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53e7f60[apparmor_ptrace_traceme:_entry|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53e4ef0[apparmor_ptrace_traceme:_if.then|||*SummSource*] <: CE0x53f0870[apparmor_ptrace_traceme:_if.then||] ;  [ConsDebugTag-9]
+CE0x53f0870[apparmor_ptrace_traceme:_if.then||] <: CE0x53e4f60[apparmor_ptrace_traceme:_if.then|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ec4b0[apparmor_ptrace_traceme:_bb|||*SummSource*] <: CE0x53ec440[apparmor_ptrace_traceme:_bb||] ;  [ConsDebugTag-9]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53f0710[apparmor_ptrace_traceme:_bb|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f18d0[apparmor_ptrace_traceme:_return|||*SummSource*] <: CE0x53f07d0[apparmor_ptrace_traceme:_return||] ;  [ConsDebugTag-9]
+CE0x53f07d0[apparmor_ptrace_traceme:_return||] <: CE0x53f1990[apparmor_ptrace_traceme:_return|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ed7d0[apparmor_ptrace_traceme:_if.end|||*SummSource*] <: CE0x53ed730[apparmor_ptrace_traceme:_if.end||] ;  [ConsDebugTag-9]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x53ed890[apparmor_ptrace_traceme:_if.end|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x5f78f90[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*|*SummSource*] <: CE0x5f78ea0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*] ;  [ConsDebugTag-9]
+CE0x5f78ea0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*] <: CE0x53f08e0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f1550[apparmor_ptrace_traceme:_tmp|||*SummSource*] <: CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] ;  [ConsDebugTag-9]
+CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] <: CE0x53e5400[apparmor_ptrace_traceme:_tmp|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] ;  [ConsDebugTag-10]
+CE0x5f78ea0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*] <: CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] ;  [ConsDebugTag-10]
+CE0x53f0a10[i64_1||*Constant*|*SummSource*] <: CE0x53f09a0[i64_1||*Constant*] ;  [ConsDebugTag-9]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x53f0a80[i64_1||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f0bd0[apparmor_ptrace_traceme:_tmp1|||*SummSource*] <: CE0x53f0af0[apparmor_ptrace_traceme:_tmp1||] ;  [ConsDebugTag-9]
+CE0x53f0af0[apparmor_ptrace_traceme:_tmp1||] <: CE0x53f0b60[apparmor_ptrace_traceme:_tmp1|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x53f0af0[apparmor_ptrace_traceme:_tmp1||] ;  [ConsDebugTag-10]
+CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] <: CE0x53f0af0[apparmor_ptrace_traceme:_tmp1||] ;  [ConsDebugTag-10]
+CE0x53f0af0[apparmor_ptrace_traceme:_tmp1||] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x525dd80[_call_void_mcount()_#2|||*SummSource*] <: CE0x525dce0[_call_void_mcount()_#2||] ;  [ConsDebugTag-9]
+CE0x525dce0[_call_void_mcount()_#2||] <: CE0x53f69d0[_call_void_mcount()_#2|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f5b00[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108|*SummSource*] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-9]
+CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] <: CE0x53e4710[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108|*SummSink*] ;  [ConsDebugTag-8]
+CE0x5357600[GLOBAL:_cap_ptrace_traceme||*Constant*|*SummSource*] <: CE0x5353510[GLOBAL:_cap_ptrace_traceme||*Constant*] ;  [ConsDebugTag-9]
+CE0x5353510[GLOBAL:_cap_ptrace_traceme||*Constant*] <: CE0x53576e0[GLOBAL:_cap_ptrace_traceme||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53eed20[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::|*SummSource*] <: CE0x53eec80[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::] ;  [ConsDebugTag-9]
+CE0x53eec80[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::] <: CE0x53f1a50[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53e47d0[VOIDTB_TE:_CE:_elem_0:default:||] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-10]
+CE0x53eec80[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-10]
+CE0x53e35f0[i32_0||*Constant*|*SummSource*] <: CE0x53e3660[i32_0||*Constant*] ;  [ConsDebugTag-9]
+CE0x53e3660[i32_0||*Constant*] <: CE0x53eda80[i32_0||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ed160[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109|*SummSource*] <: CE0x53eddd0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109] ;  [ConsDebugTag-9]
+CE0x53eddd0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109] <: CE0x53e37c0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109|*SummSink*] ;  [ConsDebugTag-8]
+CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] <: CE0x53eddd0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53e3660[i32_0||*Constant*] <: CE0x53eddd0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f4570[i64_2||*Constant*|*SummSource*] <: CE0x53f0530[i64_2||*Constant*] ;  [ConsDebugTag-9]
+CE0x53f0530[i64_2||*Constant*] <: CE0x53ecd40[i64_2||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ebb50[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109|*SummSource*] <: CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] ;  [ConsDebugTag-9]
+CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] <: CE0x53ebbc0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53eddd0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109] <: CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f0530[i64_2||*Constant*] <: CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x525da60[GLOBAL:___llvm_gcov_ctr40|Global_var:__llvm_gcov_ctr40||*SummSource*] <: CE0x53f7cb0[GLOBAL:___llvm_gcov_ctr40|Global_var:__llvm_gcov_ctr40|] ;  [ConsDebugTag-9]
+CE0x53f7cb0[GLOBAL:___llvm_gcov_ctr40|Global_var:__llvm_gcov_ctr40|] <: CE0x53f04c0[GLOBAL:___llvm_gcov_ctr40|Global_var:__llvm_gcov_ctr40||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53e6c20[i64_0||*Constant*|*SummSource*] <: CE0x53f7bf0[i64_0||*Constant*] ;  [ConsDebugTag-9]
+CE0x53f7bf0[i64_0||*Constant*] <: CE0x53e6d30[i64_0||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53e9de0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109|*SummSource*] <: CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] ;  [ConsDebugTag-9]
+CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] <: CE0x53e42d0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] <: CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f7bf0[i64_0||*Constant*] <: CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f7cb0[GLOBAL:___llvm_gcov_ctr40|Global_var:__llvm_gcov_ctr40|] <: CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53ed000[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109|*SummSource*] <: CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] ;  [ConsDebugTag-9]
+CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] <: CE0x53e9f70[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] <: CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53efed0[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109|*SummSource*] <: CE0x53efe10[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109] ;  [ConsDebugTag-9]
+CE0x53efe10[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109] <: CE0x53e67b0[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] <: CE0x53efe10[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x53efe10[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53efe10[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53e6a40[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*|*SummSource*] <: CE0x53e6980[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*] ;  [ConsDebugTag-9]
+CE0x53e6980[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*] <: CE0x53e9ce0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f6080[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110|*SummSource*] <: CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] ;  [ConsDebugTag-9]
+CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] <: CE0x53f60f0[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53e6980[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*] <: CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53f6300[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110|*SummSource*] <: CE0x53e3ee0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110] ;  [ConsDebugTag-9]
+CE0x53e3ee0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110] <: CE0x53ec6a0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x53e3ee0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] <: CE0x53e3ee0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53e3ee0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53ecb00[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*|*SummSource*] <: CE0x53eca40[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*] ;  [ConsDebugTag-9]
+CE0x53eca40[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*] <: CE0x53ec9d0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ffbb0[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112|*SummSource*] <: CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] ;  [ConsDebugTag-9]
+CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] <: CE0x53ffc20[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53eca40[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*] <: CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53f3980[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112|*SummSource*] <: CE0x53f3810[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112] ;  [ConsDebugTag-9]
+CE0x53f3810[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112] <: CE0x53f3530[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x53f3810[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] <: CE0x53f3810[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53f3810[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53f4220[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112|*SummSource*] <: CE0x53f4160[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112] ;  [ConsDebugTag-9]
+CE0x53f4160[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112] <: CE0x53f43d0[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540a9a0[GLOBAL:_get_current||*Constant*|*SummSource*] <: CE0x540a7e0[GLOBAL:_get_current||*Constant*] ;  [ConsDebugTag-9]
+CE0x540a7e0[GLOBAL:_get_current||*Constant*] <: CE0x540ab10[GLOBAL:_get_current||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ef730[get_current:_entry|||*SummSource*] <: CE0x53ef5d0[get_current:_entry||] ;  [ConsDebugTag-9]
+CE0x53ef5d0[get_current:_entry||] <: CE0x53ef890[get_current:_entry|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53efaa0[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14|*SummSource*] <: CE0x53efb40[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-9]
+CE0x53efb40[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14] <: CE0x53efc50[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53efb40[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14] <: CE0x53f4160[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x540c2c0[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112|*SummSource*] <: CE0x540c1a0[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112] ;  [ConsDebugTag-9]
+CE0x540c1a0[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112] <: CE0x540c250[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540c7c0[GLOBAL:_aa_ptrace||*Constant*|*SummSource*] <: CE0x540c420[GLOBAL:_aa_ptrace||*Constant*] ;  [ConsDebugTag-9]
+CE0x540c420[GLOBAL:_aa_ptrace||*Constant*] <: CE0x540c930[GLOBAL:_aa_ptrace||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540cb90[aa_ptrace:_entry|||*SummSource*] <: CE0x540ca90[aa_ptrace:_entry||] ;  [ConsDebugTag-9]
+CE0x540ca90[aa_ptrace:_entry||] <: CE0x540ccf0[aa_ptrace:_entry|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x540cf80[aa_ptrace:_tracer||Function::aa_ptrace&Arg::tracer::|*SummSource*] <: CE0x540cee0[aa_ptrace:_tracer||Function::aa_ptrace&Arg::tracer::] ;  [ConsDebugTag-9]
+CE0x540cee0[aa_ptrace:_tracer||Function::aa_ptrace&Arg::tracer::] <: CE0x540d090[aa_ptrace:_tracer||Function::aa_ptrace&Arg::tracer::|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53eec80[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::] <: CE0x540cee0[aa_ptrace:_tracer||Function::aa_ptrace&Arg::tracer::] ;  [ConsDebugTag-10]
+CE0x540d3b0[aa_ptrace:_tracee||Function::aa_ptrace&Arg::tracee::|*SummSource*] <: CE0x540d280[aa_ptrace:_tracee||Function::aa_ptrace&Arg::tracee::] ;  [ConsDebugTag-9]
+CE0x540d280[aa_ptrace:_tracee||Function::aa_ptrace&Arg::tracee::] <: CE0x540d550[aa_ptrace:_tracee||Function::aa_ptrace&Arg::tracee::|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f4160[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112] <: CE0x540d280[aa_ptrace:_tracee||Function::aa_ptrace&Arg::tracee::] ;  [ConsDebugTag-10]
+CE0x540d890[i32_2||*Constant*|*SummSource*] <: CE0x540d760[i32_2||*Constant*] ;  [ConsDebugTag-9]
+CE0x540d760[i32_2||*Constant*] <: CE0x540da30[i32_2||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540dc00[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::|*SummSource*] <: CE0x540db90[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::] ;  [ConsDebugTag-9]
+CE0x540db90[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::] <: CE0x540dcd0[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540d760[i32_2||*Constant*] <: CE0x540db90[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::] ;  [ConsDebugTag-10]
+CE0x540e720[_ret_i32_%error.0,_!dbg_!15485||security/apparmor/ipc.c,110|*SummSource*] <: CE0x540ded0[_ret_i32_%error.0,_!dbg_!15485||security/apparmor/ipc.c,110] ;  [ConsDebugTag-9]
+CE0x540ded0[_ret_i32_%error.0,_!dbg_!15485||security/apparmor/ipc.c,110] <: CE0x540e8e0[_ret_i32_%error.0,_!dbg_!15485||security/apparmor/ipc.c,110|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540ded0[_ret_i32_%error.0,_!dbg_!15485||security/apparmor/ipc.c,110] <: CE0x540c1a0[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x540eb40[apparmor_ptrace_traceme:_retval.0|||*SummSource*] <: CE0x540e9e0[apparmor_ptrace_traceme:_retval.0||] ;  [ConsDebugTag-9]
+CE0x540e9e0[apparmor_ptrace_traceme:_retval.0||] <: CE0x540ece0[apparmor_ptrace_traceme:_retval.0|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] <: CE0x540e9e0[apparmor_ptrace_traceme:_retval.0||] ;  [ConsDebugTag-10]
+CE0x540c1a0[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112] <: CE0x540e9e0[apparmor_ptrace_traceme:_retval.0||] ;  [ConsDebugTag-10]
+CE0x540f0f0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*|*SummSource*] <: CE0x540efb0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*] ;  [ConsDebugTag-9]
+CE0x540efb0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*] <: CE0x540c490[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540f530[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113|*SummSource*] <: CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] ;  [ConsDebugTag-9]
+CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] <: CE0x540f5a0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x540efb0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*] <: CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x54104d0[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113|*SummSource*] <: CE0x5410360[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113] ;  [ConsDebugTag-9]
+CE0x5410360[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113] <: CE0x540f720[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f09a0[i64_1||*Constant*] <: CE0x5410360[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] <: CE0x5410360[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x5410360[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x5410cb0[_ret_i32_%retval.0,_!dbg_!15480||security/apparmor/lsm.c,113|*SummSource*] <: CE0x5410be0[_ret_i32_%retval.0,_!dbg_!15480||security/apparmor/lsm.c,113] ;  [ConsDebugTag-9]
+CE0x5410be0[_ret_i32_%retval.0,_!dbg_!15480||security/apparmor/lsm.c,113] <: CE0x5410e60[_ret_i32_%retval.0,_!dbg_!15480||security/apparmor/lsm.c,113|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540e9e0[apparmor_ptrace_traceme:_retval.0||] <: CE0x5410be0[_ret_i32_%retval.0,_!dbg_!15480||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x5408810[get_current:_bb|||*SummSource*] <: CE0x54086e0[get_current:_bb||] ;  [ConsDebugTag-9]
+CE0x54086e0[get_current:_bb||] <: CE0x5408990[get_current:_bb|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x5410890[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*|*SummSource*] <: CE0x5406f50[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*] ;  [ConsDebugTag-9]
+CE0x5406f50[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*] <: CE0x54177b0[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x5417c00[get_current:_tmp|||*SummSource*] <: CE0x53f6690[get_current:_tmp||] ;  [ConsDebugTag-9]
+CE0x53f6690[get_current:_tmp||] <: CE0x54179f0[get_current:_tmp|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x53f6690[get_current:_tmp||] ;  [ConsDebugTag-10]
+CE0x5406f50[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*] <: CE0x53f6690[get_current:_tmp||] ;  [ConsDebugTag-10]
+CE0x53f0a10[i64_1||*Constant*|*SummSource*] <: CE0x5417df0[i64_1||*Constant*] ;  [ConsDebugTag-9]
+CE0x5417df0[i64_1||*Constant*] <: CE0x53f0a80[i64_1||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x5417fc0[get_current:_tmp1|||*SummSource*] <: CE0x5417e60[get_current:_tmp1||] ;  [ConsDebugTag-9]
+CE0x5417e60[get_current:_tmp1||] <: CE0x5418060[get_current:_tmp1|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f6690[get_current:_tmp||] <: CE0x5417e60[get_current:_tmp1||] ;  [ConsDebugTag-10]
+CE0x5417df0[i64_1||*Constant*] <: CE0x5417e60[get_current:_tmp1||] ;  [ConsDebugTag-10]
+CE0x5417e60[get_current:_tmp1||] <: CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x540a430[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*|*SummSource*] <: CE0x541b720[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*] ;  [ConsDebugTag-9]
+CE0x541b720[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*] <: CE0x541b850[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*|*SummSink*] ;  [ConsDebugTag-8]
+CE0x540a2e0[get_current:_tmp2|||*SummSource*] <: CE0x5419e70[get_current:_tmp2||] ;  [ConsDebugTag-9]
+CE0x5419e70[get_current:_tmp2||] <: CE0x540a350[get_current:_tmp2|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] <: CE0x5419e70[get_current:_tmp2||] ;  [ConsDebugTag-10]
+CE0x541b720[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*] <: CE0x5419e70[get_current:_tmp2||] ;  [ConsDebugTag-10]
+CE0x5409830[get_current:_tmp3|||*SummSource*] <: CE0x5409790[get_current:_tmp3||] ;  [ConsDebugTag-9]
+CE0x5409790[get_current:_tmp3||] <: CE0x54098f0[get_current:_tmp3|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x5417df0[i64_1||*Constant*] <: CE0x5409790[get_current:_tmp3||] ;  [ConsDebugTag-10]
+CE0x5419e70[get_current:_tmp2||] <: CE0x5409790[get_current:_tmp3||] ;  [ConsDebugTag-10]
+CE0x5409790[get_current:_tmp3||] <: CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x54073c0[_call_void_mcount()_#2|||*SummSource*] <: CE0x54072c0[_call_void_mcount()_#2||] ;  [ConsDebugTag-9]
+CE0x54072c0[_call_void_mcount()_#2||] <: CE0x5407480[_call_void_mcount()_#2|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53f4770[get_current:_tmp4||./arch/x86/include/asm/current.h,14|*SummSource*] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-9]
+CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] <: CE0x53f4840[get_current:_tmp4||./arch/x86/include/asm/current.h,14|*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ed490[%struct.task_struct*_(%struct.task_struct**)*_asm_movq_%gs:$_1:P_,$0_,_r,im,_dirflag_,_fpsr_,_flags_|||*SummSource*] <: CE0x53ed400[%struct.task_struct*_(%struct.task_struct**)*_asm_movq_%gs:$_1:P_,$0_,_r,im,_dirflag_,_fpsr_,_flags_||] ;  [ConsDebugTag-9]
+CE0x53ed400[%struct.task_struct*_(%struct.task_struct**)*_asm_movq_%gs:$_1:P_,$0_,_r,im,_dirflag_,_fpsr_,_flags_||] <: CE0x53ed680[%struct.task_struct*_(%struct.task_struct**)*_asm_movq_%gs:$_1:P_,$0_,_r,im,_dirflag_,_fpsr_,_flags_|||*SummSink*] ;  [ConsDebugTag-8]
+CE0x5418380[GLOBAL:_current_task|Global_var:current_task||*SummSource*] <: CE0x53ed320[GLOBAL:_current_task|Global_var:current_task|] ;  [ConsDebugTag-9]
+CE0x53ed320[GLOBAL:_current_task|Global_var:current_task|] <: CE0x5418620[GLOBAL:_current_task|Global_var:current_task||*SummSink*] ;  [ConsDebugTag-8]
+CE0x53ed320[GLOBAL:_current_task|Global_var:current_task|] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+CE0x53ed320[GLOBAL:_current_task|Global_var:current_task|] <: CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] <: CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] <: CE0x53efb40[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+default-sink:
+implicit:
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53f0870[apparmor_ptrace_traceme:_if.then||] ;  [ConsDebugTag-10]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53ec440[apparmor_ptrace_traceme:_bb||] ;  [ConsDebugTag-10]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53f07d0[apparmor_ptrace_traceme:_return||] ;  [ConsDebugTag-10]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53ed730[apparmor_ptrace_traceme:_if.end||] ;  [ConsDebugTag-10]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] ;  [ConsDebugTag-10]
+CE0x5f78ea0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*] <: CE0x53f84f0[apparmor_ptrace_traceme:_tmp||] ;  [ConsDebugTag-10]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53f0af0[apparmor_ptrace_traceme:_tmp1||] ;  [ConsDebugTag-10]
+CE0x53e8390[apparmor_ptrace_traceme:_entry||] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x5f78ea0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_0)||*Constant*] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x525dce0[_call_void_mcount()_#2||] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-10]
+CE0x5353510[GLOBAL:_cap_ptrace_traceme||*Constant*] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-10]
+CE0x53eec80[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::] <: CE0x525dc70[apparmor_ptrace_traceme:_call||security/apparmor/lsm.c,108] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53eddd0[apparmor_ptrace_traceme:_tobool||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53ecec0[apparmor_ptrace_traceme:_tmp2||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] <: CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53ecf50[apparmor_ptrace_traceme:_tmp4||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53efe10[apparmor_ptrace_traceme:_tmp5||security/apparmor/lsm.c,109] ;  [ConsDebugTag-10]
+CE0x53e6bb0[apparmor_ptrace_traceme:_tmp3||security/apparmor/lsm.c,109] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53ec440[apparmor_ptrace_traceme:_bb||] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53e6980[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*] <: CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53f0870[apparmor_ptrace_traceme:_if.then||] <: CE0x53f6010[apparmor_ptrace_traceme:_tmp6||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53f0870[apparmor_ptrace_traceme:_if.then||] <: CE0x53e3ee0[apparmor_ptrace_traceme:_tmp7||security/apparmor/lsm.c,110] ;  [ConsDebugTag-10]
+CE0x53e6980[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_3)||*Constant*] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53f0870[apparmor_ptrace_traceme:_if.then||] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53eca40[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*] <: CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x53ffb40[apparmor_ptrace_traceme:_tmp8||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x53f3810[apparmor_ptrace_traceme:_tmp9||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53eca40[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_4)||*Constant*] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x53f4160[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x53ef5d0[get_current:_entry||] ;  [ConsDebugTag-10]
+CE0x540a7e0[GLOBAL:_get_current||*Constant*] <: CE0x53ef5d0[get_current:_entry||] ;  [ConsDebugTag-10]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x540c1a0[apparmor_ptrace_traceme:_call2||security/apparmor/lsm.c,112] ;  [ConsDebugTag-10]
+CE0x53ed730[apparmor_ptrace_traceme:_if.end||] <: CE0x540ca90[aa_ptrace:_entry||] ;  [ConsDebugTag-10]
+CE0x540c420[GLOBAL:_aa_ptrace||*Constant*] <: CE0x540ca90[aa_ptrace:_entry||] ;  [ConsDebugTag-10]
+CE0x53f07d0[apparmor_ptrace_traceme:_return||] <: CE0x540e9e0[apparmor_ptrace_traceme:_retval.0||] ;  [ConsDebugTag-10]
+CE0x53f07d0[apparmor_ptrace_traceme:_return||] <: CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x540efb0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*] <: CE0x540f4c0[apparmor_ptrace_traceme:_tmp10||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x53f07d0[apparmor_ptrace_traceme:_return||] <: CE0x5410360[apparmor_ptrace_traceme:_tmp11||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x53f07d0[apparmor_ptrace_traceme:_return||] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x540efb0[i64*_getelementptr_inbounds_(_6_x_i64_,_6_x_i64_*___llvm_gcov_ctr40,_i64_0,_i64_5)||*Constant*] <: CE0x53f1480[COLLAPSED:_GCMRE___llvm_gcov_ctr40_internal_global_6_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53f07d0[apparmor_ptrace_traceme:_return||] <: CE0x5410be0[_ret_i32_%retval.0,_!dbg_!15480||security/apparmor/lsm.c,113] ;  [ConsDebugTag-10]
+CE0x53ef5d0[get_current:_entry||] <: CE0x54086e0[get_current:_bb||] ;  [ConsDebugTag-10]
+CE0x53ef5d0[get_current:_entry||] <: CE0x53f6690[get_current:_tmp||] ;  [ConsDebugTag-10]
+CE0x5406f50[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*] <: CE0x53f6690[get_current:_tmp||] ;  [ConsDebugTag-10]
+CE0x53ef5d0[get_current:_entry||] <: CE0x5417e60[get_current:_tmp1||] ;  [ConsDebugTag-10]
+CE0x53ef5d0[get_current:_entry||] <: CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x5406f50[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_0)||*Constant*] <: CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x54086e0[get_current:_bb||] <: CE0x5419e70[get_current:_tmp2||] ;  [ConsDebugTag-10]
+CE0x541b720[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*] <: CE0x5419e70[get_current:_tmp2||] ;  [ConsDebugTag-10]
+CE0x54086e0[get_current:_bb||] <: CE0x5409790[get_current:_tmp3||] ;  [ConsDebugTag-10]
+CE0x54086e0[get_current:_bb||] <: CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x541b720[i64*_getelementptr_inbounds_(_2_x_i64_,_2_x_i64_*___llvm_gcov_ctr112,_i64_0,_i64_1)||*Constant*] <: CE0x53f6700[COLLAPSED:_GCMRE___llvm_gcov_ctr112_internal_global_2_x_i64_zeroinitializer:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x54086e0[get_current:_bb||] <: CE0x54072c0[_call_void_mcount()_#2||] ;  [ConsDebugTag-10]
+CE0x54086e0[get_current:_bb||] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+CE0x53ed320[GLOBAL:_current_task|Global_var:current_task|] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+CE0x53ed400[%struct.task_struct*_(%struct.task_struct**)*_asm_movq_%gs:$_1:P_,$0_,_r,im,_dirflag_,_fpsr_,_flags_||] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+CE0x54086e0[get_current:_bb||] <: CE0x540a3c0[get_current:_tmp4||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+CE0x53ed320[GLOBAL:_current_task|Global_var:current_task|] <: CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x53ed400[%struct.task_struct*_(%struct.task_struct**)*_asm_movq_%gs:$_1:P_,$0_,_r,im,_dirflag_,_fpsr_,_flags_||] <: CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x54086e0[get_current:_bb||] <: CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] ;  [ConsDebugTag-14]
+CE0x54086e0[get_current:_bb||] <: CE0x53efb40[_ret_%struct.task_struct*_%tmp4,_!dbg_!15471||./arch/x86/include/asm/current.h,14] ;  [ConsDebugTag-10]
+source-sink:
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}] <: CE0x53eed20[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::|*SummSource*] ;  [ConsDebugTag-3]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}] <: CE0x53e47d0[VOIDTB_TE:_CE:_elem_0:default:||] ;  [ConsDebugTag-19]
+CONST[source:2(external),value:0(static)][purpose:{operation}] <: CE0x540dc00[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::|*SummSource*] ;  [ConsDebugTag-3]
+CONST[source:2(external),value:0(static)][purpose:{operation}] <: CE0x540dc00[aa_ptrace:_mode||Function::aa_ptrace&Arg::mode::|*SummSource*] ;  [ConsDebugTag-3]
+CONST[source:2(external),value:2(dynamic)][purpose:{object}] <: CE0x5418380[GLOBAL:_current_task|Global_var:current_task||*SummSource*] ;  [ConsDebugTag-3]
+CONST[source:2(external),value:2(dynamic)][purpose:{object}] <: CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] ;  [ConsDebugTag-19]
+CE0x540da30[i32_2||*Constant*|*SummSink*] <: CONST[source:0(mediator),value:0(static)][purpose:{operation}] ;  [ConsDebugTag-1]
+CE0x540da30[i32_2||*Constant*|*SummSink*] <: CONST[source:0(mediator),value:0(static)][purpose:{operation}] ;  [ConsDebugTag-1]
+CE0x53f43d0[apparmor_ptrace_traceme:_call1||security/apparmor/lsm.c,112|*SummSink*] <: CONST[source:0(mediator),value:2(dynamic)][purpose:{object}] ;  [ConsDebugTag-1]
+CE0x5415ef0[COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:||] <: CONST[source:0(mediator),value:2(dynamic)][purpose:{object}] ;  [ConsDebugTag-*]  sink location
+CE0x53f1a50[apparmor_ptrace_traceme:_parent||Function::apparmor_ptrace_traceme&Arg::parent::|*SummSink*] <: CONST[source:1(input),value:2(dynamic)][purpose:{subject}] ;  [ConsDebugTag-1]
+CE0x53e47d0[VOIDTB_TE:_CE:_elem_0:default:||] <: CONST[source:1(input),value:2(dynamic)][purpose:{subject}] ;  [ConsDebugTag-*]  sink location
+---- Constraints END ----
+
+===-------------------------------------------------------------------------===
+                          ... Statistics Collected ...
+===-------------------------------------------------------------------------===
+
+ 149 deps      - Number of explicit flow constraints
+  43 deps      - Number of implicit flow constraints
+   1 dsa       - Number of OOB offsets that caused node folding
+4746 dsa       - Number of nodes allocated
+ 426 dsa       - Number of nodes completely folded
+   1 dsa-bu    - Maximum SCC Size in Call Graph
+ 618 dsa-bu    - Number of 'actual' call edges
+   2 dsa-bu    - Number of calls we know nothing about
+ 114 dsa-bu    - Number of graphs inlined
+   2 dsa-bu    - Number of unresolved IndCalls
+  14 dsa-local - Number of asm calls collapsed/seen
+ 639 dsa-local - Number of direct calls added
+   2 dsa-local - Number of indirect calls added
+ 494 dsa-local - Number of intrinsics called
+  28 dsgraph   - Number of call nodes merged
+   2 dsgraph   - Number of globals trivially removed
+ 146 dsgraph   - Number of nodes removed by reachability
+   7 dsgraph   - Number of nodes trivially removed
+   9 td_dsa    - Number of graphs inlined
+
+===-------------------------------------------------------------------------===
+                      ... Pass execution timing report ...
+===-------------------------------------------------------------------------===
+  Total Execution Time: 1.0194 seconds (1.0193 wall clock)
+
+   ---User Time---   --System Time--   --User+System--   ---Wall Time---  --- Name ---
+   0.3958 ( 39.2%)   0.0100 ( 99.3%)   0.4057 ( 39.8%)   0.4058 ( 39.8%)  A pass to generate information flow constraints.
+   0.2927 ( 29.0%)   0.0000 (  0.0%)   0.2927 ( 28.7%)   0.2927 ( 28.7%)  Infoflow
+   0.1373 ( 13.6%)   0.0000 (  0.0%)   0.1373 ( 13.5%)   0.1373 ( 13.5%)  Bitcode Writer
+   0.0652 (  6.5%)   0.0000 (  0.1%)   0.0652 (  6.4%)   0.0652 (  6.4%)  Local Data Structure Analysis
+   0.0522 (  5.2%)   0.0000 (  0.1%)   0.0523 (  5.1%)   0.0522 (  5.1%)  Module Verifier
+   0.0378 (  3.7%)   0.0000 (  0.2%)   0.0378 (  3.7%)   0.0378 (  3.7%)  Bottom-up Data Structure Analysis
+   0.0136 (  1.4%)   0.0000 (  0.1%)   0.0137 (  1.3%)   0.0137 (  1.3%)  Standard Library Local Data Structure Analysis
+   0.0060 (  0.6%)   0.0000 (  0.1%)   0.0060 (  0.6%)   0.0060 (  0.6%)  Top-down Data Structure Analysis
+   0.0053 (  0.5%)   0.0000 (  0.0%)   0.0053 (  0.5%)   0.0053 (  0.5%)  Compute DSNode equivalence classes
+   0.0028 (  0.3%)   0.0000 (  0.0%)   0.0028 (  0.3%)   0.0028 (  0.3%)  Source and sink identification
+   0.0004 (  0.0%)   0.0000 (  0.0%)   0.0004 (  0.0%)   0.0004 (  0.0%)  Identify Address Taken Functions
+   0.0002 (  0.0%)   0.0000 (  0.0%)   0.0002 (  0.0%)   0.0002 (  0.0%)  Basic points-to interface
+   0.0001 (  0.0%)   0.0000 (  0.0%)   0.0001 (  0.0%)   0.0001 (  0.0%)  Allocator Identification Analysis (find malloc/free wrappers)
+   1.0093 (100.0%)   0.0101 (100.0%)   1.0194 (100.0%)   1.0193 (100.0%)  Total
+
+===-------------------------------------------------------------------------===
+                                LLVM IR Parsing
+===-------------------------------------------------------------------------===
+  Total Execution Time: 0.3218 seconds (0.3218 wall clock)
+
+   ---User Time---   --User+System--   ---Wall Time---  --- Name ---
+   0.3218 (100.0%)   0.3218 (100.0%)   0.3218 (100.0%)  Parse IR
+   0.3218 (100.0%)   0.3218 (100.0%)   0.3218 (100.0%)  Total
+

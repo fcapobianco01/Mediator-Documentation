@@ -1,0 +1,76 @@
+[apparmor_ptrace_access_check]
+
+explicit:
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
+CE0x46b6560 "{CE0x46b6560|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
+CE0x46b65d0 "{CE0x46b65d0|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
+CE0x46a5e70 "{CE0x46a5e70|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSink*}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]
+CE0x46b6430 "{CE0x46b6430|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
+CE0x46d47d0 "{CE0x46d47d0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+
+
+
+implicit:
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
+CE0x46d47d0 "{CE0x46d47d0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
+CE0x46b6560 "{CE0x46b6560|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
+CE0x46b65d0 "{CE0x46b65d0|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
+CE0x46a5e70 "{CE0x46a5e70|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSink*}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
+CE0x46b6560 "{CE0x46b6560|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
+CE0x46b65d0 "{CE0x46b65d0|apparmor_ptrace_access_check:_mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
+CE0x460b790 "{CE0x460b790|apparmor_ptrace_access_check:_call|security/apparmor/lsm.c,99}"
+CE0x46a4a40 "{CE0x46a4a40|apparmor_ptrace_access_check:_tobool|security/apparmor/lsm.c,100}"
+CE0x469eb90 "{CE0x469eb90|apparmor_ptrace_access_check:_if.end}"
+CE0x46adc90 "{CE0x46adc90|apparmor_ptrace_access_check:_call1|security/apparmor/lsm.c,103}"
+CE0x46c7a40 "{CE0x46c7a40|apparmor_ptrace_access_check:_call1|security/apparmor/lsm.c,103|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]
+CE0x46b6430 "{CE0x46b6430|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]
+CE0x46b6430 "{CE0x46b6430|VOIDTB_TE:_CE:_elem_0:default:}"
+CE0x460b790 "{CE0x460b790|apparmor_ptrace_access_check:_call|security/apparmor/lsm.c,99}"
+CE0x46a4a40 "{CE0x46a4a40|apparmor_ptrace_access_check:_tobool|security/apparmor/lsm.c,100}"
+CE0x469eb90 "{CE0x469eb90|apparmor_ptrace_access_check:_if.end}"
+CE0x46adc90 "{CE0x46adc90|apparmor_ptrace_access_check:_call1|security/apparmor/lsm.c,103}"
+CE0x46c7a40 "{CE0x46c7a40|apparmor_ptrace_access_check:_call1|security/apparmor/lsm.c,103|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+
+
