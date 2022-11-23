@@ -1,27 +1,27 @@
-:red_circle: : Explicit flows detected
+ : Explicit flows detected
 
-:large_blue_diamond: : Implicit flows detected
+ : Implicit flows detected
 
 | Function                           | dynamic :arrow_right: static | input :arrow_right: mediator | external :arrow_right: input | external :arrow_right: mediator |  No location/type  |
 | ---------------------------------- | :--------------------------: | :--------------------------: | :--------------------------: | :-----------------------------: | :----------------: |
 | **_TOMOYO_**                       |                              |                              |                              |                                 |                    |
 | tomoyo_bprm_check_security         |                              |                              |         :red_circle:         |                                 |                    |
-| tomoyo_file_fcntl                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
+| tomoyo_file_fcntl                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |          :red_circle:           |                    |
 | tomoyo_file_ioctl                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
 | tomoyo_file_open                   |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
 | tomoyo_path_truncate               |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_path_unlink                 |                              |                              |         :red_circle:         |                                 |                    |
-| tomoyo_path_mkdir                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
+| tomoyo_path_mkdir                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |          :red_circle:           |                    |
 | tomoyo_path_rmdir                  |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_path_symlink                |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_path_mknod                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
 | tomoyo_path_link                   |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_path_rename                 |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_inode_getattr               |                              |                              |         :red_circle:         |                                 |                    |
-| tomoyo_path_chmod                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
+| tomoyo_path_chmod                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |          :red_circle:           |                    |
 | tomoyo_path_chown                  |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | tomoyo_path_chroot                 |                              |                              |         :red_circle:         |                                 |                    |
-| tomoyo_sb_mount                    |         :red_circle:         |         :red_circle:         |                              |                                 |                    |
+| tomoyo_sb_mount                    |         :red_circle:         |                              |                              |          :red_circle:           |                    |
 | tomoyo_sb_umount                   |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_sb_pivotroot                |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_socket_bind                 |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
@@ -41,11 +41,11 @@
 | apparmor_path_chown                |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | apparmor_path_truncate             |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | apparmor_inode_getattr             |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
-| apparmor_file_open                 |     :large_blue_diamond:     |     :large_blue_diamond:     |                              |                                 |                    |
+| apparmor_file_open                 |     :large_blue_diamond:     |     :large_blue_diamond:     |                              |          :red_circle:           |                    |
 | apparmor_file_permission           |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
 | apparmor_mmap_file                 |                              |         :red_circle:         |         :red_circle:         |          :red_circle:           |                    |
 | apparmor_file_mprotect             |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
-| apparmor_file_lock                 |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
+| apparmor_file_lock                 |                              |         :red_circle:         |         :red_circle:         |          :red_circle:           |                    |
 | apparmor_ptrace_access_check       |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
 | apparmor_ptrace_traceme            |                              |                              |                              |          :red_circle:           |                    |
 | apparmor_capable                   |                              |                              |                              |                                 | :white_check_mark: |
@@ -56,7 +56,7 @@
 | selinux_ptrace_traceme             |                              |                              |                              |          :red_circle:           |                    |
 | selinux_capget                     |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_capset                     |                              |         :red_circle:         |                              |                                 |                    |
-| selinux_capable                    |         :red_circle:         |         :red_circle:         |                              |                                 |                    |
+| selinux_capable                    |         :red_circle:         |         :red_circle:         |                              |          :red_circle:           |                    |
 | selinux_quotactl                   |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_quota_on                   |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_syslog                     |                              |                              |         :red_circle:         |                                 |                    |
@@ -77,8 +77,8 @@
 | selinux_inode_rename               |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_inode_readlink             |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_inode_follow_link          |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
-| selinux_inode_permission           |     :large_blue_diamond:     |         :red_circle:         |         :red_circle:         |                                 |                    |
-| selinux_inode_setattr              |     :large_blue_diamond:     |         :red_circle:         |         :red_circle:         |                                 |                    |
+| selinux_inode_permission           |     :large_blue_diamond:     |         :red_circle:         |         :red_circle:         |      :large_blue_diamond:       |                    |
+| selinux_inode_setattr              |     :large_blue_diamond:     |         :red_circle:         |         :red_circle:         |      :large_blue_diamond:       |                    |
 | selinux_inode_getattr              |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_inode_setxattr             |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_inode_getxattr             |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
@@ -92,7 +92,7 @@
 | selinux_file_mprotect              |     :large_blue_diamond:     |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_file_lock                  |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_file_fcntl                 |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
-| selinux_file_send_sigiotas         |                              |                              |                              |                                 |                    |
+| selinux_file_send_sigiotask        |     :large_blue_diamond:     |         :red_circle:         |                              |                                 |                    |
 | selinux_file_receive               |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | selinux_file_open                  |                              |         :red_circle:         |                              |                                 |                    |
 | selinux_task_create                |                              |                              |         :red_circle:         |          :red_circle:           |                    |

@@ -19,11 +19,15 @@ def update_table_helper(table, annotation, implicit, offset):
     and the offset
     """
     if annotation:
-        file1 = "Detected_Gaps_Annotated.md"
-        file2 = "Detected_Gaps_Other_Annotated.md"
+        file1 = "Purpose-Relaxed.md"
+        file2 = "Other-Relaxed.md"
     else:
-        file1 = "Detected_Gaps.md"
-        file2 = "Detected_Gaps_Other.md"
+        if implicit:
+            file1 = "Purpose-Strict.md"
+            file2 = "Other-Strict.md"
+        else:
+            file1 = "Purpose-Field.md"
+            file2 = "Other-Field.md"
 
     field = [0, 0, 0]
     with open(file1, "r") as f:
@@ -39,31 +43,31 @@ def update_table_helper(table, annotation, implicit, offset):
         table[table_base_row + offset + 8][0] = str(field[2])
         f.close()
 
-    # field = [[0, 0, 0], [0, 0, 0]]
-    # with open(file2, "r") as f:
-    #     for i, line in enumerate(f):
-    #         if i in range(7, 31):       # tomoyo
-    #             l = line.split("|")
-    #             field[0][1] += find_keyword_count(l[2], implicit=implicit)
-    #             for j in range(3, 6):
-    #                 field[1][1] += find_keyword_count(l[j], implicit=implicit)
-    #         if i in range(32, 53):      # apparmor
-    #             l = line.split("|")
-    #             field[0][2] += find_keyword_count(l[2], implicit=implicit)
-    #             for j in range(3, 6):
-    #                 field[1][2] += find_keyword_count(l[j], implicit=implicit)
-    #         if i in range(54, 157):     # selinux
-    #             l = line.split("|")
-    #             field[0][0] += find_keyword_count(l[2], implicit=implicit)
-    #             for j in range(3, 6):
-    #                 field[1][0] += find_keyword_count(l[j], implicit=implicit)
-    #     table[table_base_row + offset][1] = str(field[0][0])
-    #     table[table_base_row + offset + 4][1] = str(field[0][1])
-    #     table[table_base_row + offset + 8][1] = str(field[0][2])
-    #     table[table_base_row + offset][2] = str(field[1][0])
-    #     table[table_base_row + offset + 4][2] = str(field[1][1])
-    #     table[table_base_row + offset + 8][2] = str(field[1][2])
-    #     f.close()
+    field = [[0, 0, 0], [0, 0, 0]]
+    with open(file2, "r") as f:
+        for i, line in enumerate(f):
+            if i in range(7, 31):       # tomoyo
+                l = line.split("|")
+                field[0][1] += find_keyword_count(l[2], implicit=implicit)
+                for j in range(3, 6):
+                    field[1][1] += find_keyword_count(l[j], implicit=implicit)
+            if i in range(32, 53):      # apparmor
+                l = line.split("|")
+                field[0][2] += find_keyword_count(l[2], implicit=implicit)
+                for j in range(3, 6):
+                    field[1][2] += find_keyword_count(l[j], implicit=implicit)
+            if i in range(54, 157):     # selinux
+                l = line.split("|")
+                field[0][0] += find_keyword_count(l[2], implicit=implicit)
+                for j in range(3, 6):
+                    field[1][0] += find_keyword_count(l[j], implicit=implicit)
+        table[table_base_row + offset][1] = str(field[0][0])
+        table[table_base_row + offset + 4][1] = str(field[0][1])
+        table[table_base_row + offset + 8][1] = str(field[0][2])
+        table[table_base_row + offset][2] = str(field[1][0])
+        table[table_base_row + offset + 4][2] = str(field[1][1])
+        table[table_base_row + offset + 8][2] = str(field[1][2])
+        f.close()
 
 
 def update_table():
@@ -89,7 +93,7 @@ def update_table():
     update_table_helper(table, annotation=False, implicit=True, offset=2)
     update_table_helper(table, annotation=True, implicit=True, offset=3)
 
-    with open("benchmark-comparison1.tex", "w") as f:
+    with open("benchmark-comparison.tex", "w") as f:
         for row in table[0:10]:
             f.write(row)
         for i, row in enumerate(table[table_base_row: table_base_row + 12]):
@@ -143,8 +147,8 @@ def update_table1():
         print(l)
 
     field = [0, 0, 0]
-    file1 = "Detected_Gaps_Annotated.md"
-    file2 = "Detected_Gaps_Other_Annotated.md"
+    file1 = "Purpose-Relaxed.md"
+    file2 = "Other-Relaxed.md"
 
     for idx in range(0, 6):
         with open(file1, "r") as f:
@@ -184,7 +188,7 @@ def update_table1():
             print(field)
     f.close()
 
-    with open("benchmark-column1.tex", "w") as f:
+    with open("benchmark-column.tex", "w") as f:
         for row in table[0:19]:
             f.write(row)
         for i, row in enumerate(table[19:22]):
@@ -222,8 +226,8 @@ def update_table4():
         print(l)
 
     field = [0, 0, 0]
-    file1 = "Detected_Gaps.md"
-    file2 = "Detected_Gaps_Other.md"
+    file1 = "Purpose-Strict.md"
+    file2 = "Other-Strict.md"
     for idx in range(0, 6):
         with open(file1, "r") as f:
             field = [0, 0, 0]
@@ -263,8 +267,8 @@ def update_table4():
             table[21][15+idx*2] = str(field[2])
     f.close()
 
-    file1 = "Detected_Gaps_Annotated.md"
-    file2 = "Detected_Gaps_Other_Annotated.md"
+    file1 = "Purpose-Relaxed.md"
+    file2 = "Other-Relaxed.md"
     for idx in range(0, 6):
         with open(file1, "r") as f:
             field = [0, 0, 0]
@@ -304,7 +308,7 @@ def update_table4():
             table[21][16+idx*2] = str(field[2])
     f.close()
 
-    with open("benchmark-implicit1.tex", "w") as f:
+    with open("benchmark-implicit.tex", "w") as f:
         for row in table[0:19]:
             f.write(row)
         for i, row in enumerate(table[19:22]):

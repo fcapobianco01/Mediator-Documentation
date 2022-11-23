@@ -79,7 +79,7 @@ def update_table():
 
     update_table_helper(table, annotation=False, implicit=True, offset=0)
 
-    with open("benchmark-comparison1.tex", "w") as f:
+    with open("benchmark-comparison.tex", "w") as f:
         for row in table[0:10]:
             f.write(row)
         for i, row in enumerate(table[table_base_row: table_base_row + 12]):
