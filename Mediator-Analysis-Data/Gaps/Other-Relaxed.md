@@ -21,7 +21,7 @@
 | tomoyo_path_chmod                  |         :red_circle:         |         :red_circle:         |         :red_circle:         |          :red_circle:           |                    |
 | tomoyo_path_chown                  |                              |         :red_circle:         |         :red_circle:         |                                 |                    |
 | tomoyo_path_chroot                 |                              |                              |         :red_circle:         |                                 |                    |
-| tomoyo_sb_mount                    |         :red_circle:         |                              |                              |          :red_circle:           |                    |
+| tomoyo_sb_mount                    |         :red_circle:         |         :red_circle:         |                              |                                 |                    |
 | tomoyo_sb_umount                   |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_sb_pivotroot                |                              |                              |         :red_circle:         |                                 |                    |
 | tomoyo_socket_bind                 |         :red_circle:         |         :red_circle:         |         :red_circle:         |                                 |                    |
