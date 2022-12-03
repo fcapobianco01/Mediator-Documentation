@@ -27,8 +27,8 @@ def update_table_helper(table, annotation, implicit, offset):
             if i in range(54, 157):     # selinux
                 field[0] += find_keyword_count(line, implicit=implicit)
         table[table_base_row + offset][0] = str(field[0])
-        table[table_base_row + offset + 4][0] = str(field[1])
-        table[table_base_row + offset + 8][0] = str(field[2])
+        table[table_base_row + offset + 5][0] = str(field[1])
+        table[table_base_row + offset + 10][0] = str(field[2])
         f.close()
 
     field = [[0, 0, 0], [0, 0, 0]]
@@ -50,11 +50,11 @@ def update_table_helper(table, annotation, implicit, offset):
                 for j in range(3, 6):
                     field[1][0] += find_keyword_count(l[j], implicit=implicit)
         table[table_base_row + offset][1] = str(field[0][0])
-        table[table_base_row + offset + 4][1] = str(field[0][1])
-        table[table_base_row + offset + 8][1] = str(field[0][2])
+        table[table_base_row + offset + 5][1] = str(field[0][1])
+        table[table_base_row + offset + 10][1] = str(field[0][2])
         table[table_base_row + offset][2] = str(field[1][0])
-        table[table_base_row + offset + 4][2] = str(field[1][1])
-        table[table_base_row + offset + 8][2] = str(field[1][2])
+        table[table_base_row + offset + 5][2] = str(field[1][1])
+        table[table_base_row + offset + 10][2] = str(field[1][2])
         f.close()
 
 
@@ -62,7 +62,7 @@ def update_table():
     table = []
     with open("benchmark-comparison.tex", "r") as f:
         for i, line in enumerate(f):
-            if i in range(10, 22):
+            if i in range(10, 25):
                 l = line.split("&")
                 table.append(
                     [
@@ -82,31 +82,33 @@ def update_table():
     with open("benchmark-comparison.tex", "w") as f:
         for row in table[0:10]:
             f.write(row)
-        for i, row in enumerate(table[table_base_row: table_base_row + 12]):
+        for i, row in enumerate(table[table_base_row: table_base_row + 15]):
             line = ''
-            if i % 4 == 0:
-                line += '    \multirow{4}{*}{'
-                if i / 4 == 0:
+            if i % 5 == 0:
+                line += '    \multirow{5}{*}{'
+                if i / 5 == 0:
                     line += 'SELinux}      & Baseline'.ljust(54)
-                elif i / 4 == 1:
+                elif i / 5 == 1:
                     line += 'Tomoyo}       & Baseline'.ljust(54)
-                elif i / 4 == 2:
+                elif i / 5 == 2:
                     line += 'AppArmor}     & Baseline'.ljust(54)
-            elif i % 4 == 1:
+            elif i % 5 == 1:
                 line += ' '*34 + '& Field-sensitive                       '
-            elif i % 4 == 2:
-                line += ' '*34 + '& Strict Noninterference + Constants    '
-            elif i % 4 == 3:
-                line += ' '*34 + '& Relaxed Noninterference + Constants   '
+            elif i % 5 == 2:
+                line += ' '*34 + '& Strict NI + Constants                 '
+            elif i % 5 == 3:
+                line += ' '*34 + '& Relaxed NI + Constants                '
+            elif i % 5 == 4:
+                line += ' '*34 + '& Relaxed NI + Constants + Patterns     '
             line += '& ' + \
                 row[0].rjust(5) + ' & ' + row[1].rjust(5) + \
                 ' & ' + row[2].rjust(5) + ' \\\\'
-            if i % 4 == 1:
+            if i % 5 == 1:
                 line += ' \cline{2-5}'
-            elif i % 4 == 3:
+            elif i % 5 == 4:
                 line += ' \hline'
             f.write(line + '\n')
-        for row in table[table_base_row + 12:]:
+        for row in table[table_base_row + 15:]:
             f.write(row)
         f.close()
 
