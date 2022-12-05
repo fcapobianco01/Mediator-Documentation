@@ -1,29 +1,25 @@
 \begin{table*}
     \centering
+    \begin{tabular}{r|cc|cccccc|c|ccc|}
     
-    \begin{tabular}{|r|c|c|c|c|}
-    \hline
-    & Configuration & Purpose & Value Type & Source Location\\
+    &
+    \rotfortyfive{total hooks} &
+    \rotfortyfive{hooks analyzed} &
+    \rotfortyfive{sub $\rightarrow$ obj} &
+    \rotfortyfive{sub $\rightarrow$ op}  &
+    \rotfortyfive{obj $\rightarrow$ sub} &
+    \rotfortyfive{obj $\rightarrow$ op}  &
+    \rotfortyfive{op  $\rightarrow$ sub} &
+    \rotfortyfive{op  $\rightarrow$ obj} &
+    \rotfortyfive{dynamic $\rightarrow$ static} &
+    \rotfortyfive{input $\rightarrow$ mediator} &
+    \rotfortyfive{external $\rightarrow$ input} &
+    \rotfortyfive{external $\rightarrow$ mediator} \\ \hline
     
-    \hline
     
-    
-    \multirow{5}{*}{SELinux}      & Baseline                              &   204 &     7 &   181 \\
-                                  & Field-sensitive                       &    31 &     7 &   181 \\ \cline{2-5}
-                                  & Strict NI + Constants                 &   158 &    16 &   195 \\
-                                  & Relaxed NI + Constants                &   136 &    16 &   195 \\
-                                  & Relaxed NI + Constants + Patterns     &   121 &    16 &   195 \\ \hline
-    \multirow{5}{*}{Tomoyo}       & Baseline                              &   134 &    11 &    45 \\
-                                  & Field-sensitive                       &     0 &    11 &    34 \\ \cline{2-5}
-                                  & Strict NI + Constants                 &    99 &    11 &    45 \\
-                                  & Relaxed NI + Constants                &    89 &    11 &    37 \\
-                                  & Relaxed NI + Constants + Patterns     &    34 &    11 &    37 \\ \hline
-    \multirow{5}{*}{AppArmor}     & Baseline                              &    38 &     2 &    37 \\
-                                  & Field-sensitive                       &     3 &     2 &    36 \\ \cline{2-5}
-                                  & Strict NI + Constants                 &    37 &     6 &    45 \\
-                                  & Relaxed NI + Constants                &    34 &     6 &    45 \\
-                                  & Relaxed NI + Constants + Patterns     &     9 &     6 &    41 \\ \hline
-    
+SELinux    & 173 & 102 & 93/21 &   3/0 &  91/8 &   3/2 &   7/0 &   7/0 &   7/7 & 91/91 & 84/84 &   6/6 \\
+Tomoyo     & 28  & 23  &  22/0 &  22/0 &  23/0 &  23/0 &  22/0 &  22/0 & 11/11 & 23/12 & 22/22 &   0/0 \\
+AppArmor   & 34  & 20  &  17/0 &   0/0 &  17/3 &   0/0 &   2/0 &   2/0 &   2/2 & 17/16 & 16/16 &   4/4 \\ \hline
     \end{tabular}
     \caption[\label{tab:infoflow-baseline-current-comparison}]%
     {Comparison of positive counts by dimension between different configurations of the information-flow analysis. \par {\footnotesize \textit{For each LSM, the baseline disables all improvements discussed in \ref{sec:ifc}, while the field-sensitive row enables only field-sensitivity. The strict noninterference row is same as the field-sensitive row with the addition of implicit flows and constant tainting to capture uncaught true positives. The last row applies relaxed noninterference to reduce false-positive rate. The baseline is being compared with only field-sensitivity enabled for a fair comparison because it 1) doesn't support constant labeling and 2) has implementation bugs which makes it incapable of capturing implicit flows. The last two rows shows the effectiveness of relaxed noninterference in reducing false-positive rates.}}}
