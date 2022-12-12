@@ -1,0 +1,45 @@
+[apparmor_ptrace_traceme]
+
+explicit:
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+CE0x455ea50 "{CE0x455ea50|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]
+CE0x4601620 "{CE0x4601620|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+
+implicit:
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]
+CE0x4601620 "{CE0x4601620|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+CE0x455ea50 "{CE0x455ea50|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+CE0x455ea50 "{CE0x455ea50|VOIDTB_TE:_CE:_elem_0:default:}"
+CE0x44575f0 "{CE0x44575f0|apparmor_ptrace_traceme:_call|security/apparmor/lsm.c,108}"
+CE0x45f7350 "{CE0x45f7350|apparmor_ptrace_traceme:_tobool|security/apparmor/lsm.c,109}"
+CE0x5184ed0 "{CE0x5184ed0|apparmor_ptrace_traceme:_if.end}"
+CE0x46000c0 "{CE0x46000c0|apparmor_ptrace_traceme:_call1|security/apparmor/lsm.c,112}"
+CE0x4600330 "{CE0x4600330|apparmor_ptrace_traceme:_call1|security/apparmor/lsm.c,112|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
