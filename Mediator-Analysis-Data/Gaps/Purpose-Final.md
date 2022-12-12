@@ -56,7 +56,7 @@
 | selinux_ptrace_traceme             |                        |                        |                        |                        |                        |                        | :white_check_mark: |
 | selinux_capget                     |                        |                        |                        |                        |                        |                        | :white_check_mark: |
 | selinux_capset                     |     :red_circle:*1     |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_capable                    |     :red_circle:*1     |                        |                        |                        |                        | :large_blue_diamond:*1 |                    |
+| selinux_capable                    |     :red_circle:*1     |                        |                        |                        |                        | :large_blue_diamond:*2 |                    |
 | selinux_quotactl                   |                        |                        |                        |                        |                        |                        | :white_check_mark: |
 | selinux_quota_on                   |                        |                        |                        |                        |                        |                        | :white_check_mark: |
 | selinux_syslog                     |                        |                        |                        |                        | :large_blue_diamond:*1 |                        |                    |
