@@ -42,11 +42,11 @@ def update_table_helper(table, annotation, pattern, implicit, offset):
     field = [0, 0, 0]
     with open(file1, "r") as f:
         for i, line in enumerate(f):
-            if i in range(7, 31):       # tomoyo
+            if i in range(7, 31):  # tomoyo
                 field[1] += find_keyword_count(line, implicit=implicit)
-            if i in range(32, 53):      # apparmor
+            if i in range(32, 53):  # apparmor
                 field[2] += find_keyword_count(line, implicit=implicit)
-            if i in range(54, 157):     # selinux
+            if i in range(54, 157):  # selinux
                 field[0] += find_keyword_count(line, implicit=implicit)
         table[table_base_row + offset][0] = str(field[0])
         table[table_base_row + offset + 5][0] = str(field[1])
@@ -56,17 +56,17 @@ def update_table_helper(table, annotation, pattern, implicit, offset):
     field = [[0, 0, 0], [0, 0, 0]]
     with open(file2, "r") as f:
         for i, line in enumerate(f):
-            if i in range(7, 31):       # tomoyo
+            if i in range(7, 31):  # tomoyo
                 l = line.split("|")
                 field[0][1] += find_keyword_count(l[2], implicit=implicit)
                 for j in range(3, 6):
                     field[1][1] += find_keyword_count(l[j], implicit=implicit)
-            if i in range(32, 53):      # apparmor
+            if i in range(32, 53):  # apparmor
                 l = line.split("|")
                 field[0][2] += find_keyword_count(l[2], implicit=implicit)
                 for j in range(3, 6):
                     field[1][2] += find_keyword_count(l[j], implicit=implicit)
-            if i in range(54, 157):     # selinux
+            if i in range(54, 157):  # selinux
                 l = line.split("|")
                 field[0][0] += find_keyword_count(l[2], implicit=implicit)
                 for j in range(3, 6):
@@ -86,32 +86,41 @@ def update_table():
         for i, line in enumerate(f):
             if i in range(10, 25):
                 l = line.split("&")
-                table.append(
-                    [
-                        s.replace("\\", "")
-                        .replace("cline{2-5}", "")
-                        .replace("hline", "")
-                        .strip()
-                        for s in l[2:5]
-                    ]
-                )
+                table.append([
+                    s.replace("\\", "").replace("cline{2-5}",
+                                                "").replace("hline",
+                                                            "").strip()
+                    for s in l[2:5]
+                ])
             else:
                 table.append(line)
         f.close()
 
-    update_table_helper(table, annotation=False,
-                        pattern=False, implicit=False, offset=1)
-    update_table_helper(table, annotation=False,
-                        pattern=False, implicit=True, offset=2)
-    update_table_helper(table, annotation=True,
-                        pattern=False, implicit=True, offset=3)
-    update_table_helper(table, annotation=True,
-                        pattern=True, implicit=True, offset=4)
+    update_table_helper(table,
+                        annotation=False,
+                        pattern=False,
+                        implicit=False,
+                        offset=1)
+    update_table_helper(table,
+                        annotation=False,
+                        pattern=False,
+                        implicit=True,
+                        offset=2)
+    update_table_helper(table,
+                        annotation=True,
+                        pattern=False,
+                        implicit=True,
+                        offset=3)
+    update_table_helper(table,
+                        annotation=True,
+                        pattern=True,
+                        implicit=True,
+                        offset=4)
 
     with open("benchmark-comparison.tex", "w") as f:
         for row in table[0:10]:
             f.write(row)
-        for i, row in enumerate(table[table_base_row: table_base_row + 15]):
+        for i, row in enumerate(table[table_base_row:table_base_row + 15]):
             line = ''
             if i % 5 == 0:
                 line += '    \multirow{5}{*}{'
@@ -122,13 +131,13 @@ def update_table():
                 elif i / 5 == 2:
                     line += 'AppArmor}     & Baseline'.ljust(54)
             elif i % 5 == 1:
-                line += ' '*34 + '& Field-sensitive                       '
+                line += ' ' * 34 + '& Field-sensitive                       '
             elif i % 5 == 2:
-                line += ' '*34 + '& Strict NI + Constants                 '
+                line += ' ' * 34 + '& Strict NI + Constants                 '
             elif i % 5 == 3:
-                line += ' '*34 + '& Relaxed NI + Constants                '
+                line += ' ' * 34 + '& Relaxed NI + Constants                '
             elif i % 5 == 4:
-                line += ' '*34 + '& Relaxed NI + Constants + Patterns     '
+                line += ' ' * 34 + '& Relaxed NI + Constants + Patterns     '
             line += '& ' + \
                 row[0].rjust(5) + ' & ' + row[1].rjust(5) + \
                 ' & ' + row[2].rjust(5) + ' \\\\'
@@ -148,15 +157,12 @@ def update_table1():
         for i, line in enumerate(f):
             if i in range(20, 23):
                 l = line.split("&")
-                table.append(
-                    [
-                        s.replace("\\", "")
-                        .replace("cline{2-5}", "")
-                        .replace("hline", "")
-                        .strip()
-                        for s in l
-                    ]
-                )
+                table.append([
+                    s.replace("\\", "").replace("cline{2-5}",
+                                                "").replace("hline",
+                                                            "").strip()
+                    for s in l
+                ])
             else:
                 table.append(line)
         f.close()
@@ -171,18 +177,18 @@ def update_table1():
         with open(file1, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count(l[2+idx], implicit=True)
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count(l[2 + idx], implicit=True)
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count(l[2+idx], implicit=True)
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count(l[2 + idx], implicit=True)
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count(l[2+idx], implicit=True)
-            table[20][4+idx] = str(field[0])
-            table[21][4+idx] = str(field[1])
-            table[22][4+idx] = str(field[2])
+                    field[0] += find_keyword_count(l[2 + idx], implicit=True)
+            table[20][4 + idx] = str(field[0])
+            table[21][4 + idx] = str(field[1])
+            table[22][4 + idx] = str(field[2])
             print(field)
     f.close()
 
@@ -190,18 +196,18 @@ def update_table1():
         with open(file2, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count(l[2+idx], implicit=True)
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count(l[2 + idx], implicit=True)
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count(l[2+idx], implicit=True)
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count(l[2 + idx], implicit=True)
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count(l[2+idx], implicit=True)
-            table[20][10+idx] = str(field[0])
-            table[21][10+idx] = str(field[1])
-            table[22][10+idx] = str(field[2])
+                    field[0] += find_keyword_count(l[2 + idx], implicit=True)
+            table[20][10 + idx] = str(field[0])
+            table[21][10 + idx] = str(field[1])
+            table[22][10 + idx] = str(field[2])
             print(field)
     f.close()
 
@@ -211,7 +217,7 @@ def update_table1():
         for i, row in enumerate(table[20:23]):
             row[0] = row[0].ljust(10)
             for j, e in enumerate(row[1:]):
-                row[j+1] = e.rjust(3)
+                row[j + 1] = e.rjust(3)
             line = ' & '.join(row)
             line += ' \\\\'
             if i == 2:
@@ -228,14 +234,9 @@ def update_table4():
         for i, line in enumerate(f):
             if i in range(19, 22):
                 l = re.split('&|/', line)
-                table.append(
-                    [
-                        s.replace("\\", "")
-                        .replace("hline", "")
-                        .strip()
-                        for s in l
-                    ]
-                )
+                table.append([
+                    s.replace("\\", "").replace("hline", "").strip() for s in l
+                ])
             else:
                 table.append(line)
         f.close()
@@ -249,18 +250,18 @@ def update_table4():
         with open(file1, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count_implicit(l[2+idx])
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count_implicit(l[2+idx])
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count_implicit(l[2+idx])
-            table[19][3+idx*3] = str(field[0])
-            table[20][3+idx*3] = str(field[1])
-            table[21][3+idx*3] = str(field[2])
+                    field[0] += find_keyword_count_implicit(l[2 + idx])
+            table[19][3 + idx * 3] = str(field[0])
+            table[20][3 + idx * 3] = str(field[1])
+            table[21][3 + idx * 3] = str(field[2])
             print(field)
             for l in table[19:22]:
                 print(l)
@@ -270,18 +271,18 @@ def update_table4():
         with open(file2, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count_implicit(l[2+idx])
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count_implicit(l[2+idx])
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count_implicit(l[2+idx])
-            table[19][21+idx*3] = str(field[0])
-            table[20][21+idx*3] = str(field[1])
-            table[21][21+idx*3] = str(field[2])
+                    field[0] += find_keyword_count_implicit(l[2 + idx])
+            table[19][21 + idx * 3] = str(field[0])
+            table[20][21 + idx * 3] = str(field[1])
+            table[21][21 + idx * 3] = str(field[2])
     f.close()
 
     file1 = "Purpose-Relaxed.md"
@@ -290,18 +291,18 @@ def update_table4():
         with open(file1, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count_implicit(l[2+idx])
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count_implicit(l[2+idx])
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count_implicit(l[2+idx])
-            table[19][4+idx*3] = str(field[0])
-            table[20][4+idx*3] = str(field[1])
-            table[21][4+idx*3] = str(field[2])
+                    field[0] += find_keyword_count_implicit(l[2 + idx])
+            table[19][4 + idx * 3] = str(field[0])
+            table[20][4 + idx * 3] = str(field[1])
+            table[21][4 + idx * 3] = str(field[2])
             print(field)
             for l in table[19:22]:
                 print(l)
@@ -311,18 +312,18 @@ def update_table4():
         with open(file2, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count_implicit(l[2+idx])
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count_implicit(l[2+idx])
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count_implicit(l[2+idx])
-            table[19][22+idx*3] = str(field[0])
-            table[20][22+idx*3] = str(field[1])
-            table[21][22+idx*3] = str(field[2])
+                    field[0] += find_keyword_count_implicit(l[2 + idx])
+            table[19][22 + idx * 3] = str(field[0])
+            table[20][22 + idx * 3] = str(field[1])
+            table[21][22 + idx * 3] = str(field[2])
     f.close()
 
     file1 = "Purpose-Final.md"
@@ -331,18 +332,18 @@ def update_table4():
         with open(file1, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count_implicit(l[2+idx])
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count_implicit(l[2+idx])
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count_implicit(l[2+idx])
-            table[19][5+idx*3] = str(field[0])
-            table[20][5+idx*3] = str(field[1])
-            table[21][5+idx*3] = str(field[2])
+                    field[0] += find_keyword_count_implicit(l[2 + idx])
+            table[19][5 + idx * 3] = str(field[0])
+            table[20][5 + idx * 3] = str(field[1])
+            table[21][5 + idx * 3] = str(field[2])
             print(field)
             for l in table[19:22]:
                 print(l)
@@ -352,18 +353,18 @@ def update_table4():
         with open(file2, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count_implicit(l[2+idx])
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count_implicit(l[2+idx])
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count_implicit(l[2 + idx])
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count_implicit(l[2+idx])
-            table[19][23+idx*3] = str(field[0])
-            table[20][23+idx*3] = str(field[1])
-            table[21][23+idx*3] = str(field[2])
+                    field[0] += find_keyword_count_implicit(l[2 + idx])
+            table[19][23 + idx * 3] = str(field[0])
+            table[20][23 + idx * 3] = str(field[1])
+            table[21][23 + idx * 3] = str(field[2])
     f.close()
 
     with open("benchmark-implicit.tex", "w") as f:
@@ -376,7 +377,7 @@ def update_table4():
             new_row.append(row[2].ljust(3))
             for j in range(3, 32, 3):
                 new_row.append(
-                    (row[j] + '/' + row[j+1] + '/' + row[j+2]).rjust(8))
+                    (row[j] + '/' + row[j + 1] + '/' + row[j + 2]).rjust(8))
             line = ' & '.join(new_row)
             line += ' \\\\'
             if i == 2:
@@ -395,14 +396,9 @@ def update_table7():
         for i, line in enumerate(f):
             if i in range(19, 22):
                 l = re.split('&|/', line)
-                table.append(
-                    [
-                        s.replace("\\", "")
-                        .replace("hline", "")
-                        .strip()
-                        for s in l
-                    ]
-                )
+                table.append([
+                    s.replace("\\", "").replace("hline", "").strip() for s in l
+                ])
             else:
                 table.append(line)
         f.close()
@@ -416,18 +412,18 @@ def update_table7():
         with open(file1, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count(l[2+idx], implicit=False)
-            table[19][3+idx*2] = str(field[0])
-            table[20][3+idx*2] = str(field[1])
-            table[21][3+idx*2] = str(field[2])
+                    field[0] += find_keyword_count(l[2 + idx], implicit=False)
+            table[19][3 + idx * 2] = str(field[0])
+            table[20][3 + idx * 2] = str(field[1])
+            table[21][3 + idx * 2] = str(field[2])
             print(field)
             for l in table[19:22]:
                 print(l)
@@ -437,18 +433,18 @@ def update_table7():
         with open(file2, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count(l[2+idx], implicit=False)
-            table[19][15+idx*2] = str(field[0])
-            table[20][15+idx*2] = str(field[1])
-            table[21][15+idx*2] = str(field[2])
+                    field[0] += find_keyword_count(l[2 + idx], implicit=False)
+            table[19][15 + idx * 2] = str(field[0])
+            table[20][15 + idx * 2] = str(field[1])
+            table[21][15 + idx * 2] = str(field[2])
     f.close()
 
     file1 = "Purpose-Field.md"
@@ -457,18 +453,18 @@ def update_table7():
         with open(file1, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count(l[2+idx], implicit=False)
-            table[19][4+idx*2] = str(field[0])
-            table[20][4+idx*2] = str(field[1])
-            table[21][4+idx*2] = str(field[2])
+                    field[0] += find_keyword_count(l[2 + idx], implicit=False)
+            table[19][4 + idx * 2] = str(field[0])
+            table[20][4 + idx * 2] = str(field[1])
+            table[21][4 + idx * 2] = str(field[2])
             print(field)
             for l in table[19:22]:
                 print(l)
@@ -478,18 +474,18 @@ def update_table7():
         with open(file2, "r") as f:
             field = [0, 0, 0]
             for i, line in enumerate(f):
-                if i in range(7, 31):       # tomoyo
+                if i in range(7, 31):  # tomoyo
                     l = line.split("|")
-                    field[1] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(32, 53):      # apparmor
+                    field[1] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(32, 53):  # apparmor
                     l = line.split("|")
-                    field[2] += find_keyword_count(l[2+idx], implicit=False)
-                if i in range(54, 157):     # selinux
+                    field[2] += find_keyword_count(l[2 + idx], implicit=False)
+                if i in range(54, 157):  # selinux
                     l = line.split("|")
-                    field[0] += find_keyword_count(l[2+idx], implicit=False)
-            table[19][16+idx*2] = str(field[0])
-            table[20][16+idx*2] = str(field[1])
-            table[21][16+idx*2] = str(field[2])
+                    field[0] += find_keyword_count(l[2 + idx], implicit=False)
+            table[19][16 + idx * 2] = str(field[0])
+            table[20][16 + idx * 2] = str(field[1])
+            table[21][16 + idx * 2] = str(field[2])
     f.close()
 
     with open("benchmark-comparison1.tex", "w") as f:
@@ -501,7 +497,7 @@ def update_table7():
             new_row.append(row[1].ljust(3))
             new_row.append(row[2].ljust(3))
             for j in range(3, 22, 2):
-                new_row.append((row[j] + '/' + row[j+1]).rjust(5))
+                new_row.append((row[j] + '/' + row[j + 1]).rjust(7))
             line = ' & '.join(new_row)
             line += ' \\\\'
             if i == 2:
@@ -518,9 +514,9 @@ def main():
     """Looks at results from Vulnerable/Taint Analysis and records the associated
     line with it
     """
-    # update_table7()
     update_table1()
-    # update_table4()
+    update_table4()
+    update_table7()
 
 
 if __name__ == "__main__":
