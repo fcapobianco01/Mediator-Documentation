@@ -1,0 +1,45 @@
+[apparmor_ptrace_traceme]
+
+explicit:
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+CE0x4fa5a90 "{CE0x4fa5a90|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]
+CE0x4fc4e80 "{CE0x4fc4e80|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+
+implicit:
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+CE0x4fa5a90 "{CE0x4fa5a90|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
+CE0x4fa5a90 "{CE0x4fa5a90|VOIDTB_TE:_CE:_elem_0:default:}"
+CE0x4fa2380 "{CE0x4fa2380|apparmor_ptrace_traceme:_call|security/apparmor/lsm.c,108}"
+CE0x4e16a40 "{CE0x4e16a40|apparmor_ptrace_traceme:_tobool|security/apparmor/lsm.c,109}"
+CE0x4f9c7b0 "{CE0x4f9c7b0|apparmor_ptrace_traceme:_if.end}"
+CE0x4fa76e0 "{CE0x4fa76e0|apparmor_ptrace_traceme:_call1|security/apparmor/lsm.c,112}"
+CE0x4fab890 "{CE0x4fab890|apparmor_ptrace_traceme:_call1|security/apparmor/lsm.c,112|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{object}]
+CE0x4fc4e80 "{CE0x4fc4e80|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+

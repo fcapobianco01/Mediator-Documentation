@@ -1,0 +1,96 @@
+[selinux_getprocattr]
+
+explicit:
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]
+CE0x5644580 "{CE0x5644580|2472:_%struct.cred*,_:_CRE_2472,2480_|*MultipleSource*|Function::current_has_perm&Arg::tsk::|Function::selinux_getprocattr&Arg::p::|security/selinux/hooks.c,5526}"
+CE0x56f5320 "{CE0x56f5320|task_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,208}"
+CE0x575ba40 "{CE0x575ba40|cred_sid:_cred|Function::cred_sid&Arg::cred::}"
+CE0x57d8fe0 "{CE0x57d8fe0|cred_sid:_security|security/selinux/hooks.c,196}"
+CE0x56761c0 "{CE0x56761c0|cred_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,196}"
+CE0x57cc850 "{CE0x57cc850|cred_sid:_tmp5|security/selinux/hooks.c,196}"
+CE0x57d9f40 "{CE0x57d9f40|cred_sid:_sid|security/selinux/hooks.c,197}"
+CE0x57da3a0 "{CE0x57da3a0|cred_sid:_tmp6|security/selinux/hooks.c,197}"
+CE0x575bdb0 "{CE0x575bdb0|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
+CE0x575ad40 "{CE0x575ad40|task_sid:_call7|security/selinux/hooks.c,208}"
+CE0x56ad8a0 "{CE0x56ad8a0|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
+CE0x56a1e20 "{CE0x56a1e20|current_has_perm:_call1|security/selinux/hooks.c,1543}"
+CE0x56a30b0 "{CE0x56a30b0|current_has_perm:_call1|security/selinux/hooks.c,1543|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
+CE0x57b9900 "{CE0x57b9900|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,218}"
+CE0x57b9a80 "{CE0x57b9a80|current_sid:_tmp22|security/selinux/hooks.c,218}"
+CE0x57b9fe0 "{CE0x57b9fe0|current_sid:_tmp23|security/selinux/hooks.c,218}"
+CE0x5734800 "{CE0x5734800|current_sid:_sid|security/selinux/hooks.c,220}"
+CE0x57377f0 "{CE0x57377f0|current_sid:_tmp24|security/selinux/hooks.c,220}"
+CE0x56b17f0 "{CE0x56b17f0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x56b07b0 "{CE0x56b07b0|current_has_perm:_call|security/selinux/hooks.c,1542}"
+CE0x56b09c0 "{CE0x56b09c0|current_has_perm:_call|security/selinux/hooks.c,1542|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+
+implicit:
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
+CE0x56a4380 "{CE0x56a4380|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CE0x56b28b0 "{CE0x56b28b0|get_current:_tmp4|./arch/x86/include/asm/current.h,14}"
+CE0x56aecf0 "{CE0x56aecf0|_ret_%struct.task_struct*_%tmp4,_!dbg_!27714|./arch/x86/include/asm/current.h,14}"
+CE0x56b65e0 "{CE0x56b65e0|selinux_getprocattr:_call|security/selinux/hooks.c,5519}"
+CE0x56a3570 "{CE0x56a3570|selinux_getprocattr:_cmp|security/selinux/hooks.c,5519}"
+CE0x564ca40 "{CE0x564ca40|selinux_getprocattr:_if.then}"
+CE0x5678310 "{CE0x5678310|current_has_perm:_entry}"
+CE0x5677540 "{CE0x5677540|current_has_perm:_bb}"
+CE0x56a1e20 "{CE0x56a1e20|current_has_perm:_call1|security/selinux/hooks.c,1543}"
+CE0x56a30b0 "{CE0x56a30b0|current_has_perm:_call1|security/selinux/hooks.c,1543|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
+CE0x57b9900 "{CE0x57b9900|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,218}"
+CE0x57b9a80 "{CE0x57b9a80|current_sid:_tmp22|security/selinux/hooks.c,218}"
+CE0x57b9fe0 "{CE0x57b9fe0|current_sid:_tmp23|security/selinux/hooks.c,218}"
+CE0x5734800 "{CE0x5734800|current_sid:_sid|security/selinux/hooks.c,220}"
+CE0x57377f0 "{CE0x57377f0|current_sid:_tmp24|security/selinux/hooks.c,220}"
+CE0x56b17f0 "{CE0x56b17f0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x56b07b0 "{CE0x56b07b0|current_has_perm:_call|security/selinux/hooks.c,1542}"
+CE0x56b09c0 "{CE0x56b09c0|current_has_perm:_call|security/selinux/hooks.c,1542|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]
+CE0x567c170 "{CE0x567c170|selinux_getprocattr:_p|Function::selinux_getprocattr&Arg::p::|*SummSource*}"
+CE0x567c1e0 "{CE0x567c1e0|selinux_getprocattr:_p|Function::selinux_getprocattr&Arg::p::}"
+CE0x56a3570 "{CE0x56a3570|selinux_getprocattr:_cmp|security/selinux/hooks.c,5519}"
+CE0x564ca40 "{CE0x564ca40|selinux_getprocattr:_if.then}"
+CE0x5678310 "{CE0x5678310|current_has_perm:_entry}"
+CE0x5677540 "{CE0x5677540|current_has_perm:_bb}"
+CE0x56a1e20 "{CE0x56a1e20|current_has_perm:_call1|security/selinux/hooks.c,1543}"
+CE0x56a30b0 "{CE0x56a30b0|current_has_perm:_call1|security/selinux/hooks.c,1543|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}]
+CE0x567c170 "{CE0x567c170|selinux_getprocattr:_p|Function::selinux_getprocattr&Arg::p::|*SummSource*}"
+CE0x567c1e0 "{CE0x567c1e0|selinux_getprocattr:_p|Function::selinux_getprocattr&Arg::p::}"
+CE0x56a3570 "{CE0x56a3570|selinux_getprocattr:_cmp|security/selinux/hooks.c,5519}"
+CE0x564ca40 "{CE0x564ca40|selinux_getprocattr:_if.then}"
+CE0x5678310 "{CE0x5678310|current_has_perm:_entry}"
+CE0x5677540 "{CE0x5677540|current_has_perm:_bb}"
+CE0x56b07b0 "{CE0x56b07b0|current_has_perm:_call|security/selinux/hooks.c,1542}"
+CE0x56b09c0 "{CE0x56b09c0|current_has_perm:_call|security/selinux/hooks.c,1542|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
