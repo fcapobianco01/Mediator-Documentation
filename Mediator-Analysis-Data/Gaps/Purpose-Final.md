@@ -88,7 +88,7 @@
 | selinux_file_permission            | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                    |
 | selinux_file_ioctl                 |     :red_circle:*2     |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |     :red_circle:*1     |                    |
 | selinux_mmap_file                  |     :red_circle:*2     |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                    |
-| selinux_mmap_addr                  |                        |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        |                    |
+| selinux_mmap_addr                  |                        |                        |                        |                        |                        | :large_blue_diamond:*1 |                    |
 | selinux_file_mprotect              |     :red_circle:*2     |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |     :red_circle:*1     |     :red_circle:*1     |                    |
 | selinux_file_lock                  | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
 | selinux_file_fcntl                 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                    |
