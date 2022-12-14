@@ -1,74 +1,74 @@
 [selinux_file_send_sigiotask]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x4911480 "{CE0x4911480|2472:_%struct.cred*,_:_CRE_2472,2480_|*MultipleSource*|Function::task_sid&Arg::task::|Function::selinux_file_send_sigiotask&Arg::tsk::|security/selinux/hooks.c,208}"
-CE0x49355f0 "{CE0x49355f0|task_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,208}"
-CE0x4946300 "{CE0x4946300|cred_sid:_cred|Function::cred_sid&Arg::cred::}"
-CE0x49765d0 "{CE0x49765d0|cred_sid:_security|security/selinux/hooks.c,196}"
-CE0x497e5e0 "{CE0x497e5e0|cred_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,196}"
-CE0x498b5b0 "{CE0x498b5b0|cred_sid:_tmp5|security/selinux/hooks.c,196}"
-CE0x498ba70 "{CE0x498ba70|cred_sid:_sid|security/selinux/hooks.c,197}"
-CE0x498ca00 "{CE0x498ca00|cred_sid:_tmp6|security/selinux/hooks.c,197}"
-CE0x4946670 "{CE0x4946670|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
-CE0x4945600 "{CE0x4945600|task_sid:_call7|security/selinux/hooks.c,208}"
-CE0x48c3740 "{CE0x48c3740|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
-CE0x48a9b40 "{CE0x48a9b40|selinux_file_send_sigiotask:_call|security/selinux/hooks.c,3394}"
-CE0x48b12e0 "{CE0x48b12e0|selinux_file_send_sigiotask:_call|security/selinux/hooks.c,3394|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
-CE0x48d9ef0 "{CE0x48d9ef0|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,3401|security/selinux/hooks.c,3401|security/selinux/hooks.c,3408}"
-CE0x48da660 "{CE0x48da660|selinux_file_send_sigiotask:_tmp16|security/selinux/hooks.c,3408}"
-CE0x48daa20 "{CE0x48daa20|selinux_file_send_sigiotask:_tmp16|security/selinux/hooks.c,3408|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x3f63900 "{CE0x3f63900|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,3408|security/selinux/hooks.c,3401|security/selinux/hooks.c,3401}"
+CE0x3f8bf00 "{CE0x3f8bf00|selinux_file_send_sigiotask:tmp16|security/selinux/hooks.c,3408}"
+CE0x3f8c2c0 "{CE0x3f8c2c0|selinux_file_send_sigiotask:tmp16|security/selinux/hooks.c,3408|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x3fc71c0 "{CE0x3fc71c0|2472:_%struct.cred*,_:_CRE_2472,2480_|*MultipleSource*|Function::selinux_file_send_sigiotask&Arg::tsk::|Function::task_sid&Arg::task::|security/selinux/hooks.c,208}"
+CE0x3feb170 "{CE0x3feb170|task_sid:tmp4|*LoadInst*|security/selinux/hooks.c,208}"
+CE0x3ffb720 "{CE0x3ffb720|cred_sid:cred|Function::cred_sid&Arg::cred::}"
+CE0x4024b20 "{CE0x4024b20|cred_sid:security|security/selinux/hooks.c,196}"
+CE0x3f72b10 "{CE0x3f72b10|cred_sid:tmp4|*LoadInst*|security/selinux/hooks.c,196}"
+CE0x4026fb0 "{CE0x4026fb0|cred_sid:tmp5|security/selinux/hooks.c,196}"
+CE0x4040ad0 "{CE0x4040ad0|cred_sid:sid|security/selinux/hooks.c,197}"
+CE0x4041930 "{CE0x4041930|cred_sid:tmp6|security/selinux/hooks.c,197}"
+CE0x3ffba80 "{CE0x3ffba80|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
+CE0x3ffa3c0 "{CE0x3ffa3c0|task_sid:call7|security/selinux/hooks.c,208}"
+CE0x3f78880 "{CE0x3f78880|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
+CE0x3f7a9e0 "{CE0x3f7a9e0|selinux_file_send_sigiotask:call|security/selinux/hooks.c,3394}"
+CE0x3f66390 "{CE0x3f66390|selinux_file_send_sigiotask:call|security/selinux/hooks.c,3394|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
-CE0x48d9ef0 "{CE0x48d9ef0|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,3401|security/selinux/hooks.c,3401|security/selinux/hooks.c,3408}"
-CE0x48da660 "{CE0x48da660|selinux_file_send_sigiotask:_tmp16|security/selinux/hooks.c,3408}"
-CE0x48daa20 "{CE0x48daa20|selinux_file_send_sigiotask:_tmp16|security/selinux/hooks.c,3408|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x3fc71c0 "{CE0x3fc71c0|2472:_%struct.cred*,_:_CRE_2472,2480_|*MultipleSource*|Function::selinux_file_send_sigiotask&Arg::tsk::|Function::task_sid&Arg::task::|security/selinux/hooks.c,208}"
+CE0x3feb170 "{CE0x3feb170|task_sid:tmp4|*LoadInst*|security/selinux/hooks.c,208}"
+CE0x3ffb720 "{CE0x3ffb720|cred_sid:cred|Function::cred_sid&Arg::cred::}"
+CE0x4024b20 "{CE0x4024b20|cred_sid:security|security/selinux/hooks.c,196}"
+CE0x3f72b10 "{CE0x3f72b10|cred_sid:tmp4|*LoadInst*|security/selinux/hooks.c,196}"
+CE0x4026fb0 "{CE0x4026fb0|cred_sid:tmp5|security/selinux/hooks.c,196}"
+CE0x4040ad0 "{CE0x4040ad0|cred_sid:sid|security/selinux/hooks.c,197}"
+CE0x4041930 "{CE0x4041930|cred_sid:tmp6|security/selinux/hooks.c,197}"
+CE0x3ffba80 "{CE0x3ffba80|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
+CE0x3ffa3c0 "{CE0x3ffa3c0|task_sid:call7|security/selinux/hooks.c,208}"
+CE0x3f78880 "{CE0x3f78880|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
+CE0x3f7a9e0 "{CE0x3f7a9e0|selinux_file_send_sigiotask:call|security/selinux/hooks.c,3394}"
+CE0x3f66390 "{CE0x3f66390|selinux_file_send_sigiotask:call|security/selinux/hooks.c,3394|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x3f63900 "{CE0x3f63900|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,3408|security/selinux/hooks.c,3401|security/selinux/hooks.c,3401}"
+CE0x3f8bf00 "{CE0x3f8bf00|selinux_file_send_sigiotask:tmp16|security/selinux/hooks.c,3408}"
+CE0x3f8c2c0 "{CE0x3f8c2c0|selinux_file_send_sigiotask:tmp16|security/selinux/hooks.c,3408|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
-CE0x48bf480 "{CE0x48bf480|selinux_file_send_sigiotask:_signum|Function::selinux_file_send_sigiotask&Arg::signum::|*SummSource*}"
-CE0x48bf2c0 "{CE0x48bf2c0|selinux_file_send_sigiotask:_signum|Function::selinux_file_send_sigiotask&Arg::signum::}"
-CE0x48c8620 "{CE0x48c8620|selinux_file_send_sigiotask:_tobool|security/selinux/hooks.c,3403}"
-CE0x48c1a30 "{CE0x48c1a30|selinux_file_send_sigiotask:_if.else}"
-CE0x48aef20 "{CE0x48aef20|selinux_file_send_sigiotask:_call2|security/selinux/hooks.c,3406}"
-CE0x48af5f0 "{CE0x48af5f0|selinux_file_send_sigiotask:_perm.0}"
-CE0x48c0960 "{CE0x48c0960|selinux_file_send_sigiotask:_perm.0|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]
+CE0x3f7d7a0 "{CE0x3f7d7a0|selinux_file_send_sigiotask:signum|Function::selinux_file_send_sigiotask&Arg::signum::|*SummSource*}"
+CE0x3f7d490 "{CE0x3f7d490|selinux_file_send_sigiotask:signum|Function::selinux_file_send_sigiotask&Arg::signum::}"
+CE0x3f707e0 "{CE0x3f707e0|selinux_file_send_sigiotask:tobool|security/selinux/hooks.c,3403}"
+CE0x3f76a70 "{CE0x3f76a70|selinux_file_send_sigiotask:if.else}"
+CE0x3f62fe0 "{CE0x3f62fe0|selinux_file_send_sigiotask:call2|security/selinux/hooks.c,3406}"
+CE0x3f72160 "{CE0x3f72160|selinux_file_send_sigiotask:perm.0}"
+CE0x3f75230 "{CE0x3f75230|selinux_file_send_sigiotask:perm.0|*SummSink*}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x4911480 "{CE0x4911480|2472:_%struct.cred*,_:_CRE_2472,2480_|*MultipleSource*|Function::task_sid&Arg::task::|Function::selinux_file_send_sigiotask&Arg::tsk::|security/selinux/hooks.c,208}"
-CE0x49355f0 "{CE0x49355f0|task_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,208}"
-CE0x4946300 "{CE0x4946300|cred_sid:_cred|Function::cred_sid&Arg::cred::}"
-CE0x49765d0 "{CE0x49765d0|cred_sid:_security|security/selinux/hooks.c,196}"
-CE0x497e5e0 "{CE0x497e5e0|cred_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,196}"
-CE0x498b5b0 "{CE0x498b5b0|cred_sid:_tmp5|security/selinux/hooks.c,196}"
-CE0x498ba70 "{CE0x498ba70|cred_sid:_sid|security/selinux/hooks.c,197}"
-CE0x498ca00 "{CE0x498ca00|cred_sid:_tmp6|security/selinux/hooks.c,197}"
-CE0x4946670 "{CE0x4946670|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
-CE0x4945600 "{CE0x4945600|task_sid:_call7|security/selinux/hooks.c,208}"
-CE0x48c3740 "{CE0x48c3740|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
-CE0x48a9b40 "{CE0x48a9b40|selinux_file_send_sigiotask:_call|security/selinux/hooks.c,3394}"
-CE0x48b12e0 "{CE0x48b12e0|selinux_file_send_sigiotask:_call|security/selinux/hooks.c,3394|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 

@@ -1,157 +1,157 @@
- : Explicit flows detected
 
- : Implicit flows detected
 
-| Function                           | sub :arrow_right: obj  |  sub :arrow_right:op   | obj :arrow_right: sub  |  obj :arrow_right: op  |  op:arrow_right: sub   |  op :arrow_right: obj  |  No cross-domain   |
-| ---------------------------------- | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :--------------------: | :----------------: |
-| **_TOMOYO_**                       |                        |                        |                        |                        |                        |                        |                    |
-| tomoyo_bprm_check_security         | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*2 |                        |                        |                    |
-| tomoyo_file_fcntl                  | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| tomoyo_file_ioctl                  | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_file_open                   | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*2 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| tomoyo_path_truncate               | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_path_unlink                 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_path_mkdir                  | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*2 |                    |
-| tomoyo_path_rmdir                  | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_path_symlink                | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_path_mknod                  | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*2 |                    |
-| tomoyo_path_link                   | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                        |                        |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_path_rename                 | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                        |                        |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_inode_getattr               | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_path_chmod                  | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*2 |                    |
-| tomoyo_path_chown                  | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| tomoyo_path_chroot                 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_sb_mount                    |                        |                        |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_sb_umount                   | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_sb_pivotroot                | :large_blue_diamond:*2 | :large_blue_diamond:*2 |                        |                        |                        | :large_blue_diamond:*1 |                    |
-| tomoyo_socket_bind                 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*4 | :large_blue_diamond:*4 |                    |
-| tomoyo_socket_connect              | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*4 | :large_blue_diamond:*4 |                    |
-| tomoyo_socket_listen               | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*4 | :large_blue_diamond:*4 |                    |
-| tomoyo_socket_sendmsg              | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*4 | :large_blue_diamond:*4 |                    |
-| ------                             |                        |                        |                        |                        |                        |                        |                    |
-| **_APPARMOR_**                     |                        |                        |                        |                        |                        |                        |                    |
-| apparmor_path_link                 |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_path_unlink               |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_path_rmdir                |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_path_symlink              |                        |                        |     :red_circle:*2     |                        |                        |                        |                    |
-| apparmor_path_mkdir                |                        |                        |     :red_circle:*2     |                        |                        |                        |                    |
-| apparmor_path_mknod                |                        |                        |     :red_circle:*2     |                        |                        |                        |                    |
-| apparmor_path_rename               | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_path_chmod                |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_path_chown                |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_path_truncate             |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_inode_getattr             |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| apparmor_file_open                 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        |                        |                        |                        |                    |
-| apparmor_file_permission           | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        |                        | :large_blue_diamond:*1 |                    |
-| apparmor_mmap_file                 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                    |
-| apparmor_file_mprotect             | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                        | :large_blue_diamond:*2 |                    |
-| apparmor_file_lock                 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        |                        | :large_blue_diamond:*1 |                    |
-| apparmor_ptrace_access_check       |                        |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        |                    |
-| apparmor_ptrace_traceme            | :large_blue_diamond:*1 |                        |                        |                        |                        |                        |                    |
-| apparmor_capable                   |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| apparmor_task_setrlimit            |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| ------                             |                        |                        |                        |                        |                        |                        |                    |
-| **_SELINUX_**                      |                        |                        |                        |                        |                        |                        |                    |
-| selinux_ptrace_access_check        |                        |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_ptrace_traceme             | :large_blue_diamond:*1 |                        |                        |                        |                        |                        |                    |
-| selinux_capget                     |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_capset                     |     :red_circle:*1     |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_capable                    |     :red_circle:*1     | :large_blue_diamond:*1 |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_quotactl                   |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_quota_on                   |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_syslog                     |                        |                        |                        |                        | :large_blue_diamond:*1 |                        |                    |
-| selinux_vm_enough_memory           |     :red_circle:*2     | :large_blue_diamond:*2 |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_netlink_send               |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_sb_kern_mount              |     :red_circle:*2     |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_sb_statfs                  |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_mount                      |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_umount                     |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_set_mnt_opts               |     :red_circle:*2     |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_inode_create               |     :red_circle:*1     |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_link                 |                        |                        |                        |                        |                        | :large_blue_diamond:*1 |                    |
-| selinux_inode_unlink               |                        |                        |                        |                        |                        | :large_blue_diamond:*1 |                    |
-| selinux_inode_symlink              |     :red_circle:*1     |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_mkdir                |     :red_circle:*1     |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_rmdir                |                        |                        |                        |                        |                        | :large_blue_diamond:*1 |                    |
-| selinux_inode_mknod                |     :red_circle:*1     |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_rename               |                        |                        |                        |     :red_circle:*1     |                        |                        |                    |
-| selinux_inode_readlink             |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_follow_link          |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_permission           |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_inode_setattr              |                        |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_inode_getattr              |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_setxattr             | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_getxattr             |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_listxattr            |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_removexattr          |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_inode_getsecurity          |     :red_circle:*2     | :large_blue_diamond:*2 |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_file_permission            | :large_blue_diamond:*2 | :large_blue_diamond:*2 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_file_ioctl                 |     :red_circle:*2     |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_mmap_file                  |     :red_circle:*2     |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_mmap_addr                  |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_file_mprotect              |     :red_circle:*2     | :large_blue_diamond:*2 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_file_lock                  | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_file_fcntl                 | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_file_send_sigiotask        |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_file_receive               | :large_blue_diamond:*2 |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_file_open                  |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_task_create                |     :red_circle:*1     |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_kernel_act_as              |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_kernel_create_files_as     |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_kernel_module_request      |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_setpgid               |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_getpgid               |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_getsid                |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_setnice               |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_task_setioprio             |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_task_getioprio             |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_setrlimit             |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_task_setscheduler          |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_task_getscheduler          |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_movememory            |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_task_kill                  | :large_blue_diamond:*1 |                        |                        |                        |                        |                        |                    |
-| selinux_task_wait                  |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_ipc_permission             |                        |                        |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_msg_queue_alloc_security   |     :red_circle:*1     |                        |                        |                        |                        |                        |                    |
-| selinux_msg_queue_associate        |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_msg_queue_msgctl           |                        |                        |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_msg_queue_msgsnd           | :large_blue_diamond:*2 |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_msg_queue_msgrcv           |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_shm_alloc_security         |     :red_circle:*1     |                        |                        |                        |                        |                        |                    |
-| selinux_shm_associate              |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_shm_shmctl                 |                        |                        |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_shm_shmat                  |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_sem_alloc_security         |     :red_circle:*1     |                        |                        |                        |                        |                        |                    |
-| selinux_sem_associate              |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_sem_semctl                 |                        |                        |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_sem_semop                  |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_getprocattr                | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_setprocattr                | :large_blue_diamond:*1 |                        |     :red_circle:*1     |                        |                        |                        |                    |
-| selinux_inode_getsecctx            |     :red_circle:*2     | :large_blue_diamond:*2 |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| selinux_socket_unix_stream_connect |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_unix_may_send       |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_create              |     :red_circle:*2     |                        |                        |                        |                        |                        |                    |
-| selinux_socket_bind                |                        |                        |     :red_circle:*1     | :large_blue_diamond:*1 |                        |                        |                    |
-| selinux_socket_connect             |                        |                        |     :red_circle:*1     |     :red_circle:*1     |                        |                        |                    |
-| selinux_socket_listen              |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_accept              |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_sendmsg             |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_recvmsg             |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_getsockname         |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_getpeername         |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_getsockopt          |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_setsockopt          |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_shutdown            |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_socket_sock_rcv_skb        | :large_blue_diamond:*1 |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_secmark_relabel_packet     |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_tun_dev_create             |     :red_circle:*1     |                        |                        |                        |                        |                        |                    |
-| selinux_tun_dev_attach_queue       |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_tun_dev_open               |     :red_circle:*1     |                        |                        |                        |                        |                        |                    |
-| selinux_xfrm_policy_alloc          |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_xfrm_policy_delete         |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_xfrm_state_alloc           |                        |                        | :large_blue_diamond:*2 |                        |                        |                        |                    |
-| selinux_xfrm_state_delete          |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_xfrm_policy_lookup         |                        |                        |                        |                        |                        |                        | :white_check_mark: |
-| selinux_xfrm_state_pol_flow_match  |                        |                        | :large_blue_diamond:*1 |                        |                        |                        |                    |
-| selinux_key_permission             |                        |                        |                        |                        | :large_blue_diamond:*1 | :large_blue_diamond:*1 |                    |
-| ------                             |                        |                        |                        |                        |                        |                        |                    |
+
+
+| Function                           | sub > obj | sub > op | obj > sub | obj > op | op > sub | op > obj | dyn > stat | in > med | ext > in | ext > med |
+| ---------------------------------- | :-------: | :------: | :-------: | :------: | :------: | :------: | :--------: | :------: | :------: | :-------: |
+| **_TOMOYO_**                       |           |          |           |          |          |          |            |          |          |           |
+| tomoyo_bprm_check_security         |    -/2    |   -/2    |           |   -/2    |          |          |    -/4     |   1/4    |          |    1/2    |
+| tomoyo_file_fcntl                  |    -/1    |   -/1    |    -/1    |   -/1    |   -/2    |   -/2    |    1/3     |   1/8    |          |    1/2    |
+| tomoyo_file_ioctl                  |    -/1    |   -/1    |           |   -/1    |          |   -/1    |    2/2     |   2/3    |          |    1/2    |
+| tomoyo_file_open                   |    -/2    |   -/2    |           |   -/2    |   -/1    |   -/1    |    1/4     |   2/6    |          |    1/2    |
+| tomoyo_path_truncate               |    -/1    |   -/1    |           |   -/1    |          |   -/1    |    -/2     |   -/2    |          |    1/2    |
+| tomoyo_path_unlink                 |    -/1    |   -/1    |           |   -/2    |          |   -/1    |    -/3     |   -/4    |          |    1/2    |
+| tomoyo_path_mkdir                  |    -/1    |   -/1    |           |   -/1    |          |   -/1    |    1/2     |   1/2    |          |    1/2    |
+| tomoyo_path_rmdir                  |    -/1    |   -/1    |           |   -/2    |          |   -/1    |    -/3     |   -/4    |          |    1/2    |
+| tomoyo_path_symlink                |    -/1    |   -/1    |           |   -/3    |          |   -/1    |    -/4     |   -/6    |          |    1/2    |
+| tomoyo_path_mknod                  |    -/2    |   -/2    |           |   -/2    |          |   -/2    |    4/4     |   2/4    |          |    2/4    |
+| tomoyo_path_link                   |    -/3    |   -/3    |           |          |          |   -/1    |    -/3     |          |          |    1/2    |
+| tomoyo_path_rename                 |    -/3    |   -/3    |           |          |          |   -/1    |    -/3     |          |          |    1/2    |
+| tomoyo_inode_getattr               |    -/1    |   -/1    |           |   -/2    |          |   -/1    |    -/3     |   -/4    |          |    1/2    |
+| tomoyo_path_chmod                  |    -/1    |   -/1    |           |   -/1    |          |   -/1    |    1/2     |   1/2    |          |    1/2    |
+| tomoyo_path_chown                  |    -/1    |   -/1    |    -/3    |   -/3    |   -/1    |   -/1    |    -/4     |   2/7    |          |    1/2    |
+| tomoyo_path_chroot                 |    -/1    |   -/1    |           |   -/1    |          |   -/1    |    -/2     |   -/2    |          |    1/2    |
+| tomoyo_sb_mount                    |           |          |           |   -/2    |          |   -/1    |    1/3     |   1/6    |          |           |
+| tomoyo_sb_umount                   |    -/1    |   -/1    |           |   -/1    |          |   -/1    |    -/2     |   -/2    |          |    1/2    |
+| tomoyo_sb_pivotroot                |    -/3    |   -/3    |           |          |          |   -/1    |    -/3     |          |          |    1/2    |
+| tomoyo_socket_bind                 |    -/2    |   -/2    |    -/4    |   -/4    |   -/4    |   -/4    |    4/6     |   6/14   |          |    2/4    |
+| tomoyo_socket_connect              |    -/2    |   -/2    |    -/4    |   -/4    |   -/4    |   -/4    |    4/6     |   6/14   |          |    2/4    |
+| tomoyo_socket_listen               |    -/2    |   -/2    |    -/4    |   -/4    |   -/4    |   -/4    |    4/6     |   6/14   |          |    2/4    |
+| tomoyo_socket_sendmsg              |    -/2    |   -/2    |    -/4    |   -/4    |   -/4    |   -/4    |    4/6     |   6/14   |          |    2/4    |
+| ------                             |           |          |           |          |          |          |            |          |          |           |
+| **_APPARMOR_**                     |           |          |           |          |          |          |            |          |          |           |
+| apparmor_path_link                 |           |          |    -/1    |          |          |          |            |   3/1    |          |    1/-    |
+| apparmor_path_unlink               |           |          |    -/2    |          |          |          |            |   2/2    |          |    1/-    |
+| apparmor_path_rmdir                |           |          |    -/2    |          |          |          |            |   2/2    |          |    1/-    |
+| apparmor_path_symlink              |           |          |    2/1    |          |          |          |            |   2/1    |          |    5/-    |
+| apparmor_path_mkdir                |           |          |    2/1    |          |          |          |            |   2/1    |          |    5/-    |
+| apparmor_path_mknod                |           |          |    2/1    |          |          |          |            |   4/1    |          |    3/-    |
+| apparmor_path_rename               |    -/2    |          |    -/2    |          |          |          |            |   4/2    |          |    1/1    |
+| apparmor_path_chmod                |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| apparmor_path_chown                |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| apparmor_path_truncate             |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| apparmor_inode_getattr             |           |          |    -/1    |          |          |          |            |   2/1    |          |    1/-    |
+| apparmor_file_open                 |    -/1    |   -/1    |           |          |          |          |    -/2     |   1/3    |          |           |
+| apparmor_file_permission           |    -/2    |          |    -/1    |          |          |   -/1    |    1/-     |   2/2    |          |    1/1    |
+| apparmor_mmap_file                 |    -/2    |          |    -/1    |   -/1    |          |   -/2    |    -/3     |   1/6    |          |    1/1    |
+| apparmor_file_mprotect             |    -/2    |          |    -/1    |   -/1    |          |   -/2    |    -/3     |   1/4    |          |    1/3    |
+| apparmor_file_lock                 |    -/2    |          |    -/1    |          |          |   -/1    |    -/1     |   1/3    |          |    1/1    |
+| apparmor_ptrace_access_check       |           |          |    -/1    |          |   -/1    |          |    1/-     |   2/2    |          |    1/-    |
+| apparmor_ptrace_traceme            |    -/1    |          |           |          |          |          |            |   1/1    |          |    1/-    |
+| apparmor_capable                   |           |          |           |          |          |          |            |   1/-    |          |           |
+| apparmor_task_setrlimit            |           |          |           |          |          |          |            |          |          |    1/-    |
+| ------                             |           |          |           |          |          |          |            |          |          |           |
+| **_SELINUX_**                      |           |          |           |          |          |          |            |          |          |           |
+| selinux_ptrace_access_check        |           |          |    -/1    |          |   -/1    |   -/1    |            |   1/3    |          |    1/-    |
+| selinux_ptrace_traceme             |    -/1    |          |           |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_capget                     |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_capset                     |    1/-    |          |    1/-    |          |          |          |            |   4/-    |          |           |
+| selinux_capable                    |    1/-    |   -/1    |           |          |   -/1    |   -/1    |    1/1     |   3/3    |          |           |
+| selinux_quotactl                   |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_quota_on                   |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_syslog                     |           |          |           |          |   -/1    |          |            |   1/1    |          |    1/-    |
+| selinux_vm_enough_memory           |    2/-    |   -/2    |           |          |   -/1    |   -/1    |    -/2     |          |          |    3/3    |
+| selinux_netlink_send               |           |          |    -/2    |   -/2    |   -/1    |   -/1    |    1/2     |   1/5    |          |    1/-    |
+| selinux_sb_kern_mount              |    2/-    |          |    1/-    |          |          |          |            |   2/-    |          |    2/-    |
+| selinux_sb_statfs                  |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_mount                      |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_umount                     |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_set_mnt_opts               |    2/-    |          |    2/-    |          |          |          |            |   4/-    |          |    2/-    |
+| selinux_inode_create               |    1/-    |          |    -/3    |          |          |          |            |   2/4    |          |    2/-    |
+| selinux_inode_link                 |           |          |           |          |          |   -/1    |            |   2/-    |          |    1/-    |
+| selinux_inode_unlink               |           |          |           |          |          |   -/1    |    1/-     |   2/-    |          |    1/-    |
+| selinux_inode_symlink              |    1/-    |          |    -/3    |          |          |          |            |   2/4    |          |    2/-    |
+| selinux_inode_mkdir                |    1/-    |          |    -/3    |          |          |          |            |   2/4    |          |    2/-    |
+| selinux_inode_rmdir                |           |          |           |          |          |   -/1    |            |   2/-    |          |    1/-    |
+| selinux_inode_mknod                |    1/-    |          |    -/2    |          |          |          |            |   1/3    |          |    2/-    |
+| selinux_inode_rename               |           |          |           |   2/-    |          |          |    2/-     |   4/-    |          |    1/-    |
+| selinux_inode_readlink             |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_inode_follow_link          |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_inode_permission           |           |          |    -/1    |   -/1    |   -/2    |   -/2    |    -/3     |   1/8    |          |    1/-    |
+| selinux_inode_setattr              |           |          |    -/1    |          |   -/1    |   -/1    |    -/1     |   1/4    |          |    1/-    |
+| selinux_inode_getattr              |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_inode_setxattr             |    -/1    |          |    -/3    |          |          |          |            |   1/5    |          |    1/1    |
+| selinux_inode_getxattr             |           |          |    -/1    |          |          |          |            |   2/1    |          |    1/-    |
+| selinux_inode_listxattr            |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_inode_removexattr          |           |          |    -/2    |          |          |          |            |   1/3    |          |    1/-    |
+| selinux_inode_getsecurity          |    2/-    |   -/2    |           |          |   -/1    |   -/1    |    -/2     |          |          |    3/3    |
+| selinux_file_permission            |    -/2    |   -/2    |    -/1    |   -/1    |   -/1    |   -/1    |    -/4     |   1/5    |          |    1/2    |
+| selinux_file_ioctl                 |    2/-    |          |    -/1    |          |   -/1    |   -/1    |            |   1/3    |          |    2/-    |
+| selinux_mmap_file                  |    2/-    |          |    -/1    |   -/1    |   -/3    |   -/3    |    -/4     |   1/11   |          |    2/-    |
+| selinux_mmap_addr                  |    1/-    |          |    -/1    |          |          |          |            |   -/1    |          |    1/-    |
+| selinux_file_mprotect              |    2/-    |   -/2    |    -/1    |   -/1    |   -/2    |   -/2    |    -/5     |   1/8    |          |    2/1    |
+| selinux_file_lock                  |    -/2    |          |    -/1    |          |   -/1    |   -/1    |            |   1/1    |          |    1/1    |
+| selinux_file_fcntl                 |    -/2    |          |    -/1    |          |   -/2    |   -/2    |            |   1/5    |          |    1/1    |
+| selinux_file_send_sigiotask        |           |          |           |          |          |          |    -/1     |   2/1    |          |           |
+| selinux_file_receive               |    -/2    |          |    -/1    |   -/1    |   -/1    |   -/1    |    -/1     |   1/2    |          |    1/1    |
+| selinux_file_open                  |           |          |    -/1    |          |          |          |    -/2     |   2/3    |          |           |
+| selinux_task_create                |    1/-    |          |    1/-    |          |          |          |            |          |          |    4/-    |
+| selinux_kernel_act_as              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_kernel_create_files_as     |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_kernel_module_request      |           |          |           |          |          |          |            |          |          |    1/-    |
+| selinux_task_setpgid               |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_task_getpgid               |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_task_getsid                |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_task_setnice               |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_task_setioprio             |           |          |    -/2    |          |          |          |            |   1/3    |          |    1/-    |
+| selinux_task_getioprio             |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_task_setrlimit             |           |          |    -/3    |          |          |          |            |   1/5    |          |    1/-    |
+| selinux_task_setscheduler          |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_task_getscheduler          |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_task_movememory            |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_task_kill                  |    -/1    |          |           |          |          |          |    1/1     |   3/2    |          |    1/-    |
+| selinux_task_wait                  |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_ipc_permission             |           |          |           |          |   -/1    |   -/1    |    -/1     |   1/3    |          |    1/-    |
+| selinux_msg_queue_alloc_security   |    1/-    |          |           |          |          |          |            |   1/-    |          |    2/-    |
+| selinux_msg_queue_associate        |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_msg_queue_msgctl           |           |          |           |          |   -/1    |   -/1    |    -/1     |   1/3    |          |    1/-    |
+| selinux_msg_queue_msgsnd           |    -/2    |          |    1/1    |          |          |          |            |   3/1    |          |    1/1    |
+| selinux_msg_queue_msgrcv           |           |          |           |          |          |          |            |   3/-    |          |           |
+| selinux_shm_alloc_security         |    1/-    |          |           |          |          |          |            |   1/-    |          |    2/-    |
+| selinux_shm_associate              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_shm_shmctl                 |           |          |           |          |   -/1    |   -/1    |    1/1     |   1/3    |          |    1/-    |
+| selinux_shm_shmat                  |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_sem_alloc_security         |    1/-    |          |           |          |          |          |            |   1/-    |          |    2/-    |
+| selinux_sem_associate              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_sem_semctl                 |           |          |           |          |   -/1    |   -/1    |    1/1     |   1/3    |          |    1/-    |
+| selinux_sem_semop                  |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_getprocattr                |    -/1    |          |    -/1    |          |          |          |            |   1/1    |          |    1/1    |
+| selinux_setprocattr                |    -/1    |          |    1/-    |          |          |          |            |   2/-    |          |    1/1    |
+| selinux_inode_getsecctx            |    2/-    |   -/2    |           |          |   -/1    |   -/1    |    -/2     |          |          |    3/3    |
+| selinux_socket_unix_stream_connect |           |          |           |          |          |          |            |   2/-    |          |           |
+| selinux_socket_unix_may_send       |           |          |           |          |          |          |            |   2/-    |          |           |
+| selinux_socket_create              |    2/-    |          |           |          |          |          |            |          |          |    2/-    |
+| selinux_socket_bind                |           |          |    1/1    |   -/2    |          |          |    -/2     |   2/4    |          |    1/-    |
+| selinux_socket_connect             |           |          |    1/2    |   1/2    |          |          |    1/2     |   3/6    |          |    1/-    |
+| selinux_socket_listen              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_accept              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_sendmsg             |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_recvmsg             |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_getsockname         |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_getpeername         |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_getsockopt          |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_setsockopt          |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_shutdown            |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_socket_sock_rcv_skb        |    -/1    |          |    -/1    |          |          |          |            |   2/2    |          |           |
+| selinux_secmark_relabel_packet     |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_tun_dev_create             |    1/-    |          |           |          |          |          |            |          |          |    2/-    |
+| selinux_tun_dev_attach_queue       |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
+| selinux_tun_dev_open               |    1/-    |          |           |          |          |          |            |   1/-    |          |    2/-    |
+| selinux_xfrm_policy_alloc          |           |          |    -/3    |          |          |          |            |   2/4    |          |           |
+| selinux_xfrm_policy_delete         |           |          |    -/1    |          |          |          |            |   1/1    |          |           |
+| selinux_xfrm_state_alloc           |           |          |    -/3    |          |          |          |            |   1/3    |          |           |
+| selinux_xfrm_state_delete          |           |          |    -/1    |          |          |          |            |   1/1    |          |           |
+| selinux_xfrm_policy_lookup         |           |          |           |          |          |          |            |   2/-    |          |           |
+| selinux_xfrm_state_pol_flow_match  |           |          |    -/2    |          |          |          |            |   2/3    |          |           |
+| selinux_key_permission             |           |          |           |          |   -/1    |   -/1    |    1/-     |   3/2    |          |           |
+| ------                             |           |          |           |          |          |          |            |          |          |           |

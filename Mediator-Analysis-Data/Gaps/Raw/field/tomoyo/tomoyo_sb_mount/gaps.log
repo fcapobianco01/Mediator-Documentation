@@ -1,56 +1,89 @@
 [tomoyo_sb_mount]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:3]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
-CE0x589ef50 "{CE0x589ef50|tomoyo_mount_acl:_flags|Function::tomoyo_mount_acl&Arg::flags::|*SummSource*}"
-CE0x589ee40 "{CE0x589ee40|tomoyo_mount_acl:_flags|Function::tomoyo_mount_acl&Arg::flags::}"
-CE0x5bc2020 "{CE0x5bc2020|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_54,55_}"
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:3]
+CE0x38c7f30 "{CE0x38c7f30|tomoyo_mount_acl:flags|Function::tomoyo_mount_acl&Arg::flags::|*SummSource*}"
+CE0x38c7c50 "{CE0x38c7c50|tomoyo_mount_acl:flags|Function::tomoyo_mount_acl&Arg::flags::}"
+CE0x5657cd0 "{CE0x5657cd0|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_49,50_}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x82fe5d0 "{CE0x82fe5d0|16:_%struct.dentry*,_:_SCMRE_1,5_|*MultipleSource*|security/tomoyo/mount.c,79|security/tomoyo/mount.c, 79|security/tomoyo/mount.c, 80|security/tomoyo/mount.c,79}"
-CE0x68f97c0 "{CE0x68f97c0|tomoyo_mount_acl:_call2|security/tomoyo/mount.c,101}"
-CE0x68f8510 "{CE0x68f8510|tomoyo_mount_acl:_tobool3|security/tomoyo/mount.c,102}"
-CE0x82c60e0 "{CE0x82c60e0|tomoyo_mount_acl:_if.end51}"
-CE0x67947e0 "{CE0x67947e0|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_44,45_}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x82fe5d0 "{CE0x82fe5d0|16:_%struct.dentry*,_:_SCMRE_1,5_|*MultipleSource*|security/tomoyo/mount.c,79|security/tomoyo/mount.c, 79|security/tomoyo/mount.c, 80|security/tomoyo/mount.c,79}"
-CE0x68f97c0 "{CE0x68f97c0|tomoyo_mount_acl:_call2|security/tomoyo/mount.c,101}"
-CE0x68f8510 "{CE0x68f8510|tomoyo_mount_acl:_tobool3|security/tomoyo/mount.c,102}"
-CE0x82c60e0 "{CE0x82c60e0|tomoyo_mount_acl:_if.end51}"
-CE0x6632db0 "{CE0x6632db0|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_48,49_}"
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x5653900 "{CE0x5653900|tomoyo_mount_acl:type|Function::tomoyo_mount_acl&Arg::type::|*SummSource*}"
+CE0x539ca60 "{CE0x539ca60|tomoyo_mount_acl:type|Function::tomoyo_mount_acl&Arg::type::}"
+CE0x5443480 "{CE0x5443480|tomoyo_mount_acl:cmp|security/tomoyo/mount.c,110}"
+CE0x4824230 "{CE0x4824230|tomoyo_mount_acl:if.end51}"
+CE0x5657750 "{CE0x5657750|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_55,56_}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
-CE0x68ebb00 "{CE0x68ebb00|tomoyo_mount_acl:_type|Function::tomoyo_mount_acl&Arg::type::|*SummSource*}"
-CE0x68eb710 "{CE0x68eb710|tomoyo_mount_acl:_type|Function::tomoyo_mount_acl&Arg::type::}"
-CE0x82580a0 "{CE0x82580a0|tomoyo_mount_acl:_cmp16|security/tomoyo/mount.c,117}"
-CE0x82c60e0 "{CE0x82c60e0|tomoyo_mount_acl:_if.end51}"
-CE0x67947e0 "{CE0x67947e0|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_44,45_}"
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x5653900 "{CE0x5653900|tomoyo_mount_acl:type|Function::tomoyo_mount_acl&Arg::type::|*SummSource*}"
+CE0x539ca60 "{CE0x539ca60|tomoyo_mount_acl:type|Function::tomoyo_mount_acl&Arg::type::}"
+CE0x5443480 "{CE0x5443480|tomoyo_mount_acl:cmp|security/tomoyo/mount.c,110}"
+CE0x4824230 "{CE0x4824230|tomoyo_mount_acl:if.end51}"
+CE0x6f9e600 "{CE0x6f9e600|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_40,41_}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}]
-CE0x589ef50 "{CE0x589ef50|tomoyo_mount_acl:_flags|Function::tomoyo_mount_acl&Arg::flags::|*SummSource*}"
-CE0x589ee40 "{CE0x589ee40|tomoyo_mount_acl:_flags|Function::tomoyo_mount_acl&Arg::flags::}"
-CE0x6c095e0 "{CE0x6c095e0|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_51,52_}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x707d630 "{CE0x707d630|16:_%struct.dentry*,_:_SCMRE_24,32_|*MultipleSource*|security/tomoyo/mount.c,79|security/tomoyo/mount.c, 79|security/tomoyo/mount.c, 80|security/tomoyo/mount.c,79}"
+CE0x6e02010 "{CE0x6e02010|tomoyo_mount_acl:call39|security/tomoyo/mount.c,137}"
+CE0x6ddaa40 "{CE0x6ddaa40|tomoyo_mount_acl:tobool40|security/tomoyo/mount.c,138}"
+CE0x4824230 "{CE0x4824230|tomoyo_mount_acl:if.end51}"
+CE0x5657750 "{CE0x5657750|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_55,56_}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x707d630 "{CE0x707d630|16:_%struct.dentry*,_:_SCMRE_24,32_|*MultipleSource*|security/tomoyo/mount.c,79|security/tomoyo/mount.c, 79|security/tomoyo/mount.c, 80|security/tomoyo/mount.c,79}"
+CE0x6e02010 "{CE0x6e02010|tomoyo_mount_acl:call39|security/tomoyo/mount.c,137}"
+CE0x6ddaa40 "{CE0x6ddaa40|tomoyo_mount_acl:tobool40|security/tomoyo/mount.c,138}"
+CE0x4824230 "{CE0x4824230|tomoyo_mount_acl:if.end51}"
+CE0x6f9e600 "{CE0x6f9e600|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_40,41_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:3]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:3]
+CE0x38c7f30 "{CE0x38c7f30|tomoyo_mount_acl:flags|Function::tomoyo_mount_acl&Arg::flags::|*SummSource*}"
+CE0x38c7c50 "{CE0x38c7c50|tomoyo_mount_acl:flags|Function::tomoyo_mount_acl&Arg::flags::}"
+CE0x5657750 "{CE0x5657750|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_55,56_}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x5591b90 "{CE0x5591b90|tomoyo_mount_acl:dev_name|Function::tomoyo_mount_acl&Arg::dev_name::|*SummSource*}"
+CE0x38cad80 "{CE0x38cad80|tomoyo_mount_acl:dev_name|Function::tomoyo_mount_acl&Arg::dev_name::}"
+CE0x5591df0 "{CE0x5591df0|tomoyo_mount_acl:tobool33|security/tomoyo/mount.c,132}"
+CE0x4824230 "{CE0x4824230|tomoyo_mount_acl:if.end51}"
+CE0x5657750 "{CE0x5657750|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_55,56_}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x5591b90 "{CE0x5591b90|tomoyo_mount_acl:dev_name|Function::tomoyo_mount_acl&Arg::dev_name::|*SummSource*}"
+CE0x38cad80 "{CE0x38cad80|tomoyo_mount_acl:dev_name|Function::tomoyo_mount_acl&Arg::dev_name::}"
+CE0x5591df0 "{CE0x5591df0|tomoyo_mount_acl:tobool33|security/tomoyo/mount.c,132}"
+CE0x4824230 "{CE0x4824230|tomoyo_mount_acl:if.end51}"
+CE0x6f9e600 "{CE0x6f9e600|0:_%struct.tomoyo_obj_info*,_24:_%struct.tomoyo_path_info*,_32:_%struct.tomoyo_path_info*,_40:_%struct.tomoyo_path_info*,_48:_i64,_56:_i32,_72:_i8,_:_CMRE_40,41_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 

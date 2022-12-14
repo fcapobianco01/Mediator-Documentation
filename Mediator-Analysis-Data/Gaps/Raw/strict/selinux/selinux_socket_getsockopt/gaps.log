@@ -1,73 +1,73 @@
 [selinux_socket_getsockopt]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x5571900 "{CE0x5571900|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|security/selinux/hooks.c,4248|Function::selinux_socket_getsockopt&Arg::sock::}"
-CE0x557c020 "{CE0x557c020|selinux_socket_getsockopt:_tmp4|*LoadInst*|security/selinux/hooks.c,4248}"
-CE0x5551760 "{CE0x5551760|sock_has_perm:_sk|Function::sock_has_perm&Arg::sk::}"
-CE0x55a53a0 "{CE0x55a53a0|sock_has_perm:_sk_security|security/selinux/hooks.c,3964}"
-CE0x55cbed0 "{CE0x55cbed0|sock_has_perm:_tmp2|*LoadInst*|security/selinux/hooks.c,3964}"
-CE0x55e9ce0 "{CE0x55e9ce0|sock_has_perm:_tmp3|security/selinux/hooks.c,3964}"
-CE0x55dcce0 "{CE0x55dcce0|sock_has_perm:_sid5|security/selinux/hooks.c,3976}"
-CE0x55dd630 "{CE0x55dd630|sock_has_perm:_tmp16|security/selinux/hooks.c,3976}"
-CE0x55dd920 "{CE0x55dd920|sock_has_perm:_tmp16|security/selinux/hooks.c,3976|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
------------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x555ed60 "{CE0x555ed60|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
-CE0x559c430 "{CE0x559c430|task_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,208}"
-CE0x561b7d0 "{CE0x561b7d0|cred_sid:_cred|Function::cred_sid&Arg::cred::}"
-CE0x55705f0 "{CE0x55705f0|cred_sid:_security|security/selinux/hooks.c,196}"
-CE0x55fc530 "{CE0x55fc530|cred_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,196}"
-CE0x555b5b0 "{CE0x555b5b0|cred_sid:_tmp5|security/selinux/hooks.c,196}"
-CE0x561e810 "{CE0x561e810|cred_sid:_sid|security/selinux/hooks.c,197}"
-CE0x55fdd30 "{CE0x55fdd30|cred_sid:_tmp6|security/selinux/hooks.c,197}"
-CE0x561bb40 "{CE0x561bb40|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
-CE0x561aad0 "{CE0x561aad0|task_sid:_call7|security/selinux/hooks.c,208}"
-CE0x55e46c0 "{CE0x55e46c0|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
-CE0x55e5bb0 "{CE0x55e5bb0|sock_has_perm:_call|security/selinux/hooks.c,3967}"
-CE0x55e5d50 "{CE0x55e5d50|sock_has_perm:_call|security/selinux/hooks.c,3967|*SummSink*}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x4ef46c0 "{CE0x4ef46c0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CE0x4f87ee0 "{CE0x4f87ee0|task_sid:tmp4|*LoadInst*|security/selinux/hooks.c,208}"
+CE0x4faf8c0 "{CE0x4faf8c0|cred_sid:cred|Function::cred_sid&Arg::cred::}"
+CE0x4f1ec70 "{CE0x4f1ec70|cred_sid:security|security/selinux/hooks.c,196}"
+CE0x4f753e0 "{CE0x4f753e0|cred_sid:tmp4|*LoadInst*|security/selinux/hooks.c,196}"
+CE0x4f75640 "{CE0x4f75640|cred_sid:tmp5|security/selinux/hooks.c,196}"
+CE0x4f903d0 "{CE0x4f903d0|cred_sid:sid|security/selinux/hooks.c,197}"
+CE0x4fb3a30 "{CE0x4fb3a30|cred_sid:tmp6|security/selinux/hooks.c,197}"
+CE0x4fafc20 "{CE0x4fafc20|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
+CE0x4fae560 "{CE0x4fae560|task_sid:call7|security/selinux/hooks.c,208}"
+CE0x4f78cf0 "{CE0x4f78cf0|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
+CE0x4f7a310 "{CE0x4f7a310|sock_has_perm:call|security/selinux/hooks.c,3967}"
+CE0x4f7a500 "{CE0x4f7a500|sock_has_perm:call|security/selinux/hooks.c,3967|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x4f0cf90 "{CE0x4f0cf90|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|Function::selinux_socket_getsockopt&Arg::sock::|security/selinux/hooks.c,4248}"
+CE0x4f13870 "{CE0x4f13870|selinux_socket_getsockopt:tmp4|*LoadInst*|security/selinux/hooks.c,4248}"
+CE0x4637150 "{CE0x4637150|sock_has_perm:sk|Function::sock_has_perm&Arg::sk::}"
+CE0x4ef0ea0 "{CE0x4ef0ea0|sock_has_perm:sk_security|security/selinux/hooks.c,3964}"
+CE0x4f606b0 "{CE0x4f606b0|sock_has_perm:tmp2|*LoadInst*|security/selinux/hooks.c,3964}"
+CE0x5a584f0 "{CE0x5a584f0|sock_has_perm:tmp3|security/selinux/hooks.c,3964}"
+CE0x4f722b0 "{CE0x4f722b0|sock_has_perm:sclass|security/selinux/hooks.c,3976}"
+CE0x4f6eb70 "{CE0x4f6eb70|sock_has_perm:tmp17|security/selinux/hooks.c,3976}"
+CE0x4f6ecc0 "{CE0x4f6ecc0|sock_has_perm:tmp17|security/selinux/hooks.c,3976|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
 
 implicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x555ed60 "{CE0x555ed60|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
-CE0x559c430 "{CE0x559c430|task_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,208}"
-CE0x561b7d0 "{CE0x561b7d0|cred_sid:_cred|Function::cred_sid&Arg::cred::}"
-CE0x55705f0 "{CE0x55705f0|cred_sid:_security|security/selinux/hooks.c,196}"
-CE0x55fc530 "{CE0x55fc530|cred_sid:_tmp4|*LoadInst*|security/selinux/hooks.c,196}"
-CE0x555b5b0 "{CE0x555b5b0|cred_sid:_tmp5|security/selinux/hooks.c,196}"
-CE0x561e810 "{CE0x561e810|cred_sid:_sid|security/selinux/hooks.c,197}"
-CE0x55fdd30 "{CE0x55fdd30|cred_sid:_tmp6|security/selinux/hooks.c,197}"
-CE0x561bb40 "{CE0x561bb40|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
-CE0x561aad0 "{CE0x561aad0|task_sid:_call7|security/selinux/hooks.c,208}"
-CE0x55e46c0 "{CE0x55e46c0|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
-CE0x55e5bb0 "{CE0x55e5bb0|sock_has_perm:_call|security/selinux/hooks.c,3967}"
-CE0x55e5d50 "{CE0x55e5d50|sock_has_perm:_call|security/selinux/hooks.c,3967|*SummSink*}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x4ef46c0 "{CE0x4ef46c0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CE0x4f87ee0 "{CE0x4f87ee0|task_sid:tmp4|*LoadInst*|security/selinux/hooks.c,208}"
+CE0x4faf8c0 "{CE0x4faf8c0|cred_sid:cred|Function::cred_sid&Arg::cred::}"
+CE0x4f1ec70 "{CE0x4f1ec70|cred_sid:security|security/selinux/hooks.c,196}"
+CE0x4f753e0 "{CE0x4f753e0|cred_sid:tmp4|*LoadInst*|security/selinux/hooks.c,196}"
+CE0x4f75640 "{CE0x4f75640|cred_sid:tmp5|security/selinux/hooks.c,196}"
+CE0x4f903d0 "{CE0x4f903d0|cred_sid:sid|security/selinux/hooks.c,197}"
+CE0x4fb3a30 "{CE0x4fb3a30|cred_sid:tmp6|security/selinux/hooks.c,197}"
+CE0x4fafc20 "{CE0x4fafc20|_ret_i32_%tmp6,_!dbg_!27716|security/selinux/hooks.c,197}"
+CE0x4fae560 "{CE0x4fae560|task_sid:call7|security/selinux/hooks.c,208}"
+CE0x4f78cf0 "{CE0x4f78cf0|_ret_i32_%call7,_!dbg_!27749|security/selinux/hooks.c,210}"
+CE0x4f7a310 "{CE0x4f7a310|sock_has_perm:call|security/selinux/hooks.c,3967}"
+CE0x4f7a500 "{CE0x4f7a500|sock_has_perm:call|security/selinux/hooks.c,3967|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x5571900 "{CE0x5571900|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|security/selinux/hooks.c,4248|Function::selinux_socket_getsockopt&Arg::sock::}"
-CE0x557c020 "{CE0x557c020|selinux_socket_getsockopt:_tmp4|*LoadInst*|security/selinux/hooks.c,4248}"
-CE0x5551760 "{CE0x5551760|sock_has_perm:_sk|Function::sock_has_perm&Arg::sk::}"
-CE0x55a53a0 "{CE0x55a53a0|sock_has_perm:_sk_security|security/selinux/hooks.c,3964}"
-CE0x55cbed0 "{CE0x55cbed0|sock_has_perm:_tmp2|*LoadInst*|security/selinux/hooks.c,3964}"
-CE0x55e9ce0 "{CE0x55e9ce0|sock_has_perm:_tmp3|security/selinux/hooks.c,3964}"
-CE0x55dcce0 "{CE0x55dcce0|sock_has_perm:_sid5|security/selinux/hooks.c,3976}"
-CE0x55dd630 "{CE0x55dd630|sock_has_perm:_tmp16|security/selinux/hooks.c,3976}"
-CE0x55dd920 "{CE0x55dd920|sock_has_perm:_tmp16|security/selinux/hooks.c,3976|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x4f0cf90 "{CE0x4f0cf90|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|Function::selinux_socket_getsockopt&Arg::sock::|security/selinux/hooks.c,4248}"
+CE0x4f13870 "{CE0x4f13870|selinux_socket_getsockopt:tmp4|*LoadInst*|security/selinux/hooks.c,4248}"
+CE0x4637150 "{CE0x4637150|sock_has_perm:sk|Function::sock_has_perm&Arg::sk::}"
+CE0x4ef0ea0 "{CE0x4ef0ea0|sock_has_perm:sk_security|security/selinux/hooks.c,3964}"
+CE0x4f606b0 "{CE0x4f606b0|sock_has_perm:tmp2|*LoadInst*|security/selinux/hooks.c,3964}"
+CE0x5a584f0 "{CE0x5a584f0|sock_has_perm:tmp3|security/selinux/hooks.c,3964}"
+CE0x4f71080 "{CE0x4f71080|sock_has_perm:sid5|security/selinux/hooks.c,3976}"
+CE0x4f71b40 "{CE0x4f71b40|sock_has_perm:tmp16|security/selinux/hooks.c,3976}"
+CE0x4f71ce0 "{CE0x4f71ce0|sock_has_perm:tmp16|security/selinux/hooks.c,3976|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 

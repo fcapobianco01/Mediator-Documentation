@@ -1,45 +1,45 @@
 [selinux_mmap_addr]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x3fc22b0 "{CE0x3fc22b0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
-CE0x3fc3320 "{CE0x3fc3320|current_sid:_tmp22|security/selinux/hooks.c,218}"
-CE0x3fc37c0 "{CE0x3fc37c0|current_sid:_tmp23|security/selinux/hooks.c,218}"
-CE0x3fc4200 "{CE0x3fc4200|current_sid:_sid|security/selinux/hooks.c,220}"
-CE0x3fc4ee0 "{CE0x3fc4ee0|current_sid:_tmp24|security/selinux/hooks.c,220}"
-CE0x3f56bb0 "{CE0x3f56bb0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
-CE0x3f7a9c0 "{CE0x3f7a9c0|selinux_mmap_addr:_call2|security/selinux/hooks.c,3281}"
-CE0x3f7ac70 "{CE0x3f7ac70|selinux_mmap_addr:_call2|security/selinux/hooks.c,3281|*SummSink*}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
+CE0x3be8df0 "{CE0x3be8df0|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,218}"
+CE0x3be9390 "{CE0x3be9390|current_sid:tmp22|security/selinux/hooks.c,218}"
+CE0x3be9680 "{CE0x3be9680|current_sid:tmp23|security/selinux/hooks.c,218}"
+CE0x3bea0e0 "{CE0x3bea0e0|current_sid:sid|security/selinux/hooks.c,220}"
+CE0x3beaf10 "{CE0x3beaf10|current_sid:tmp24|security/selinux/hooks.c,220}"
+CE0x3ba5ca0 "{CE0x3ba5ca0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x3b8d4c0 "{CE0x3b8d4c0|selinux_mmap_addr:call2|security/selinux/hooks.c,3281}"
+CE0x3b8d660 "{CE0x3b8d660|selinux_mmap_addr:call2|security/selinux/hooks.c,3281|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
 
 
 
 implicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x3fc22b0 "{CE0x3fc22b0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
-CE0x3fc3320 "{CE0x3fc3320|current_sid:_tmp22|security/selinux/hooks.c,218}"
-CE0x3fc37c0 "{CE0x3fc37c0|current_sid:_tmp23|security/selinux/hooks.c,218}"
-CE0x3fc4200 "{CE0x3fc4200|current_sid:_sid|security/selinux/hooks.c,220}"
-CE0x3fc4ee0 "{CE0x3fc4ee0|current_sid:_tmp24|security/selinux/hooks.c,220}"
-CE0x3f56bb0 "{CE0x3f56bb0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
-CE0x3f7a9c0 "{CE0x3f7a9c0|selinux_mmap_addr:_call2|security/selinux/hooks.c,3281}"
-CE0x3f7ac70 "{CE0x3f7ac70|selinux_mmap_addr:_call2|security/selinux/hooks.c,3281|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x3b9f2d0 "{CE0x3b9f2d0|selinux_mmap_addr:addr|Function::selinux_mmap_addr&Arg::addr::|*SummSource*}"
+CE0x3b9f260 "{CE0x3b9f260|selinux_mmap_addr:addr|Function::selinux_mmap_addr&Arg::addr::}"
+CE0x3b90690 "{CE0x3b90690|selinux_mmap_addr:cmp|security/selinux/hooks.c,3280}"
+CE0x3b8d8b0 "{CE0x3b8d8b0|selinux_mmap_addr:if.then1}"
+CE0x3b8d4c0 "{CE0x3b8d4c0|selinux_mmap_addr:call2|security/selinux/hooks.c,3281}"
+CE0x3b8d660 "{CE0x3b8d660|selinux_mmap_addr:call2|security/selinux/hooks.c,3281|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x3f790e0 "{CE0x3f790e0|selinux_mmap_addr:_addr|Function::selinux_mmap_addr&Arg::addr::|*SummSource*}"
-CE0x3f79020 "{CE0x3f79020|selinux_mmap_addr:_addr|Function::selinux_mmap_addr&Arg::addr::}"
-CE0x3f69e40 "{CE0x3f69e40|selinux_mmap_addr:_cmp|security/selinux/hooks.c,3280}"
-CE0x3f7bc80 "{CE0x3f7bc80|selinux_mmap_addr:_if.then1}"
-CE0x3f7a9c0 "{CE0x3f7a9c0|selinux_mmap_addr:_call2|security/selinux/hooks.c,3281}"
-CE0x3f7ac70 "{CE0x3f7ac70|selinux_mmap_addr:_call2|security/selinux/hooks.c,3281|*SummSink*}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
+CE0x3be8000 "{CE0x3be8000|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
+CE0x3be9390 "{CE0x3be9390|current_sid:tmp22|security/selinux/hooks.c,218}"
+CE0x3be9680 "{CE0x3be9680|current_sid:tmp23|security/selinux/hooks.c,218}"
+CE0x3bea0e0 "{CE0x3bea0e0|current_sid:sid|security/selinux/hooks.c,220}"
+CE0x3beaf10 "{CE0x3beaf10|current_sid:tmp24|security/selinux/hooks.c,220}"
+CE0x3ba5ca0 "{CE0x3ba5ca0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x3b8d4c0 "{CE0x3b8d4c0|selinux_mmap_addr:call2|security/selinux/hooks.c,3281}"
+CE0x3b8d660 "{CE0x3b8d660|selinux_mmap_addr:call2|security/selinux/hooks.c,3281|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object,subject}]
 
 
