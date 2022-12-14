@@ -1,123 +1,103 @@
 [selinux_shm_shmctl]
 
 explicit:
-CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
-
+CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 -----------
-CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}]
-CE0xa26b650 "{CE0xa26b650|perms}"
-CE0xa26b580 "{CE0xa26b580|perms}"
-CE0xa26b6c0 "{CE0xa26b6c0|perms}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x8657ea0 "{CE0x8657ea0|perms}"
+CE0x8657dd0 "{CE0x8657dd0|perms}"
+CE0x8657f10 "{CE0x8657f10|perms}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 
 
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa2d9c20 "{CE0xa2d9c20|tmp7}"
-CE0xa2d9f70 "{CE0xa2d9f70|tmp7}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa29f570 "{CE0xa29f570|tmp24}"
-CE0xa274d20 "{CE0xa274d20|_ret_i32_%tmp24,_!dbg_!27742}"
-CE0xa268a60 "{CE0xa268a60|call}"
-CE0xa27dc10 "{CE0xa27dc10|call}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x86a53f0 "{CE0x86a53f0|tmp24}"
+CE0x866a2f0 "{CE0x866a2f0|_ret_i32_%tmp24,_!dbg_!27742}"
+CE0x864b630 "{CE0x864b630|call}"
+CE0x864ba80 "{CE0x864ba80|call}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa2d9c20 "{CE0xa2d9c20|tmp7}"
-CE0xa2d9f70 "{CE0xa2d9f70|tmp7}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x869ea80 "{CE0x869ea80|tmp8}"
+CE0x869ecb0 "{CE0x869ecb0|tmp8}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa29f570 "{CE0xa29f570|tmp24}"
-CE0xa274d20 "{CE0xa274d20|_ret_i32_%tmp24,_!dbg_!27742}"
-CE0xa268a60 "{CE0xa268a60|call}"
-CE0xa27dc10 "{CE0xa27dc10|call}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x86a53f0 "{CE0x86a53f0|tmp24}"
+CE0x866a2f0 "{CE0x866a2f0|_ret_i32_%tmp24,_!dbg_!27742}"
+CE0x864b630 "{CE0x864b630|call}"
+CE0x864ba80 "{CE0x864ba80|call}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x869ea80 "{CE0x869ea80|tmp8}"
+CE0x869ecb0 "{CE0x869ecb0|tmp8}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
+CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa2d9c20 "{CE0xa2d9c20|tmp7}"
-CE0xa2d9f70 "{CE0xa2d9f70|tmp7}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa29f570 "{CE0xa29f570|tmp24}"
-CE0xa274d20 "{CE0xa274d20|_ret_i32_%tmp24,_!dbg_!27742}"
-CE0xa268a60 "{CE0xa268a60|call}"
-CE0xa27dc10 "{CE0xa27dc10|call}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
-
-
-CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
-
------------
-CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}]
-CE0xa26b650 "{CE0xa26b650|perms}"
-CE0xa26b580 "{CE0xa26b580|perms}"
-CE0xa26b6c0 "{CE0xa26b6c0|perms}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x8657ea0 "{CE0x8657ea0|perms}"
+CE0x8657dd0 "{CE0x8657dd0|perms}"
+CE0x8657f10 "{CE0x8657f10|perms}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}]
 
 
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa2d9c20 "{CE0xa2d9c20|tmp7}"
-CE0xa2d9f70 "{CE0xa2d9f70|tmp7}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x869e510 "{CE0x869e510|tmp7}"
+CE0x869e860 "{CE0x869e860|tmp7}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0xa2bf320 "{CE0xa2bf320|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0xa29f570 "{CE0xa29f570|tmp24}"
-CE0xa274d20 "{CE0xa274d20|_ret_i32_%tmp24,_!dbg_!27742}"
-CE0xa268a60 "{CE0xa268a60|call}"
-CE0xa27dc10 "{CE0xa27dc10|call}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x86a53f0 "{CE0x86a53f0|tmp24}"
+CE0x866a2f0 "{CE0x866a2f0|_ret_i32_%tmp24,_!dbg_!27742}"
+CE0x864b630 "{CE0x864b630|call}"
+CE0x864ba80 "{CE0x864ba80|call}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x869e510 "{CE0x869e510|tmp7}"
+CE0x869e860 "{CE0x869e860|tmp7}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x86adcd0 "{CE0x86adcd0|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x86a53f0 "{CE0x86a53f0|tmp24}"
+CE0x866a2f0 "{CE0x866a2f0|_ret_i32_%tmp24,_!dbg_!27742}"
+CE0x864b630 "{CE0x864b630|call}"
+CE0x864ba80 "{CE0x864ba80|call}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
