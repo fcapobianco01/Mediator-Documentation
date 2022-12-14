@@ -1,51 +1,51 @@
 [selinux_tun_dev_attach_queue]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x59dc0a0 "{CE0x59dc0a0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
-CE0x59e9100 "{CE0x59e9100|current_sid:_tmp22|security/selinux/hooks.c,218}"
-CE0x59e95a0 "{CE0x59e95a0|current_sid:_tmp23|security/selinux/hooks.c,218}"
-CE0x59e9f10 "{CE0x59e9f10|current_sid:_sid|security/selinux/hooks.c,220}"
-CE0x59d7740 "{CE0x59d7740|current_sid:_tmp24|security/selinux/hooks.c,220}"
-CE0x59c4840 "{CE0x59c4840|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
-CE0x59c28a0 "{CE0x59c28a0|selinux_tun_dev_attach_queue:_call|security/selinux/hooks.c,4669}"
-CE0x59afbd0 "{CE0x59afbd0|selinux_tun_dev_attach_queue:_call|security/selinux/hooks.c,4669|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x59bd870 "{CE0x59bd870|0:_i32,_:_CRE_0,4_|*MultipleSource*|Function::selinux_tun_dev_attach_queue&Arg::security::|security/selinux/hooks.c,4667|security/selinux/hooks.c,4669}"
-CE0x59becd0 "{CE0x59becd0|selinux_tun_dev_attach_queue:_tmp5|security/selinux/hooks.c,4669}"
-CE0x59b7970 "{CE0x59b7970|selinux_tun_dev_attach_queue:_tmp5|security/selinux/hooks.c,4669|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x5a986a0 "{CE0x5a986a0|0:_i32,_:_CRE_0,4_|*MultipleSource*|security/selinux/hooks.c,4667|security/selinux/hooks.c,4669|Function::selinux_tun_dev_attach_queue&Arg::security::}"
+CE0x5a99b00 "{CE0x5a99b00|selinux_tun_dev_attach_queue:tmp5|security/selinux/hooks.c,4669}"
+CE0x5a94c10 "{CE0x5a94c10|selinux_tun_dev_attach_queue:tmp5|security/selinux/hooks.c,4669|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
+CE0x5ac54b0 "{CE0x5ac54b0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
+CE0x5a9ee80 "{CE0x5a9ee80|current_sid:tmp22|security/selinux/hooks.c,218}"
+CE0x5ac3380 "{CE0x5ac3380|current_sid:tmp23|security/selinux/hooks.c,218}"
+CE0x5ac3f30 "{CE0x5ac3f30|current_sid:sid|security/selinux/hooks.c,220}"
+CE0x5aa6290 "{CE0x5aa6290|current_sid:tmp24|security/selinux/hooks.c,220}"
+CE0x5a9f690 "{CE0x5a9f690|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x5a928e0 "{CE0x5a928e0|selinux_tun_dev_attach_queue:call|security/selinux/hooks.c,4669}"
+CE0x5a927a0 "{CE0x5a927a0|selinux_tun_dev_attach_queue:call|security/selinux/hooks.c,4669|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
 
 implicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x59dc0a0 "{CE0x59dc0a0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
-CE0x59e9100 "{CE0x59e9100|current_sid:_tmp22|security/selinux/hooks.c,218}"
-CE0x59e95a0 "{CE0x59e95a0|current_sid:_tmp23|security/selinux/hooks.c,218}"
-CE0x59e9f10 "{CE0x59e9f10|current_sid:_sid|security/selinux/hooks.c,220}"
-CE0x59d7740 "{CE0x59d7740|current_sid:_tmp24|security/selinux/hooks.c,220}"
-CE0x59c4840 "{CE0x59c4840|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
-CE0x59c28a0 "{CE0x59c28a0|selinux_tun_dev_attach_queue:_call|security/selinux/hooks.c,4669}"
-CE0x59afbd0 "{CE0x59afbd0|selinux_tun_dev_attach_queue:_call|security/selinux/hooks.c,4669|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x59bd870 "{CE0x59bd870|0:_i32,_:_CRE_0,4_|*MultipleSource*|Function::selinux_tun_dev_attach_queue&Arg::security::|security/selinux/hooks.c,4667|security/selinux/hooks.c,4669}"
-CE0x59becd0 "{CE0x59becd0|selinux_tun_dev_attach_queue:_tmp5|security/selinux/hooks.c,4669}"
-CE0x59b7970 "{CE0x59b7970|selinux_tun_dev_attach_queue:_tmp5|security/selinux/hooks.c,4669|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x5a986a0 "{CE0x5a986a0|0:_i32,_:_CRE_0,4_|*MultipleSource*|security/selinux/hooks.c,4667|security/selinux/hooks.c,4669|Function::selinux_tun_dev_attach_queue&Arg::security::}"
+CE0x5a99b00 "{CE0x5a99b00|selinux_tun_dev_attach_queue:tmp5|security/selinux/hooks.c,4669}"
+CE0x5a94c10 "{CE0x5a94c10|selinux_tun_dev_attach_queue:tmp5|security/selinux/hooks.c,4669|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
+CE0x5ac54b0 "{CE0x5ac54b0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
+CE0x5a9ee80 "{CE0x5a9ee80|current_sid:tmp22|security/selinux/hooks.c,218}"
+CE0x5ac3380 "{CE0x5ac3380|current_sid:tmp23|security/selinux/hooks.c,218}"
+CE0x5ac3f30 "{CE0x5ac3f30|current_sid:sid|security/selinux/hooks.c,220}"
+CE0x5aa6290 "{CE0x5aa6290|current_sid:tmp24|security/selinux/hooks.c,220}"
+CE0x5a9f690 "{CE0x5a9f690|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x5a928e0 "{CE0x5a928e0|selinux_tun_dev_attach_queue:call|security/selinux/hooks.c,4669}"
+CE0x5a927a0 "{CE0x5a927a0|selinux_tun_dev_attach_queue:call|security/selinux/hooks.c,4669|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 

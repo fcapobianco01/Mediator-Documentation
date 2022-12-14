@@ -1,59 +1,59 @@
 [selinux_xfrm_state_pol_flow_match]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
-CE0x59f96a0 "{CE0x59f96a0|16:_i32,_:_CRE_17,18_}"
-CE0x59fc580 "{CE0x59fc580|selinux_xfrm_state_pol_flow_match:_tmp44|security/selinux/xfrm.c,208}"
-CE0x59fe310 "{CE0x59fe310|selinux_xfrm_state_pol_flow_match:_tmp44|security/selinux/xfrm.c,208|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x59d3a90 "{CE0x59d3a90|864:_%struct.xfrm_sec_ctx*,_:_CRE_864,872_|*MultipleSource*|Function::selinux_xfrm_state_pol_flow_match&Arg::x::|security/selinux/xfrm.c,185}"
-CE0x5a081d0 "{CE0x5a081d0|selinux_xfrm_state_pol_flow_match:_tmp33|*LoadInst*|security/selinux/xfrm.c,200}"
-CE0x5a1fd40 "{CE0x5a1fd40|selinux_xfrm_state_pol_flow_match:_ctx_sid|security/selinux/xfrm.c,200}"
-CE0x59f73b0 "{CE0x59f73b0|selinux_xfrm_state_pol_flow_match:_tmp34|security/selinux/xfrm.c,200}"
-CE0x59f7600 "{CE0x59f7600|selinux_xfrm_state_pol_flow_match:_tmp34|security/selinux/xfrm.c,200|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x40deea0 "{CE0x40deea0|864:_%struct.xfrm_sec_ctx*,_:_CRE_864,872_|*MultipleSource*|Function::selinux_xfrm_state_pol_flow_match&Arg::x::|security/selinux/xfrm.c,185}"
+CE0x4111a40 "{CE0x4111a40|selinux_xfrm_state_pol_flow_match:tmp33|*LoadInst*|security/selinux/xfrm.c,200}"
+CE0x412b070 "{CE0x412b070|selinux_xfrm_state_pol_flow_match:ctx_sid|security/selinux/xfrm.c,200}"
+CE0x41028a0 "{CE0x41028a0|selinux_xfrm_state_pol_flow_match:tmp34|security/selinux/xfrm.c,200}"
+CE0x41029e0 "{CE0x41029e0|selinux_xfrm_state_pol_flow_match:tmp34|security/selinux/xfrm.c,200|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x4104bc0 "{CE0x4104bc0|16:_i32,_:_CRE_18,19_}"
+CE0x412dd60 "{CE0x412dd60|selinux_xfrm_state_pol_flow_match:tmp44|security/selinux/xfrm.c,208}"
+CE0x4131eb0 "{CE0x4131eb0|selinux_xfrm_state_pol_flow_match:tmp44|security/selinux/xfrm.c,208|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x59d3a90 "{CE0x59d3a90|864:_%struct.xfrm_sec_ctx*,_:_CRE_864,872_|*MultipleSource*|Function::selinux_xfrm_state_pol_flow_match&Arg::x::|security/selinux/xfrm.c,185}"
-CE0x5a081d0 "{CE0x5a081d0|selinux_xfrm_state_pol_flow_match:_tmp33|*LoadInst*|security/selinux/xfrm.c,200}"
-CE0x5a1fd40 "{CE0x5a1fd40|selinux_xfrm_state_pol_flow_match:_ctx_sid|security/selinux/xfrm.c,200}"
-CE0x59f73b0 "{CE0x59f73b0|selinux_xfrm_state_pol_flow_match:_tmp34|security/selinux/xfrm.c,200}"
-CE0x59f7600 "{CE0x59f7600|selinux_xfrm_state_pol_flow_match:_tmp34|security/selinux/xfrm.c,200|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x59d3a90 "{CE0x59d3a90|864:_%struct.xfrm_sec_ctx*,_:_CRE_864,872_|*MultipleSource*|Function::selinux_xfrm_state_pol_flow_match&Arg::x::|security/selinux/xfrm.c,185}"
-CE0x5a081d0 "{CE0x5a081d0|selinux_xfrm_state_pol_flow_match:_tmp33|*LoadInst*|security/selinux/xfrm.c,200}"
-CE0x5a1fd40 "{CE0x5a1fd40|selinux_xfrm_state_pol_flow_match:_ctx_sid|security/selinux/xfrm.c,200}"
-CE0x59f73b0 "{CE0x59f73b0|selinux_xfrm_state_pol_flow_match:_tmp34|security/selinux/xfrm.c,200}"
-CE0x5a1dad0 "{CE0x5a1dad0|selinux_xfrm_state_pol_flow_match:_cmp|security/selinux/xfrm.c,202}"
-CE0x5974f60 "{CE0x5974f60|selinux_xfrm_state_pol_flow_match:_if.end15}"
-CE0x59fc580 "{CE0x59fc580|selinux_xfrm_state_pol_flow_match:_tmp44|security/selinux/xfrm.c,208}"
-CE0x59fe310 "{CE0x59fe310|selinux_xfrm_state_pol_flow_match:_tmp44|security/selinux/xfrm.c,208|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x40deea0 "{CE0x40deea0|864:_%struct.xfrm_sec_ctx*,_:_CRE_864,872_|*MultipleSource*|Function::selinux_xfrm_state_pol_flow_match&Arg::x::|security/selinux/xfrm.c,185}"
+CE0x4111a40 "{CE0x4111a40|selinux_xfrm_state_pol_flow_match:tmp33|*LoadInst*|security/selinux/xfrm.c,200}"
+CE0x412b070 "{CE0x412b070|selinux_xfrm_state_pol_flow_match:ctx_sid|security/selinux/xfrm.c,200}"
+CE0x41028a0 "{CE0x41028a0|selinux_xfrm_state_pol_flow_match:tmp34|security/selinux/xfrm.c,200}"
+CE0x4128d00 "{CE0x4128d00|selinux_xfrm_state_pol_flow_match:cmp|security/selinux/xfrm.c,202}"
+CE0x40872a0 "{CE0x40872a0|selinux_xfrm_state_pol_flow_match:if.end15}"
+CE0x412dd60 "{CE0x412dd60|selinux_xfrm_state_pol_flow_match:tmp44|security/selinux/xfrm.c,208}"
+CE0x4131eb0 "{CE0x4131eb0|selinux_xfrm_state_pol_flow_match:tmp44|security/selinux/xfrm.c,208|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}]
-CE0x59f96a0 "{CE0x59f96a0|16:_i32,_:_CRE_17,18_}"
-CE0x59fc580 "{CE0x59fc580|selinux_xfrm_state_pol_flow_match:_tmp44|security/selinux/xfrm.c,208}"
-CE0x59fe310 "{CE0x59fe310|selinux_xfrm_state_pol_flow_match:_tmp44|security/selinux/xfrm.c,208|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x40deea0 "{CE0x40deea0|864:_%struct.xfrm_sec_ctx*,_:_CRE_864,872_|*MultipleSource*|Function::selinux_xfrm_state_pol_flow_match&Arg::x::|security/selinux/xfrm.c,185}"
+CE0x4111a40 "{CE0x4111a40|selinux_xfrm_state_pol_flow_match:tmp33|*LoadInst*|security/selinux/xfrm.c,200}"
+CE0x412b070 "{CE0x412b070|selinux_xfrm_state_pol_flow_match:ctx_sid|security/selinux/xfrm.c,200}"
+CE0x41028a0 "{CE0x41028a0|selinux_xfrm_state_pol_flow_match:tmp34|security/selinux/xfrm.c,200}"
+CE0x41029e0 "{CE0x41029e0|selinux_xfrm_state_pol_flow_match:tmp34|security/selinux/xfrm.c,200|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x4104cc0 "{CE0x4104cc0|16:_i32,_:_CRE_19,20_}"
+CE0x412dd60 "{CE0x412dd60|selinux_xfrm_state_pol_flow_match:tmp44|security/selinux/xfrm.c,208}"
+CE0x4131eb0 "{CE0x4131eb0|selinux_xfrm_state_pol_flow_match:tmp44|security/selinux/xfrm.c,208|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 

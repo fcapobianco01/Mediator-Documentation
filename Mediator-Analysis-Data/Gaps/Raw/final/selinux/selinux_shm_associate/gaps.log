@@ -1,51 +1,51 @@
 [selinux_shm_associate]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x41cfab0 "{CE0x41cfab0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
-CE0x41f09a0 "{CE0x41f09a0|current_sid:_tmp22|security/selinux/hooks.c,218}"
-CE0x41f0e40 "{CE0x41f0e40|current_sid:_tmp23|security/selinux/hooks.c,218}"
-CE0x41f16a0 "{CE0x41f16a0|current_sid:_sid|security/selinux/hooks.c,220}"
-CE0x41be2d0 "{CE0x41be2d0|current_sid:_tmp24|security/selinux/hooks.c,220}"
-CE0x41a5c20 "{CE0x41a5c20|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
-CE0x41b6f30 "{CE0x41b6f30|selinux_shm_associate:_call|security/selinux/hooks.c,5325}"
-CE0x41a3810 "{CE0x41a3810|selinux_shm_associate:_call|security/selinux/hooks.c,5325|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x41bd4a0 "{CE0x41bd4a0|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,5327|security/selinux/hooks.c,5327|security/selinux/hooks.c,5332}"
-CE0x41bd610 "{CE0x41bd610|selinux_shm_associate:_tmp7|security/selinux/hooks.c,5332}"
-CE0x41bdab0 "{CE0x41bdab0|selinux_shm_associate:_tmp7|security/selinux/hooks.c,5332|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x5680950 "{CE0x5680950|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,5327|security/selinux/hooks.c,5327|security/selinux/hooks.c,5332}"
+CE0x5680a60 "{CE0x5680a60|selinux_shm_associate:tmp7|security/selinux/hooks.c,5332}"
+CE0x5681070 "{CE0x5681070|selinux_shm_associate:tmp7|security/selinux/hooks.c,5332|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
+CE0x5696430 "{CE0x5696430|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
+CE0x56bd950 "{CE0x56bd950|current_sid:tmp22|security/selinux/hooks.c,218}"
+CE0x56bdc40 "{CE0x56bdc40|current_sid:tmp23|security/selinux/hooks.c,218}"
+CE0x56b8f00 "{CE0x56b8f00|current_sid:sid|security/selinux/hooks.c,220}"
+CE0x56ba520 "{CE0x56ba520|current_sid:tmp24|security/selinux/hooks.c,220}"
+CE0x568b4b0 "{CE0x568b4b0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x5685220 "{CE0x5685220|selinux_shm_associate:call|security/selinux/hooks.c,5325}"
+CE0x5666d20 "{CE0x5666d20|selinux_shm_associate:call|security/selinux/hooks.c,5325|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
 
 implicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}]
-CE0x41cfab0 "{CE0x41cfab0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
-CE0x41f09a0 "{CE0x41f09a0|current_sid:_tmp22|security/selinux/hooks.c,218}"
-CE0x41f0e40 "{CE0x41f0e40|current_sid:_tmp23|security/selinux/hooks.c,218}"
-CE0x41f16a0 "{CE0x41f16a0|current_sid:_sid|security/selinux/hooks.c,220}"
-CE0x41be2d0 "{CE0x41be2d0|current_sid:_tmp24|security/selinux/hooks.c,220}"
-CE0x41a5c20 "{CE0x41a5c20|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
-CE0x41b6f30 "{CE0x41b6f30|selinux_shm_associate:_call|security/selinux/hooks.c,5325}"
-CE0x41a3810 "{CE0x41a3810|selinux_shm_associate:_call|security/selinux/hooks.c,5325|*SummSink*}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
+CE0x5696430 "{CE0x5696430|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,218}"
+CE0x56bd950 "{CE0x56bd950|current_sid:tmp22|security/selinux/hooks.c,218}"
+CE0x56bdc40 "{CE0x56bdc40|current_sid:tmp23|security/selinux/hooks.c,218}"
+CE0x56b8f00 "{CE0x56b8f00|current_sid:sid|security/selinux/hooks.c,220}"
+CE0x56ba520 "{CE0x56ba520|current_sid:tmp24|security/selinux/hooks.c,220}"
+CE0x568b4b0 "{CE0x568b4b0|_ret_i32_%tmp24,_!dbg_!27742|security/selinux/hooks.c,220}"
+CE0x5685220 "{CE0x5685220|selinux_shm_associate:call|security/selinux/hooks.c,5325}"
+CE0x5666d20 "{CE0x5666d20|selinux_shm_associate:call|security/selinux/hooks.c,5325|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}]
-CE0x41bd4a0 "{CE0x41bd4a0|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,5327|security/selinux/hooks.c,5327|security/selinux/hooks.c,5332}"
-CE0x41bd610 "{CE0x41bd610|selinux_shm_associate:_tmp7|security/selinux/hooks.c,5332}"
-CE0x41bdab0 "{CE0x41bdab0|selinux_shm_associate:_tmp7|security/selinux/hooks.c,5332|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
+CE0x5680950 "{CE0x5680950|4:_i32,_:_CRE_4,8_|*MultipleSource*|security/selinux/hooks.c,5327|security/selinux/hooks.c,5327|security/selinux/hooks.c,5332}"
+CE0x5680a60 "{CE0x5680a60|selinux_shm_associate:tmp7|security/selinux/hooks.c,5332}"
+CE0x5681070 "{CE0x5681070|selinux_shm_associate:tmp7|security/selinux/hooks.c,5332|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
 
 
