@@ -1,57 +1,85 @@
 [selinux_socket_unix_may_send]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x5412820 "{CE0x5412820|1216:_i8*,_:_CRE_1216,1224_|*MultipleSource*|*LoadInst*|security/selinux/hooks.c,4293|security/selinux/hooks.c,4293}"
-CE0x5411630 "{CE0x5411630|selinux_socket_unix_may_send:tmp5|security/selinux/hooks.c,4293}"
-CE0x5413ba0 "{CE0x5413ba0|selinux_socket_unix_may_send:tmp6|security/selinux/hooks.c,4293}"
-CE0x544f750 "{CE0x544f750|selinux_socket_unix_may_send:sid|security/selinux/hooks.c,4302}"
-CE0x5450250 "{CE0x5450250|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302}"
-CE0x5450590 "{CE0x5450590|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x414fe80 "{CE0x414fe80|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|Function::selinux_socket_unix_may_send&Arg::other::|security/selinux/hooks.c,4294}"
+CE0x410c1a0 "{CE0x410c1a0|selinux_socket_unix_may_send:tmp7|*LoadInst*|security/selinux/hooks.c,4294}"
+CE0x41504d0 "{CE0x41504d0|selinux_socket_unix_may_send:sk_security2|security/selinux/hooks.c,4294}"
+CE0x416cb40 "{CE0x416cb40|selinux_socket_unix_may_send:tmp8|security/selinux/hooks.c,4294}"
+CE0x416f0b0 "{CE0x416f0b0|selinux_socket_unix_may_send:tmp9|security/selinux/hooks.c,4294}"
+CE0x4176710 "{CE0x4176710|selinux_socket_unix_may_send:sclass|security/selinux/hooks.c,4302}"
+CE0x4179c70 "{CE0x4179c70|selinux_socket_unix_may_send:tmp16|security/selinux/hooks.c,4302}"
+CE0x417aaa0 "{CE0x417aaa0|selinux_socket_unix_may_send:tmp16|security/selinux/hooks.c,4302|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x542a1f0 "{CE0x542a1f0|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|security/selinux/hooks.c,4294|Function::selinux_socket_unix_may_send&Arg::other::}"
-CE0x53e6690 "{CE0x53e6690|selinux_socket_unix_may_send:tmp7|*LoadInst*|security/selinux/hooks.c,4294}"
-CE0x542a840 "{CE0x542a840|selinux_socket_unix_may_send:sk_security2|security/selinux/hooks.c,4294}"
-CE0x5446e50 "{CE0x5446e50|selinux_socket_unix_may_send:tmp8|security/selinux/hooks.c,4294}"
-CE0x54493c0 "{CE0x54493c0|selinux_socket_unix_may_send:tmp9|security/selinux/hooks.c,4294}"
-CE0x544fcf0 "{CE0x544fcf0|selinux_socket_unix_may_send:sid8|security/selinux/hooks.c,4302}"
-CE0x54518e0 "{CE0x54518e0|selinux_socket_unix_may_send:tmp15|security/selinux/hooks.c,4302}"
-CE0x5451c60 "{CE0x5451c60|selinux_socket_unix_may_send:tmp15|security/selinux/hooks.c,4302|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x414fe80 "{CE0x414fe80|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|Function::selinux_socket_unix_may_send&Arg::other::|security/selinux/hooks.c,4294}"
+CE0x410c1a0 "{CE0x410c1a0|selinux_socket_unix_may_send:tmp7|*LoadInst*|security/selinux/hooks.c,4294}"
+CE0x41504d0 "{CE0x41504d0|selinux_socket_unix_may_send:sk_security2|security/selinux/hooks.c,4294}"
+CE0x416cb40 "{CE0x416cb40|selinux_socket_unix_may_send:tmp8|security/selinux/hooks.c,4294}"
+CE0x416f0b0 "{CE0x416f0b0|selinux_socket_unix_may_send:tmp9|security/selinux/hooks.c,4294}"
+CE0x4175d60 "{CE0x4175d60|selinux_socket_unix_may_send:sid8|security/selinux/hooks.c,4302}"
+CE0x40ecc30 "{CE0x40ecc30|selinux_socket_unix_may_send:tmp15|security/selinux/hooks.c,4302}"
+CE0x4178560 "{CE0x4178560|selinux_socket_unix_may_send:tmp15|security/selinux/hooks.c,4302|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x4138510 "{CE0x4138510|1216:_i8*,_:_CRE_1216,1224_|*MultipleSource*|*LoadInst*|security/selinux/hooks.c,4293|security/selinux/hooks.c,4293}"
+CE0x4137320 "{CE0x4137320|selinux_socket_unix_may_send:tmp5|security/selinux/hooks.c,4293}"
+CE0x4139890 "{CE0x4139890|selinux_socket_unix_may_send:tmp6|security/selinux/hooks.c,4293}"
+CE0x414f460 "{CE0x414f460|selinux_socket_unix_may_send:sid|security/selinux/hooks.c,4302}"
+CE0x41762c0 "{CE0x41762c0|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302}"
+CE0x4176580 "{CE0x4176580|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x5412820 "{CE0x5412820|1216:_i8*,_:_CRE_1216,1224_|*MultipleSource*|*LoadInst*|security/selinux/hooks.c,4293|security/selinux/hooks.c,4293}"
-CE0x5411630 "{CE0x5411630|selinux_socket_unix_may_send:tmp5|security/selinux/hooks.c,4293}"
-CE0x5413ba0 "{CE0x5413ba0|selinux_socket_unix_may_send:tmp6|security/selinux/hooks.c,4293}"
-CE0x544f750 "{CE0x544f750|selinux_socket_unix_may_send:sid|security/selinux/hooks.c,4302}"
-CE0x5450250 "{CE0x5450250|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302}"
-CE0x5450590 "{CE0x5450590|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x4138510 "{CE0x4138510|1216:_i8*,_:_CRE_1216,1224_|*MultipleSource*|*LoadInst*|security/selinux/hooks.c,4293|security/selinux/hooks.c,4293}"
+CE0x4137320 "{CE0x4137320|selinux_socket_unix_may_send:tmp5|security/selinux/hooks.c,4293}"
+CE0x4139890 "{CE0x4139890|selinux_socket_unix_may_send:tmp6|security/selinux/hooks.c,4293}"
+CE0x414f460 "{CE0x414f460|selinux_socket_unix_may_send:sid|security/selinux/hooks.c,4302}"
+CE0x41762c0 "{CE0x41762c0|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302}"
+CE0x4176580 "{CE0x4176580|selinux_socket_unix_may_send:tmp14|security/selinux/hooks.c,4302|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x542a1f0 "{CE0x542a1f0|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|security/selinux/hooks.c,4294|Function::selinux_socket_unix_may_send&Arg::other::}"
-CE0x53e6690 "{CE0x53e6690|selinux_socket_unix_may_send:tmp7|*LoadInst*|security/selinux/hooks.c,4294}"
-CE0x542a840 "{CE0x542a840|selinux_socket_unix_may_send:sk_security2|security/selinux/hooks.c,4294}"
-CE0x5446e50 "{CE0x5446e50|selinux_socket_unix_may_send:tmp8|security/selinux/hooks.c,4294}"
-CE0x54493c0 "{CE0x54493c0|selinux_socket_unix_may_send:tmp9|security/selinux/hooks.c,4294}"
-CE0x5454550 "{CE0x5454550|selinux_socket_unix_may_send:sclass|security/selinux/hooks.c,4302}"
-CE0x5453c40 "{CE0x5453c40|selinux_socket_unix_may_send:tmp16|security/selinux/hooks.c,4302}"
-CE0x5454a60 "{CE0x5454a60|selinux_socket_unix_may_send:tmp16|security/selinux/hooks.c,4302|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x414fe80 "{CE0x414fe80|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|Function::selinux_socket_unix_may_send&Arg::other::|security/selinux/hooks.c,4294}"
+CE0x410c1a0 "{CE0x410c1a0|selinux_socket_unix_may_send:tmp7|*LoadInst*|security/selinux/hooks.c,4294}"
+CE0x41504d0 "{CE0x41504d0|selinux_socket_unix_may_send:sk_security2|security/selinux/hooks.c,4294}"
+CE0x416cb40 "{CE0x416cb40|selinux_socket_unix_may_send:tmp8|security/selinux/hooks.c,4294}"
+CE0x416f0b0 "{CE0x416f0b0|selinux_socket_unix_may_send:tmp9|security/selinux/hooks.c,4294}"
+CE0x4175d60 "{CE0x4175d60|selinux_socket_unix_may_send:sid8|security/selinux/hooks.c,4302}"
+CE0x40ecc30 "{CE0x40ecc30|selinux_socket_unix_may_send:tmp15|security/selinux/hooks.c,4302}"
+CE0x4178560 "{CE0x4178560|selinux_socket_unix_may_send:tmp15|security/selinux/hooks.c,4302|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x414fe80 "{CE0x414fe80|32:_%struct.sock*,_:_CRE_32,40_|*MultipleSource*|Function::selinux_socket_unix_may_send&Arg::other::|security/selinux/hooks.c,4294}"
+CE0x410c1a0 "{CE0x410c1a0|selinux_socket_unix_may_send:tmp7|*LoadInst*|security/selinux/hooks.c,4294}"
+CE0x41504d0 "{CE0x41504d0|selinux_socket_unix_may_send:sk_security2|security/selinux/hooks.c,4294}"
+CE0x416cb40 "{CE0x416cb40|selinux_socket_unix_may_send:tmp8|security/selinux/hooks.c,4294}"
+CE0x416f0b0 "{CE0x416f0b0|selinux_socket_unix_may_send:tmp9|security/selinux/hooks.c,4294}"
+CE0x4176710 "{CE0x4176710|selinux_socket_unix_may_send:sclass|security/selinux/hooks.c,4302}"
+CE0x4179c70 "{CE0x4179c70|selinux_socket_unix_may_send:tmp16|security/selinux/hooks.c,4302}"
+CE0x417aaa0 "{CE0x417aaa0|selinux_socket_unix_may_send:tmp16|security/selinux/hooks.c,4302|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 

@@ -1,101 +1,134 @@
 [apparmor_path_rmdir]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x5254640 "{CE0x5254640|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
-CE0x5214610 "{CE0x5214610|common_perm_dir_dentry:tmp4|*LoadInst*|security/apparmor/lsm.c,189}"
-CE0x5213c90 "{CE0x5213c90|0:_%struct.vfsmount*,_8:_%struct.dentry*,_:_SCMRE_0,8_|*MultipleSource*|security/apparmor/lsm.c, 189|security/apparmor/lsm.c,189}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]
+CE0x400a450 "{CE0x400a450|apparmor_path_rmdir:dentry|Function::apparmor_path_rmdir&Arg::dentry::|*SummSource*}"
+CE0x400a270 "{CE0x400a270|apparmor_path_rmdir:dentry|Function::apparmor_path_rmdir&Arg::dentry::}"
+CE0x400d380 "{CE0x400d380|common_perm_rm:dentry|Function::common_perm_rm&Arg::dentry::}"
+CE0x40e6ff0 "{CE0x40e6ff0|common_perm_dir_dentry:dentry|Function::common_perm_dir_dentry&Arg::dentry::}"
+CE0x404e540 "{CE0x404e540|0:_%struct.vfsmount*,_8:_%struct.dentry*,_:_SCMRE_8,16_|*MultipleSource*|security/apparmor/lsm.c, 189|security/apparmor/lsm.c,189}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:3]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
-CE0x521a8a0 "{CE0x521a8a0|0:_i16,_4:_i32,_8:_i16,_40:_%struct.super_block*,_72:_i32,_:_SCMRE_2,4_|*MultipleSource*|security/apparmor/lsm.c,227|security/apparmor/lsm.c, 227|*LoadInst*|security/apparmor/lsm.c,226}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]
+CE0x4078ac0 "{CE0x4078ac0|0:_i16,_4:_i32,_8:_i16,_40:_%struct.super_block*,_72:_i32,_:_SCMRE_895,896_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:3]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:5]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:7]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:5]
-CE0x5338800 "{CE0x5338800|44:_i32,_48:_i16,_128:_i8*,_:_SCMRE_128,136_|*MultipleSource*|Function::aa_cred_profile&Arg::cred::|security/apparmor/include/context.h,99|security/apparmor/include/context.h,138}"
-CE0x528d320 "{CE0x528d320|aa_cred_profile:tmp4|*LoadInst*|security/apparmor/include/context.h,99}"
-CE0x528d0e0 "{CE0x528d0e0|aa_cred_profile:tmp5|security/apparmor/include/context.h,99}"
-CE0x5333a40 "{CE0x5333a40|aa_cred_profile:profile11|security/apparmor/include/context.h,101}"
-CE0x5333df0 "{CE0x5333df0|aa_cred_profile:tmp34|security/apparmor/include/context.h,101}"
-CE0x5288930 "{CE0x5288930|_ret_%struct.aa_profile*_%tmp34,_!dbg_!15510|security/apparmor/include/context.h,101}"
-CE0x52882a0 "{CE0x52882a0|__aa_current_profile:call4|security/apparmor/include/context.h,138}"
-CE0x52a9cf0 "{CE0x52a9cf0|_ret_%struct.aa_profile*_%call4,_!dbg_!15494|security/apparmor/include/context.h,138}"
-CE0x52b0030 "{CE0x52b0030|common_perm:call|security/apparmor/lsm.c,168}"
-CE0x51f5260 "{CE0x51f5260|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:7]
+CE0x4180f00 "{CE0x4180f00|44:_i32,_48:_i16,_128:_i8*,_:_SCMRE_128,136_|*MultipleSource*|Function::aa_cred_profile&Arg::cred::|security/apparmor/include/context.h,99|security/apparmor/include/context.h,138}"
+CE0x4169b70 "{CE0x4169b70|aa_cred_profile:tmp4|*LoadInst*|security/apparmor/include/context.h,99}"
+CE0x4181540 "{CE0x4181540|aa_cred_profile:tmp5|security/apparmor/include/context.h,99}"
+CE0x416c030 "{CE0x416c030|aa_cred_profile:profile11|security/apparmor/include/context.h,101}"
+CE0x416c3e0 "{CE0x416c3e0|aa_cred_profile:tmp34|security/apparmor/include/context.h,101}"
+CE0x40c3170 "{CE0x40c3170|_ret_%struct.aa_profile*_%tmp34,_!dbg_!15510|security/apparmor/include/context.h,101}"
+CE0x40c19c0 "{CE0x40c19c0|__aa_current_profile:call4|security/apparmor/include/context.h,138}"
+CE0x40ec280 "{CE0x40ec280|_ret_%struct.aa_profile*_%call4,_!dbg_!15494|security/apparmor/include/context.h,138}"
+CE0x40d7eb0 "{CE0x40d7eb0|common_perm:call|security/apparmor/lsm.c,168}"
+CE0x40e35c0 "{CE0x40e35c0|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]
+CE0x408e620 "{CE0x408e620|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
+CE0x404ed60 "{CE0x404ed60|common_perm_dir_dentry:tmp4|*LoadInst*|security/apparmor/lsm.c,189}"
+CE0x404e3e0 "{CE0x404e3e0|0:_%struct.vfsmount*,_8:_%struct.dentry*,_:_SCMRE_0,8_|*MultipleSource*|security/apparmor/lsm.c, 189|security/apparmor/lsm.c,189}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:3]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
-CE0x51d2dd0 "{CE0x51d2dd0|72:_%struct.hlist_bl_node**,_80:_%struct.dentry*,_104:_%struct.inode*,_:_CRE_104,112_|*MultipleSource*|Function::common_perm_rm&Arg::dentry::|Function::apparmor_path_rmdir&Arg::dentry::|security/apparmor/lsm.c,226}"
-CE0x51ed2b0 "{CE0x51ed2b0|common_perm_rm:tmp2|*LoadInst*|security/apparmor/lsm.c,226}"
-CE0x5255570 "{CE0x5255570|common_perm_rm:tobool|security/apparmor/lsm.c,229}"
-CE0x51f3750 "{CE0x51f3750|common_perm_rm:if.end}"
-CE0x52ac790 "{CE0x52ac790|common_perm_dir_dentry:entry}"
-CE0x52979d0 "{CE0x52979d0|common_perm_dir_dentry:bb}"
-CE0x5210aa0 "{CE0x5210aa0|common_perm:entry}"
-CE0x52aa540 "{CE0x52aa540|common_perm:bb}"
-CE0x52b0030 "{CE0x52b0030|common_perm:call|security/apparmor/lsm.c,168}"
-CE0x51f5260 "{CE0x51f5260|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]
+CE0x405cc90 "{CE0x405cc90|0:_i16,_4:_i32,_8:_i16,_40:_%struct.super_block*,_72:_i32,_:_SCMRE_260,261_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:3]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
-CE0x5231f30 "{CE0x5231f30|0:_i16,_4:_i32,_8:_i16,_40:_%struct.super_block*,_72:_i32,_:_SCMRE_585,586_}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]
+CE0x4016fb0 "{CE0x4016fb0|72:_%struct.hlist_bl_node**,_80:_%struct.dentry*,_104:_%struct.inode*,_:_CRE_104,112_|*MultipleSource*|Function::common_perm_rm&Arg::dentry::|Function::apparmor_path_rmdir&Arg::dentry::|security/apparmor/lsm.c,226}"
+CE0x4026c70 "{CE0x4026c70|common_perm_rm:tmp2|*LoadInst*|security/apparmor/lsm.c,226}"
+CE0x408f420 "{CE0x408f420|common_perm_rm:tobool|security/apparmor/lsm.c,229}"
+CE0x4021430 "{CE0x4021430|common_perm_rm:if.end}"
+CE0x40e65a0 "{CE0x40e65a0|common_perm_dir_dentry:entry}"
+CE0x40d1760 "{CE0x40d1760|common_perm_dir_dentry:bb}"
+CE0x404b0f0 "{CE0x404b0f0|common_perm:entry}"
+CE0x40e92f0 "{CE0x40e92f0|common_perm:bb}"
+CE0x40d7eb0 "{CE0x40d7eb0|common_perm:call|security/apparmor/lsm.c,168}"
+CE0x40e35c0 "{CE0x40e35c0|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:5]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:5]
-CE0x5338800 "{CE0x5338800|44:_i32,_48:_i16,_128:_i8*,_:_SCMRE_128,136_|*MultipleSource*|Function::aa_cred_profile&Arg::cred::|security/apparmor/include/context.h,99|security/apparmor/include/context.h,138}"
-CE0x528d320 "{CE0x528d320|aa_cred_profile:tmp4|*LoadInst*|security/apparmor/include/context.h,99}"
-CE0x528d0e0 "{CE0x528d0e0|aa_cred_profile:tmp5|security/apparmor/include/context.h,99}"
-CE0x5333a40 "{CE0x5333a40|aa_cred_profile:profile11|security/apparmor/include/context.h,101}"
-CE0x5333df0 "{CE0x5333df0|aa_cred_profile:tmp34|security/apparmor/include/context.h,101}"
-CE0x5288930 "{CE0x5288930|_ret_%struct.aa_profile*_%tmp34,_!dbg_!15510|security/apparmor/include/context.h,101}"
-CE0x52882a0 "{CE0x52882a0|__aa_current_profile:call4|security/apparmor/include/context.h,138}"
-CE0x52a9cf0 "{CE0x52a9cf0|_ret_%struct.aa_profile*_%call4,_!dbg_!15494|security/apparmor/include/context.h,138}"
-CE0x52b0030 "{CE0x52b0030|common_perm:call|security/apparmor/lsm.c,168}"
-CE0x51f5260 "{CE0x51f5260|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:3]
+CE0x400a450 "{CE0x400a450|apparmor_path_rmdir:dentry|Function::apparmor_path_rmdir&Arg::dentry::|*SummSource*}"
+CE0x400a270 "{CE0x400a270|apparmor_path_rmdir:dentry|Function::apparmor_path_rmdir&Arg::dentry::}"
+CE0x400d380 "{CE0x400d380|common_perm_rm:dentry|Function::common_perm_rm&Arg::dentry::}"
+CE0x40e6ff0 "{CE0x40e6ff0|common_perm_dir_dentry:dentry|Function::common_perm_dir_dentry&Arg::dentry::}"
+CE0x404e540 "{CE0x404e540|0:_%struct.vfsmount*,_8:_%struct.dentry*,_:_SCMRE_8,16_|*MultipleSource*|security/apparmor/lsm.c, 189|security/apparmor/lsm.c,189}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:7]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x5254640 "{CE0x5254640|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
-CE0x5254ca0 "{CE0x5254ca0|common_perm_rm:tmp8|*LoadInst*|security/apparmor/lsm.c,229}"
-CE0x527a7d0 "{CE0x527a7d0|common_perm_rm:tobool1|security/apparmor/lsm.c,229}"
-CE0x51f3750 "{CE0x51f3750|common_perm_rm:if.end}"
-CE0x52ac790 "{CE0x52ac790|common_perm_dir_dentry:entry}"
-CE0x52979d0 "{CE0x52979d0|common_perm_dir_dentry:bb}"
-CE0x5210aa0 "{CE0x5210aa0|common_perm:entry}"
-CE0x52aa540 "{CE0x52aa540|common_perm:bb}"
-CE0x52b0030 "{CE0x52b0030|common_perm:call|security/apparmor/lsm.c,168}"
-CE0x51f5260 "{CE0x51f5260|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:7]
+CE0x4180f00 "{CE0x4180f00|44:_i32,_48:_i16,_128:_i8*,_:_SCMRE_128,136_|*MultipleSource*|Function::aa_cred_profile&Arg::cred::|security/apparmor/include/context.h,99|security/apparmor/include/context.h,138}"
+CE0x4169b70 "{CE0x4169b70|aa_cred_profile:tmp4|*LoadInst*|security/apparmor/include/context.h,99}"
+CE0x4181540 "{CE0x4181540|aa_cred_profile:tmp5|security/apparmor/include/context.h,99}"
+CE0x416c030 "{CE0x416c030|aa_cred_profile:profile11|security/apparmor/include/context.h,101}"
+CE0x416c3e0 "{CE0x416c3e0|aa_cred_profile:tmp34|security/apparmor/include/context.h,101}"
+CE0x40c3170 "{CE0x40c3170|_ret_%struct.aa_profile*_%tmp34,_!dbg_!15510|security/apparmor/include/context.h,101}"
+CE0x40c19c0 "{CE0x40c19c0|__aa_current_profile:call4|security/apparmor/include/context.h,138}"
+CE0x40ec280 "{CE0x40ec280|_ret_%struct.aa_profile*_%call4,_!dbg_!15494|security/apparmor/include/context.h,138}"
+CE0x40d7eb0 "{CE0x40d7eb0|common_perm:call|security/apparmor/lsm.c,168}"
+CE0x40e35c0 "{CE0x40e35c0|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:3]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x5254640 "{CE0x5254640|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
-CE0x5214610 "{CE0x5214610|common_perm_dir_dentry:tmp4|*LoadInst*|security/apparmor/lsm.c,189}"
-CE0x5213c90 "{CE0x5213c90|0:_%struct.vfsmount*,_8:_%struct.dentry*,_:_SCMRE_0,8_|*MultipleSource*|security/apparmor/lsm.c, 189|security/apparmor/lsm.c,189}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]
+CE0x408e620 "{CE0x408e620|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
+CE0x408ec80 "{CE0x408ec80|common_perm_rm:tmp8|*LoadInst*|security/apparmor/lsm.c,229}"
+CE0x40b47b0 "{CE0x40b47b0|common_perm_rm:tobool1|security/apparmor/lsm.c,229}"
+CE0x4021430 "{CE0x4021430|common_perm_rm:if.end}"
+CE0x4054780 "{CE0x4054780|0:_i16,_4:_i32,_8:_i16,_40:_%struct.super_block*,_72:_i32,_:_SCMRE_4,8_|*MultipleSource*|security/apparmor/lsm.c,227|security/apparmor/lsm.c, 227|*LoadInst*|security/apparmor/lsm.c,226}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:3]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]
+CE0x408e620 "{CE0x408e620|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
+CE0x408ec80 "{CE0x408ec80|common_perm_rm:tmp8|*LoadInst*|security/apparmor/lsm.c,229}"
+CE0x40b47b0 "{CE0x40b47b0|common_perm_rm:tobool1|security/apparmor/lsm.c,229}"
+CE0x4021430 "{CE0x4021430|common_perm_rm:if.end}"
+CE0x40e65a0 "{CE0x40e65a0|common_perm_dir_dentry:entry}"
+CE0x40d1760 "{CE0x40d1760|common_perm_dir_dentry:bb}"
+CE0x404b0f0 "{CE0x404b0f0|common_perm:entry}"
+CE0x40e92f0 "{CE0x40e92f0|common_perm:bb}"
+CE0x40d7eb0 "{CE0x40d7eb0|common_perm:call|security/apparmor/lsm.c,168}"
+CE0x40e35c0 "{CE0x40e35c0|common_perm:call|security/apparmor/lsm.c,168|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:2]
+CE0x408e620 "{CE0x408e620|0:_%struct.vfsmount*,_:_CRE_0,8_|*MultipleSource*|Function::common_perm_rm&Arg::dir::|Function::apparmor_path_rmdir&Arg::dir::|security/apparmor/lsm.c,229}"
+CE0x404ed60 "{CE0x404ed60|common_perm_dir_dentry:tmp4|*LoadInst*|security/apparmor/lsm.c,189}"
+CE0x404e3e0 "{CE0x404e3e0|0:_%struct.vfsmount*,_8:_%struct.dentry*,_:_SCMRE_0,8_|*MultipleSource*|security/apparmor/lsm.c, 189|security/apparmor/lsm.c,189}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 

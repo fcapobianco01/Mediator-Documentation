@@ -1,33 +1,33 @@
 [apparmor_ptrace_traceme]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:0]
-CE0x4b88460 "{CE0x4b88460|VOIDTB_TE:_CE:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x3aa48c0 "{CE0x3aa48c0|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:4]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:2]
-CE0x4b852c0 "{CE0x4b852c0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:4]
+CE0x3ab81f0 "{CE0x3ab81f0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 
 implicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:2]
-CE0x4b852c0 "{CE0x4b852c0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x3aa48c0 "{CE0x3aa48c0|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:4]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{subject}][SrcIdx:0]
-CE0x4b88460 "{CE0x4b88460|VOIDTB_TE:_CE:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{object}][SrcIdx:4]
+CE0x3ab81f0 "{CE0x3ab81f0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 

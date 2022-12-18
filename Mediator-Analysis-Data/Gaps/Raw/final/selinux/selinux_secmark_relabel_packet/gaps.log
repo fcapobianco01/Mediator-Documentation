@@ -1,47 +1,47 @@
 [selinux_secmark_relabel_packet]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x3f10b10 "{CE0x3f10b10|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,4610}"
-CE0x3efbd60 "{CE0x3efbd60|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
-CE0x3efc0a0 "{CE0x3efc0a0|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
-CE0x3f133f0 "{CE0x3f133f0|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
-CE0x3f1be20 "{CE0x3f1be20|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
-CE0x3f1c000 "{CE0x3f1c000|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x411ef00 "{CE0x411ef00|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
+CE0x411ed00 "{CE0x411ed00|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
+CE0x411f030 "{CE0x411f030|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x3f3d820 "{CE0x3f3d820|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
-CE0x3f3d670 "{CE0x3f3d670|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
-CE0x3f3d950 "{CE0x3f3d950|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x40ead40 "{CE0x40ead40|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,4610}"
+CE0x40ec930 "{CE0x40ec930|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
+CE0x40dbe90 "{CE0x40dbe90|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
+CE0x40f4730 "{CE0x40f4730|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
+CE0x40dedf0 "{CE0x40dedf0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
+CE0x40defd0 "{CE0x40defd0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x3f3d820 "{CE0x3f3d820|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
-CE0x3f3d670 "{CE0x3f3d670|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
-CE0x3f3d950 "{CE0x3f3d950|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x411ef00 "{CE0x411ef00|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
+CE0x411ed00 "{CE0x411ed00|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
+CE0x411f030 "{CE0x411f030|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x3f10b10 "{CE0x3f10b10|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,4610}"
-CE0x3efbd60 "{CE0x3efbd60|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
-CE0x3efc0a0 "{CE0x3efc0a0|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
-CE0x3f133f0 "{CE0x3f133f0|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
-CE0x3f1be20 "{CE0x3f1be20|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
-CE0x3f1c000 "{CE0x3f1c000|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x40dd240 "{CE0x40dd240|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,4610}"
+CE0x40ec930 "{CE0x40ec930|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
+CE0x40dbe90 "{CE0x40dbe90|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
+CE0x40f4730 "{CE0x40f4730|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
+CE0x40dedf0 "{CE0x40dedf0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
+CE0x40defd0 "{CE0x40defd0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 

@@ -1,76 +1,76 @@
 [apparmor_ptrace_access_check]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
-CE0x3f27fc0 "{CE0x3f27fc0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x4a2f500 "{CE0x4a2f500|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:2]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]
-CE0x3ef62c0 "{CE0x3ef62c0|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
-CE0x3f09bd0 "{CE0x3f09bd0|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
-CE0x3f09c40 "{CE0x3f09c40|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSink*}"
-CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x4a2f680 "{CE0x4a2f680|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
+CE0x4a2f610 "{CE0x4a2f610|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
+CE0x4a2f880 "{CE0x4a2f880|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSink*}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:2]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x3f0a4a0 "{CE0x3f0a4a0|VOIDTB_TE:_CE:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]
+CE0x4a5d9d0 "{CE0x4a5d9d0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x3f0a4a0 "{CE0x3f0a4a0|VOIDTB_TE:_CE:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x4a2f500 "{CE0x4a2f500|VOIDTB_TE:_CE:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x3f0a4a0 "{CE0x3f0a4a0|VOIDTB_TE:_CE:_elem_0:default:}"
-CE0x3d72ad0 "{CE0x3d72ad0|apparmor_ptrace_access_check:call|security/apparmor/lsm.c,99}"
-CE0x3ef8970 "{CE0x3ef8970|apparmor_ptrace_access_check:tobool|security/apparmor/lsm.c,100}"
-CE0x3efc960 "{CE0x3efc960|apparmor_ptrace_access_check:if.end}"
-CE0x3f01140 "{CE0x3f01140|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103}"
-CE0x3f01370 "{CE0x3f01370|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x4a2f500 "{CE0x4a2f500|VOIDTB_TE:_CE:_elem_0:default:}"
+CE0x4a33790 "{CE0x4a33790|apparmor_ptrace_access_check:call|security/apparmor/lsm.c,99}"
+CE0x4a280e0 "{CE0x4a280e0|apparmor_ptrace_access_check:tobool|security/apparmor/lsm.c,100}"
+CE0x4a26170 "{CE0x4a26170|apparmor_ptrace_access_check:if.end}"
+CE0x4a43060 "{CE0x4a43060|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103}"
+CE0x4a43290 "{CE0x4a43290|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
-CE0x3f27fc0 "{CE0x3f27fc0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:3]
+CE0x4a5d9d0 "{CE0x4a5d9d0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0:default:}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:2]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]
-CE0x3ef62c0 "{CE0x3ef62c0|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
-CE0x3f09bd0 "{CE0x3f09bd0|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
-CE0x3f09c40 "{CE0x3f09c40|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSink*}"
-CONST[source:0(mediator),value:0(static)][purpose:{operation}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x4a2f680 "{CE0x4a2f680|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
+CE0x4a2f610 "{CE0x4a2f610|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
+CE0x4a2f880 "{CE0x4a2f880|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSink*}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:2]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:1]
-CE0x3ef62c0 "{CE0x3ef62c0|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
-CE0x3f09bd0 "{CE0x3f09bd0|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
-CE0x3d72ad0 "{CE0x3d72ad0|apparmor_ptrace_access_check:call|security/apparmor/lsm.c,99}"
-CE0x3ef8970 "{CE0x3ef8970|apparmor_ptrace_access_check:tobool|security/apparmor/lsm.c,100}"
-CE0x3efc960 "{CE0x3efc960|apparmor_ptrace_access_check:if.end}"
-CE0x3f01140 "{CE0x3f01140|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103}"
-CE0x3f01370 "{CE0x3f01370|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{operation}][SrcIdx:2]
+CE0x4a2f680 "{CE0x4a2f680|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::|*SummSource*}"
+CE0x4a2f610 "{CE0x4a2f610|apparmor_ptrace_access_check:mode|Function::apparmor_ptrace_access_check&Arg::mode::}"
+CE0x4a33790 "{CE0x4a33790|apparmor_ptrace_access_check:call|security/apparmor/lsm.c,99}"
+CE0x4a280e0 "{CE0x4a280e0|apparmor_ptrace_access_check:tobool|security/apparmor/lsm.c,100}"
+CE0x4a26170 "{CE0x4a26170|apparmor_ptrace_access_check:if.end}"
+CE0x4a43060 "{CE0x4a43060|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103}"
+CE0x4a43290 "{CE0x4a43290|apparmor_ptrace_access_check:call1|security/apparmor/lsm.c,103|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 

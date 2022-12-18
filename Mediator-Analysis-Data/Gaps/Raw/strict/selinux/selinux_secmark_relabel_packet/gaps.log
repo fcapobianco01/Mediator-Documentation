@@ -1,47 +1,47 @@
 [selinux_secmark_relabel_packet]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x4fc5110 "{CE0x4fc5110|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
-CE0x4fc4fb0 "{CE0x4fc4fb0|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
-CE0x4fc5240 "{CE0x4fc5240|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x40f5840 "{CE0x40f5840|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
+CE0x40f5690 "{CE0x40f5690|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
+CE0x40f5970 "{CE0x40f5970|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x4f83ca0 "{CE0x4f83ca0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,4610}"
-CE0x4f83490 "{CE0x4f83490|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
-CE0x4f913f0 "{CE0x4f913f0|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
-CE0x4f9aaa0 "{CE0x4f9aaa0|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
-CE0x4f9bbe0 "{CE0x4f9bbe0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
-CE0x4f9bdc0 "{CE0x4f9bdc0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x40b74a0 "{CE0x40b74a0|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,4610}"
+CE0x40b3b20 "{CE0x40b3b20|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
+CE0x40c1ad0 "{CE0x40c1ad0|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
+CE0x40cb080 "{CE0x40cb080|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
+CE0x40c7610 "{CE0x40c7610|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
+CE0x40c77f0 "{CE0x40c77f0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
 
 implicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x4f83ca0 "{CE0x4f83ca0|COLLAPSED:_GCMRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/selinux/hooks.c,4610}"
-CE0x4f83490 "{CE0x4f83490|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
-CE0x4f913f0 "{CE0x4f913f0|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
-CE0x4f9aaa0 "{CE0x4f9aaa0|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
-CE0x4f9bbe0 "{CE0x4f9bbe0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
-CE0x4f9bdc0 "{CE0x4f9bdc0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x40b74a0 "{CE0x40b74a0|COLLAPSED:_CMRE:_elem_0::|security/selinux/hooks.c,4610}"
+CE0x40b3b20 "{CE0x40b3b20|selinux_secmark_relabel_packet:tmp22|security/selinux/hooks.c,4610}"
+CE0x40c1ad0 "{CE0x40c1ad0|selinux_secmark_relabel_packet:tmp23|security/selinux/hooks.c,4610}"
+CE0x40cb080 "{CE0x40cb080|selinux_secmark_relabel_packet:sid5|security/selinux/hooks.c,4611}"
+CE0x40c7610 "{CE0x40c7610|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611}"
+CE0x40c77f0 "{CE0x40c77f0|selinux_secmark_relabel_packet:tmp24|security/selinux/hooks.c,4611|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x4fc5110 "{CE0x4fc5110|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
-CE0x4fc4fb0 "{CE0x4fc4fb0|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
-CE0x4fc5240 "{CE0x4fc5240|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x40f5840 "{CE0x40f5840|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSource*}"
+CE0x40f5690 "{CE0x40f5690|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::}"
+CE0x40f5970 "{CE0x40f5970|selinux_secmark_relabel_packet:sid|Function::selinux_secmark_relabel_packet&Arg::sid::|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
