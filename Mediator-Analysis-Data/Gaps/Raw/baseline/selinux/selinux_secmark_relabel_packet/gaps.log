@@ -1,41 +1,41 @@
 [selinux_secmark_relabel_packet]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x9ae1620 "{CE0x9ae1620|sid}"
-CE0x9ae15b0 "{CE0x9ae15b0|sid}"
-CE0x9ae1690 "{CE0x9ae1690|sid}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x82f6c20 "{CE0x82f6c20|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x82edf80 "{CE0x82edf80|tmp24}"
+CE0x82ee060 "{CE0x82ee060|tmp24}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x9adad70 "{CE0x9adad70|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0x9af5b40 "{CE0x9af5b40|tmp24}"
-CE0x9af5e40 "{CE0x9af5e40|tmp24}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x82f0260 "{CE0x82f0260|sid}"
+CE0x51f1900 "{CE0x51f1900|sid}"
+CE0x82f02d0 "{CE0x82f02d0|sid}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:0]
-CE0x9ae1620 "{CE0x9ae1620|sid}"
-CE0x9ae15b0 "{CE0x9ae15b0|sid}"
-CE0x9ae1690 "{CE0x9ae1690|sid}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:1]
+CE0x82f0260 "{CE0x82f0260|sid}"
+CE0x51f1900 "{CE0x51f1900|sid}"
+CE0x82f02d0 "{CE0x82f02d0|sid}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:1]
-CE0x9adad70 "{CE0x9adad70|VOIDTB_TE:_IE:_elem_0:default:}"
-CE0x9af5b40 "{CE0x9af5b40|tmp24}"
-CE0x9af5e40 "{CE0x9af5e40|tmp24}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:2]
+CE0x82f6c20 "{CE0x82f6c20|VOIDTB_TE:_IE:_elem_0:default:}"
+CE0x82edf80 "{CE0x82edf80|tmp24}"
+CE0x82ee060 "{CE0x82ee060|tmp24}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
