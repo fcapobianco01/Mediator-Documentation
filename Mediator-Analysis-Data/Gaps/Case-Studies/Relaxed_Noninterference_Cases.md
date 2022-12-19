@@ -140,3 +140,86 @@ should be removed without question
 485
 
 ```
+
+Common set for relaxed noninterference
+```
+AppArmor
+  "implicit_whitelist": [
+    { "file": "security/apparmor/lsm.c", "line": 100 },
+    { "file": "security/apparmor/lsm.c", "line": 109 },
+    { "file": "security/apparmor/lsm.c", "line": 145 }
+  ],
+
+Tomoyo
+  "implicit_whitelist": [
+    { "file": "security/tomoyo/file.c", "line": 151 },
+    { "file": "security/tomoyo/file.c", "line": 814 },
+    { "file": "security/tomoyo/mount.c", "line": 94 },
+    { "file": "security/tomoyo/mount.c", "line": 102 },
+    { "file": "security/tomoyo/mount.c", "line": 122 },
+    { "file": "security/tomoyo/mount.c", "line": 132 },
+    { "file": "security/tomoyo/mount.c", "line": 138 },
+    { "file": "security/tomoyo/mount.c", "line": 147 },
+    { "file": "security/tomoyo/network.c", "line": 560 }
+  ],
+
+SELinux
+  "implicit_whitelist": [
+    { "file": "security/selinux/hooks.c", "line": 1728 },
+    { "file": "security/selinux/hooks.c", "line": 1731 },
+    { "file": "security/selinux/hooks.c", "line": 1823 },
+    { "file": "security/selinux/hooks.c", "line": 1827 },
+    { "file": "security/selinux/hooks.c", "line": 1841 },
+    { "file": "security/selinux/hooks.c", "line": 1942 },
+    { "file": "security/selinux/hooks.c", "line": 1959 },
+    { "file": "security/selinux/hooks.c", "line": 2008 },
+    { "file": "security/selinux/hooks.c", "line": 2917 },
+    { "file": "security/selinux/hooks.c", "line": 2919 },
+    { "file": "security/selinux/hooks.c", "line": 2922 },
+    { "file": "security/selinux/hooks.c", "line": 2948 },
+    { "file": "security/selinux/hooks.c", "line": 2951 },
+    { "file": "security/selinux/hooks.c", "line": 2959 },
+    { "file": "security/selinux/hooks.c", "line": 2963 },
+    { "file": "security/selinux/hooks.c", "line": 2990 },
+    { "file": "security/selinux/hooks.c", "line": 2995 },
+    { "file": "security/selinux/hooks.c", "line": 3000 },
+    { "file": "security/selinux/hooks.c", "line": 3328 },
+    { "file": "security/selinux/hooks.c", "line": 3597 },
+    { "file": "security/selinux/hooks.c", "line": 3608 },
+    { "file": "security/selinux/hooks.c", "line": 3639 },
+    { "file": "security/selinux/hooks.c", "line": 4039 },
+    { "file": "security/selinux/hooks.c", "line": 4076 },
+    { "file": "security/selinux/hooks.c", "line": 4138 },
+    { "file": "security/selinux/hooks.c", "line": 4166 },
+    { "file": "security/selinux/hooks.c", "line": 4315 },
+    { "file": "security/selinux/hooks.c", "line": 4319 },
+    { "file": "security/selinux/hooks.c", "line": 4323 },
+    { "file": "security/selinux/hooks.c", "line": 4344 },
+    { "file": "security/selinux/hooks.c", "line": 4355 },
+    { "file": "security/selinux/hooks.c", "line": 4398 },
+    { "file": "security/selinux/hooks.c", "line": 4405 },
+    { "file": "security/selinux/hooks.c", "line": 4409 },
+    { "file": "security/selinux/hooks.c", "line": 4415 },
+    { "file": "security/selinux/hooks.c", "line": 4421 },
+    { "file": "security/selinux/hooks.c", "line": 4717 },
+    { "file": "security/selinux/hooks.c", "line": 5070 },
+    { "file": "security/selinux/hooks.c", "line": 5244 },
+    { "file": "security/selinux/hooks.c", "line": 5254 },
+    { "file": "security/selinux/hooks.c", "line": 5258 },
+    { "file": "security/selinux/hooks.c", "line": 5284 },
+    { "file": "security/selinux/hooks.c", "line": 5567 },
+    { "file": "security/selinux/hooks.c", "line": 5590 },
+    { "file": "security/selinux/xfrm.c", "line": 89 },
+    { "file": "security/selinux/xfrm.c", "line": 90 },
+    { "file": "security/selinux/xfrm.c", "line": 91 },
+    { "file": "security/selinux/xfrm.c", "line": 95 },
+    { "file": "security/selinux/xfrm.c", "line": 99 },
+    { "file": "security/selinux/xfrm.c", "line": 108 }
+  ],
+```
+
+
+What label should this constant be?
+```
+CONFIG_LSM_MMAP_MIN_ADDR in selinux_mmap_addr()
+```
