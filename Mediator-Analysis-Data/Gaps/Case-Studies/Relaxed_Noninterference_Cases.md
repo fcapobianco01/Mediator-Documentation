@@ -13,6 +13,13 @@ We record here a series of hook function which returns success in special scenar
     - [AppArmor](#apparmor)
   - [Common set for relaxed noninterference](#common-set-for-relaxed-noninterference)
   - [Common set for relaxed noninterference (NEW)](#common-set-for-relaxed-noninterference-new)
+    - [Config file parts](#config-file-parts)
+    - [AppArmor and Tomoyo](#apparmor-and-tomoyo)
+    - [SELinux](#selinux-2)
+      - [Return 0](#return-0)
+      - [Valid flows](#valid-flows)
+      - [Non-implicit related](#non-implicit-related)
+      - [False positives](#false-positives)
 
 ## SELinux
 
@@ -243,6 +250,8 @@ SELinux
 
 This is the version where the return 0 cases are annotated to avoid affecting case 2 of relaxed NI.
 
+### Config file parts
+
 ```json
 AppArmor
   "implicit_whitelist": [
@@ -374,75 +383,62 @@ SELinux
   ],
 ```
 
-| Category |   return 0    |  valid flows  | non-implicit related |
-| -------- | :-----------: | :-----------: | :------------------: |
-| AppArmor |   lsm.c,100   |  file.h,200   |    apparmor.h,117    |
-|          |   lsm.c,109   |  file.h,202   |                      |
-|          |   lsm.c,145   |  file.h,205   |                      |
-|          |   lsm.c,229   |  file.h,208   |                      |
-|          |   lsm.c,253   |  file.h,210   |                      |
-|          |   lsm.c,288   |   lsm.c,463   |                      |
-|          |   lsm.c,327   |   lsm.c,477   |                      |
-|          |   lsm.c,396   |   lsm.c,483   |                      |
-|          |   lsm.c,434   |   lsm.c,485   |                      |
-|          |   lsm.c,435   |   lsm.c,501   |                      |
-|          |   lsm.c,447   |               |                      |
-|          |   lsm.c,448   |               |                      |
-|          |   lsm.c,474   |               |                      |
-| Tomoyo   |  file.c,761   |  file.c,762   |    network.c,478     |
-|          |  file.c,565   |  mount.c,112  |     uidgid.h,50      |
-|          |  file.c,750   |  mount.c,115  |                      |
-|          |  file.c,701   | network.c,527 |                      |
-|          |  file.c,702   |               |                      |
-|          |  file.c,758   |               |                      |
-|          |  file.c,797   |               |                      |
-|          |  file.c,798   |               |                      |
-|          |  file.c,814   |               |                      |
-|          |  file.c,853   |               |                      |
-|          |  file.c,852   |               |                      |
-|          |  file.c,898   |               |                      |
-|          |  file.c,899   |               |                      |
-|          |  mount.c,102  |               |                      |
-|          |  mount.c,122  |               |                      |
-|          |  mount.c,132  |               |                      |
-|          |  mount.c,138  |               |                      |
-|          |  mount.c,147  |               |                      |
-|          | tomoyo.c,126  |               |                      |
-|          | tomoyo.c,315  |               |                      |
-|          | tomoyo.c,382  |               |                      |
-|          | network.c,473 |               |                      |
-|          | network.c,474 |               |                      |
-|          | network.c,509 |               |                      |
-|          | network.c,548 |               |                      |
-|          | network.c,549 |               |                      |
-|          | network.c,560 |               |                      |
-|          | network.c,596 |               |                      |
-|          | network.c,517 |               |                      |
-| SELinux  |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
-|          |               |               |                      |
+### AppArmor and Tomoyo
+
+| Category | return 0      | valid flows   | non-implicit related | false positives |
+| -------- | :------------ | :------------ | :------------------- | :-------------- |
+| AppArmor | lsm.c,100     | file.h,200    | apparmor.h,117       |                 |
+|          | lsm.c,109     | file.h,202    |                      |                 |
+|          | lsm.c,145     | file.h,205    |                      |                 |
+|          | lsm.c,229     | file.h,208    |                      |                 |
+|          | lsm.c,253     | file.h,210    |                      |                 |
+|          | lsm.c,288     | lsm.c,463     |                      |                 |
+|          | lsm.c,327     | lsm.c,477     |                      |                 |
+|          | lsm.c,396     | lsm.c,483     |                      |                 |
+|          | lsm.c,434     | lsm.c,485     |                      |                 |
+|          | lsm.c,435     | lsm.c,501     |                      |                 |
+|          | lsm.c,447     |               |                      |                 |
+|          | lsm.c,448     |               |                      |                 |
+|          | lsm.c,474     |               |                      |                 |
+| Tomoyo   | file.c,761    | file.c,762    | network.c,478        |                 |
+|          | file.c,565    | mount.c,112   | uidgid.h,50          |                 |
+|          | file.c,750    | mount.c,115   |                      |                 |
+|          | file.c,701    | network.c,527 |                      |                 |
+|          | file.c,702    |               |                      |                 |
+|          | file.c,758    |               |                      |                 |
+|          | file.c,797    |               |                      |                 |
+|          | file.c,798    |               |                      |                 |
+|          | file.c,814    |               |                      |                 |
+|          | file.c,853    |               |                      |                 |
+|          | file.c,852    |               |                      |                 |
+|          | file.c,898    |               |                      |                 |
+|          | file.c,899    |               |                      |                 |
+|          | mount.c,102   |               |                      |                 |
+|          | mount.c,122   |               |                      |                 |
+|          | mount.c,132   |               |                      |                 |
+|          | mount.c,138   |               |                      |                 |
+|          | mount.c,147   |               |                      |                 |
+|          | tomoyo.c,126  |               |                      |                 |
+|          | tomoyo.c,315  |               |                      |                 |
+|          | tomoyo.c,382  |               |                      |                 |
+|          | network.c,473 |               |                      |                 |
+|          | network.c,474 |               |                      |                 |
+|          | network.c,509 |               |                      |                 |
+|          | network.c,548 |               |                      |                 |
+|          | network.c,549 |               |                      |                 |
+|          | network.c,560 |               |                      |                 |
+|          | network.c,596 |               |                      |                 |
+|          | network.c,517 |               |                      |                 |
 
 
+
+### SELinux
+
+#### Return 0 
+
+Note: Some cases are not returning 0s, but are early returns which I think should be put in this category.
+
+```txt
 include/linux/slab.h,522    - Subsequent code has no sink call, but is complicated
 hooks.c,636
 hooks.c,647                 - Removed some FPs, rest are also false positives
@@ -518,13 +514,13 @@ xfrm.c,184                  - Early return but not zero
 xfrm.c,192
 xfrm.c,196
 xfrm.c,202
+```
 
+#### Valid flows
 
+They are true positive flows which affects sink argument values.
 
-
-
-
-
+```txt
 hooks.c,144
 hooks.c,159
 hooks.c,1683      - Failing branch check leads to another branch where only one path goes to another sink
@@ -580,16 +576,23 @@ hooks.c,5671
 xfrm.c,411
 xfrm.c,415
 xfrm.h,35
+```
 
+#### Non-implicit related
 
+`cmp` and `tobool` variables not related to implicit flows. Rarely exists, but do show up in some code patterns.
+
+```txt
 hooks.c,1776
 hooks.c,1815
 hooks.c,1845
 hooks.c,1848
+```
 
 
+#### False positives
 
-
+Just simple false positive from DSA messing up stuff.
 
 hooks.c,443       - Latent false positives, lookup selinux_sb_kern_mount gaps
 hooks.c,647       - Removed some FPs, rest are also false positives
