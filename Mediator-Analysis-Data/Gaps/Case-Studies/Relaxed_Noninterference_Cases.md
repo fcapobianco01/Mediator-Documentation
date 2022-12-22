@@ -1,21 +1,38 @@
-We record here a series of hook function which returns success in special scenarios.
+# Relaxed Noninterference Cases
 
-### SELinux
+We record here a series of hook function which returns success in special scenarios
 
-#### `selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`, 
+- [Relaxed Noninterference Cases](#relaxed-noninterference-cases)
+  - [SELinux](#selinux)
+    - [`selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`](#selinux_sem_semctl-selinux_shm_shmctl-selinux_msg_queue_msgctl)
+    - [Lines removed with relaxed noninterference update](#lines-removed-with-relaxed-noninterference-update)
+  - [*Case-by-case details*](#case-by-case-details)
+    - [old relaxed - new relaxed](#old-relaxed---new-relaxed)
+    - [SELinux](#selinux-1)
+    - [Tomoyo](#tomoyo)
+    - [AppArmor](#apparmor)
+  - [Common set for relaxed noninterference](#common-set-for-relaxed-noninterference)
+  - [Common set for relaxed noninterference (NEW)](#common-set-for-relaxed-noninterference-new)
+
+## SELinux
+
+### `selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`
+
 Returning 0 when `cmd` is not in the set of expected values.
 
-#### Lines removed with relaxed noninterference update
-```
+### Lines removed with relaxed noninterference update
+
+```json
 1611
 1683
 1694
 3350
 ```
+
 189 total relaxed annotations for previous version.
 117 for tomoyo, reduced to 31.
-#### **
 
+## *Case-by-case details*
 
 `selinux_syslog` Should this one be annotated? current are the same, but appear at different places.
 
@@ -39,14 +56,13 @@ Returning 0 when `cmd` is not in the set of expected values.
 
 questionable `selinux` lines/hooks: 1565, 5519, 1728, 1731, 2885, 4724, `selinux_inode_setxattr`, `selinux_socket_bind`(4068, 4073)
 
-
-
 ### old relaxed - new relaxed
 
 ### SELinux
 
 confirmed - `selinux_secmark_enabled(), selinux_authorizable_xfrm(x), IS_PRIVATE(inode)`, family of `capable`
-```
+
+```json
 1611
 3253
 3165
@@ -56,7 +72,8 @@ confirmed - `selinux_secmark_enabled(), selinux_authorizable_xfrm(x), IS_PRIVATE
 ```
 
 questionable
-```
+
+```json
 1683
 1694
 3169
@@ -67,7 +84,8 @@ questionable
 ```
 
 should be removed without question
-```
+
+```json
 1565
 3350
 1902
@@ -83,11 +101,11 @@ should be removed without question
 4048
 ```
 
-
 ### Tomoyo
 
 confirmed - `tomoyo_init_request_info`
-```
+
+```json
 750
 565
 797
@@ -97,7 +115,8 @@ confirmed - `tomoyo_init_request_info`
 ```
 
 questionable
-```
+
+```json
 315 - tomoyo.c
 379 - tomoyo.c
 382 - tomoyo.c
@@ -106,18 +125,18 @@ questionable
 ```
 
 should be removed without question
-```
+
+```json
 126
 807
 110-117 - mount.c
 ```
 
-
-
 ### AppArmor
 
 confirmed - `mediated_filesystem`, `unconfined`, `cap_ptrace_access_check`, `cap_ptrace_traceme`
-```
+
+```json
 434, 435
 438
 447
@@ -128,21 +147,23 @@ confirmed - `mediated_filesystem`, `unconfined`, `cap_ptrace_access_check`, `cap
 ```
 
 questionable
-```
+
+```json
 448
 ```
 
 should be removed without question
-```
+
+```json
 463
 477
 483
 485
-
 ```
 
-Common set for relaxed noninterference
-```
+## Common set for relaxed noninterference
+
+```json
 AppArmor
   "implicit_whitelist": [
     { "file": "security/apparmor/lsm.c", "line": 100 },
@@ -218,8 +239,364 @@ SELinux
   ],
 ```
 
+## Common set for relaxed noninterference (NEW)
 
-What label should this constant be?
+This is the version where the return 0 cases are annotated to avoid affecting case 2 of relaxed NI.
+
+```json
+AppArmor
+  "implicit_whitelist": [
+    { "file": "security/apparmor/lsm.c", "line": 100 },
+    { "file": "security/apparmor/lsm.c", "line": 109 },
+    { "file": "security/apparmor/lsm.c", "line": 145 },
+    { "file": "security/apparmor/lsm.c", "line": 229 },
+    { "file": "security/apparmor/lsm.c", "line": 253 },
+    { "file": "security/apparmor/lsm.c", "line": 288 },
+    { "file": "security/apparmor/lsm.c", "line": 327 },
+    { "file": "security/apparmor/lsm.c", "line": 396 },
+    { "file": "security/apparmor/lsm.c", "line": 434 },
+    { "file": "security/apparmor/lsm.c", "line": 435 },
+    { "file": "security/apparmor/lsm.c", "line": 447 },
+    { "file": "security/apparmor/lsm.c", "line": 448 },
+    { "file": "security/apparmor/lsm.c", "line": 474 }
+  ],
+
+Tomoyo
+  "implicit_whitelist": [
+    { "file": "security/tomoyo/file.c", "line": 565 },
+    { "file": "security/tomoyo/file.c", "line": 701 },
+    { "file": "security/tomoyo/file.c", "line": 702 },
+    { "file": "security/tomoyo/file.c", "line": 750 },
+    { "file": "security/tomoyo/file.c", "line": 758 },
+    { "file": "security/tomoyo/file.c", "line": 761 },
+    { "file": "security/tomoyo/file.c", "line": 797 },
+    { "file": "security/tomoyo/file.c", "line": 798 },
+    { "file": "security/tomoyo/file.c", "line": 814 },
+    { "file": "security/tomoyo/file.c", "line": 852 },
+    { "file": "security/tomoyo/file.c", "line": 853 },
+    { "file": "security/tomoyo/file.c", "line": 898 },
+    { "file": "security/tomoyo/file.c", "line": 899 },
+    { "file": "security/tomoyo/mount.c", "line": 102 },
+    { "file": "security/tomoyo/mount.c", "line": 122 },
+    { "file": "security/tomoyo/mount.c", "line": 132 },
+    { "file": "security/tomoyo/mount.c", "line": 138 },
+    { "file": "security/tomoyo/mount.c", "line": 147 },
+    { "file": "security/tomoyo/network.c", "line": 473 },
+    { "file": "security/tomoyo/network.c", "line": 474 },
+    { "file": "security/tomoyo/network.c", "line": 509 },
+    { "file": "security/tomoyo/network.c", "line": 517 },
+    { "file": "security/tomoyo/network.c", "line": 548 },
+    { "file": "security/tomoyo/network.c", "line": 549 },
+    { "file": "security/tomoyo/network.c", "line": 560 },
+    { "file": "security/tomoyo/network.c", "line": 596 },
+    { "file": "security/tomoyo/tomoyo.c", "line": 126 },
+    { "file": "security/tomoyo/tomoyo.c", "line": 315 },
+    { "file": "security/tomoyo/tomoyo.c", "line": 382 }
+  ],
+
+SELinux
+  "implicit_whitelist": [
+    { "file": "include/linux/slab.h", "line": 522 },
+    { "file": "security/selinux/hooks.c", "line": 636 },
+    { "file": "security/selinux/hooks.c", "line": 647 },
+    { "file": "security/selinux/hooks.c", "line": 665 },
+    { "file": "security/selinux/hooks.c", "line": 666 },
+    { "file": "security/selinux/hooks.c", "line": 734 },
+    { "file": "security/selinux/hooks.c", "line": 1060 },
+    { "file": "security/selinux/hooks.c", "line": 1246 },
+    { "file": "security/selinux/hooks.c", "line": 1611 },
+    { "file": "security/selinux/hooks.c", "line": 1694 },
+    { "file": "security/selinux/hooks.c", "line": 1731 },
+    { "file": "security/selinux/hooks.c", "line": 1843 },
+    { "file": "security/selinux/hooks.c", "line": 1942 },
+    { "file": "security/selinux/hooks.c", "line": 1959 },
+    { "file": "security/selinux/hooks.c", "line": 2008 },
+    { "file": "security/selinux/hooks.c", "line": 2019 },
+    { "file": "security/selinux/hooks.c", "line": 2611 },
+    { "file": "security/selinux/hooks.c", "line": 2615 },
+    { "file": "security/selinux/hooks.c", "line": 2852 },
+    { "file": "security/selinux/hooks.c", "line": 2857 },
+    { "file": "security/selinux/hooks.c", "line": 2869 },
+    { "file": "security/selinux/hooks.c", "line": 2888 },
+    { "file": "security/selinux/hooks.c", "line": 2948 },
+    { "file": "security/selinux/hooks.c", "line": 2959 },
+    { "file": "security/selinux/hooks.c", "line": 2990 },
+    { "file": "security/selinux/hooks.c", "line": 2995 },
+    { "file": "security/selinux/hooks.c", "line": 3000 },
+    { "file": "security/selinux/hooks.c", "line": 3055 },
+    { "file": "security/selinux/hooks.c", "line": 3165 },
+    { "file": "security/selinux/hooks.c", "line": 3169 },
+    { "file": "security/selinux/hooks.c", "line": 3170 },
+    { "file": "security/selinux/hooks.c", "line": 3253 },
+    { "file": "security/selinux/hooks.c", "line": 3277 },
+    { "file": "security/selinux/hooks.c", "line": 3280 },
+    { "file": "security/selinux/hooks.c", "line": 3328 },
+    { "file": "security/selinux/hooks.c", "line": 3597 },
+    { "file": "security/selinux/hooks.c", "line": 3608 },
+    { "file": "security/selinux/hooks.c", "line": 3628 },
+    { "file": "security/selinux/hooks.c", "line": 3639 },
+    { "file": "security/selinux/hooks.c", "line": 4048 },
+    { "file": "security/selinux/hooks.c", "line": 4076 },
+    { "file": "security/selinux/hooks.c", "line": 4109 },
+    { "file": "security/selinux/hooks.c", "line": 4155 },
+    { "file": "security/selinux/hooks.c", "line": 4160 },
+    { "file": "security/selinux/hooks.c", "line": 4166 },
+    { "file": "security/selinux/hooks.c", "line": 4315 },
+    { "file": "security/selinux/hooks.c", "line": 4323 },
+    { "file": "security/selinux/hooks.c", "line": 4344 },
+    { "file": "security/selinux/hooks.c", "line": 4355 },
+    { "file": "security/selinux/hooks.c", "line": 4374 },
+    { "file": "security/selinux/hooks.c", "line": 4390 },
+    { "file": "security/selinux/hooks.c", "line": 4398 },
+    { "file": "security/selinux/hooks.c", "line": 4409 },
+    { "file": "security/selinux/hooks.c", "line": 4421 },
+    { "file": "security/selinux/hooks.c", "line": 4717 },
+    { "file": "security/selinux/hooks.c", "line": 4724 },
+    { "file": "security/selinux/hooks.c", "line": 5070 },
+    { "file": "security/selinux/hooks.c", "line": 5244 },
+    { "file": "security/selinux/hooks.c", "line": 5493 },
+    { "file": "security/selinux/hooks.c", "line": 5519 },
+    { "file": "security/selinux/hooks.c", "line": 5656 },
+    { "file": "security/selinux/hooks.c", "line": 5567 },
+    { "file": "security/selinux/hooks.c", "line": 5675 },
+    { "file": "security/selinux/hooks.c", "line": 5783 },
+    { "file": "security/selinux/xfrm.c", "line": 89 },
+    { "file": "security/selinux/xfrm.c", "line": 90 },
+    { "file": "security/selinux/xfrm.c", "line": 91 },
+    { "file": "security/selinux/xfrm.c", "line": 95 },
+    { "file": "security/selinux/xfrm.c", "line": 99 },
+    { "file": "security/selinux/xfrm.c", "line": 108 },
+    { "file": "security/selinux/xfrm.c", "line": 144 },
+    { "file": "security/selinux/xfrm.c", "line": 184 },
+    { "file": "security/selinux/xfrm.c", "line": 192 },
+    { "file": "security/selinux/xfrm.c", "line": 196 },
+    { "file": "security/selinux/xfrm.c", "line": 202 }
+  ],
 ```
-CONFIG_LSM_MMAP_MIN_ADDR in selinux_mmap_addr()
-```
+
+| Category |   return 0    |  valid flows  | non-implicit related |
+| -------- | :-----------: | :-----------: | :------------------: |
+| AppArmor |   lsm.c,100   |  file.h,200   |    apparmor.h,117    |
+|          |   lsm.c,109   |  file.h,202   |                      |
+|          |   lsm.c,145   |  file.h,205   |                      |
+|          |   lsm.c,229   |  file.h,208   |                      |
+|          |   lsm.c,253   |  file.h,210   |                      |
+|          |   lsm.c,288   |   lsm.c,463   |                      |
+|          |   lsm.c,327   |   lsm.c,477   |                      |
+|          |   lsm.c,396   |   lsm.c,483   |                      |
+|          |   lsm.c,434   |   lsm.c,485   |                      |
+|          |   lsm.c,435   |   lsm.c,501   |                      |
+|          |   lsm.c,447   |               |                      |
+|          |   lsm.c,448   |               |                      |
+|          |   lsm.c,474   |               |                      |
+| Tomoyo   |  file.c,761   |  file.c,762   |    network.c,478     |
+|          |  file.c,565   |  mount.c,112  |     uidgid.h,50      |
+|          |  file.c,750   |  mount.c,115  |                      |
+|          |  file.c,701   | network.c,527 |                      |
+|          |  file.c,702   |               |                      |
+|          |  file.c,758   |               |                      |
+|          |  file.c,797   |               |                      |
+|          |  file.c,798   |               |                      |
+|          |  file.c,814   |               |                      |
+|          |  file.c,853   |               |                      |
+|          |  file.c,852   |               |                      |
+|          |  file.c,898   |               |                      |
+|          |  file.c,899   |               |                      |
+|          |  mount.c,102  |               |                      |
+|          |  mount.c,122  |               |                      |
+|          |  mount.c,132  |               |                      |
+|          |  mount.c,138  |               |                      |
+|          |  mount.c,147  |               |                      |
+|          | tomoyo.c,126  |               |                      |
+|          | tomoyo.c,315  |               |                      |
+|          | tomoyo.c,382  |               |                      |
+|          | network.c,473 |               |                      |
+|          | network.c,474 |               |                      |
+|          | network.c,509 |               |                      |
+|          | network.c,548 |               |                      |
+|          | network.c,549 |               |                      |
+|          | network.c,560 |               |                      |
+|          | network.c,596 |               |                      |
+|          | network.c,517 |               |                      |
+| SELinux  |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+|          |               |               |                      |
+
+
+include/linux/slab.h,522    - Subsequent code has no sink call, but is complicated
+hooks.c,636
+hooks.c,647                 - Removed some FPs, rest are also false positives
+hooks.c,665
+hooks.c,666                 - Removed some FPs, rest are also false positives
+hooks.c,734                 - Early return but not zero
+hooks.c,1060                - Early return but not zero
+hooks.c,1246                - Subsequent code has no sink call, but is complicated
+hooks.c,1611                - May not be end result return 0, as is a sink deep in call graph
+hooks.c,1694                - Already have a potentially called sink before this branch
+hooks.c,1731                - Already have a called sink before this branch
+hooks.c,1843                - Already have a called sink before this branch
+hooks.c,1942
+hooks.c,1959
+hooks.c,2008
+hooks.c,2019
+hooks.c,2611                - Early return but not zero
+hooks.c,2615
+hooks.c,2852
+hooks.c,2857
+hooks.c,2869                - Already have a called sink before this branch
+hooks.c,2888
+hooks.c,2948                - Already have a called sink before this branch
+hooks.c,2959                - Already have a called sink before this branch
+hooks.c,2990                - Already have a called sink before this branch
+hooks.c,2995                - Already have a called sink before this branch
+hooks.c,3000                - Already have a called sink before this branch
+hooks.c,3055                - Early return but not zero
+hooks.c,3165
+hooks.c,3169
+hooks.c,3170
+hooks.c,3253                - Already have a potentially called sink before this branch, must be success
+hooks.c,3277                - Early return but not zero
+hooks.c,3280
+hooks.c,3328                - Already have a called sink before this branch
+hooks.c,3597                - Early return but not zero
+hooks.c,3608
+hooks.c,3628
+hooks.c,3639                - Early return but not zero
+hooks.c,4048                - Already have a called sink before this branch
+hooks.c,4076                - Early return but not zero
+hooks.c,4109                - Early return but not zero
+hooks.c,4155                - Early return but not zero
+hooks.c,4160                - Already have a called sink before this branch
+hooks.c,4166                - Already have a called sink before this branch
+hooks.c,4315                - Early return but not zero
+hooks.c,4323                - Early return but not zero
+hooks.c,4344                - Early return but not zero
+hooks.c,4355                - Return non-zero, dead code return
+hooks.c,4374
+hooks.c,4390                - Already have a called sink before this branch
+hooks.c,4398                - Early return but not zero
+hooks.c,4409                - Early return but not zero
+hooks.c,4421                - Already have a called sink before this branch
+hooks.c,4717
+hooks.c,4724
+hooks.c,5070                - Early return but not zero
+hooks.c,5244
+hooks.c,5493
+hooks.c,5519                - Subsequent code has no sink call, but is complicated
+hooks.c,5656                - Already have a called sink before this branch
+hooks.c,5567                - Early return but not zero
+hooks.c,5675                - Already have a called sink before this branch
+hooks.c,5783
+xfrm.c,89                   - Early return but not zero
+xfrm.c,90                   - Early return but not zero
+xfrm.c,91                   - Early return but not zero
+xfrm.c,95                   - Early return but not zero
+xfrm.c,99                   - Early return but not zero
+xfrm.c,108                  - Early return but not zero
+xfrm.c,144
+xfrm.c,184                  - Early return but not zero
+xfrm.c,192
+xfrm.c,196
+xfrm.c,202
+
+
+
+
+
+
+
+hooks.c,144
+hooks.c,159
+hooks.c,1683      - Failing branch check leads to another branch where only one path goes to another sink
+hooks.c,1728      - Is bypass
+hooks.c,1829      - Subsequent code contains sink calls
+hooks.c,1838
+hooks.c,1874
+hooks.c,1880
+hooks.c,1882
+hooks.c,1886
+hooks.c,1888
+hooks.c,1890
+hooks.c,1904
+hooks.c,1905
+hooks.c,1945
+hooks.c,2641
+hooks.c,2885      - Does not lead to a DIRECT early return (ref:2888)
+hooks.c,2896
+hooks.c,2917      - Does not lead to a DIRECT early return
+hooks.c,2919      - Does not lead to a DIRECT early return
+hooks.c,2944
+hooks.c,2963
+hooks.c,3151
+hooks.c,3242
+hooks.c,3296
+hooks.c,3308
+hooks.c,3309
+hooks.c,3311
+hooks.c,3312
+hooks.c,3314
+hooks.c,3318
+hooks.c,3350      - The fallthrough
+hooks.c,3403
+hooks.c,3661
+hooks.c,3665
+hooks.c,3715
+hooks.c,3731
+hooks.c,3747
+hooks.c,3790
+hooks.c,4058
+hooks.c,4068
+hooks.c,4153
+hooks.c,4169
+hooks.c,4347
+hooks.c,4401
+hooks.c,5237
+hooks.c,5488
+hooks.c,5490
+hooks.c,5578
+hooks.c,5600
+hooks.c,5636
+hooks.c,5671
+xfrm.c,411
+xfrm.c,415
+xfrm.h,35
+
+
+hooks.c,1776
+hooks.c,1815
+hooks.c,1845
+hooks.c,1848
+
+
+
+
+
+hooks.c,443       - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,647       - Removed some FPs, rest are also false positives
+hooks.c,666       - Removed some FPs, rest are also false positives
+hooks.c,674       - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,770       - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1346      - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1370      - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1388      - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1454      - Latent false positives, lookup selinux_sb_kern_mount gaps

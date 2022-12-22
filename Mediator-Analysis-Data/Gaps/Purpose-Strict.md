@@ -48,7 +48,7 @@
 | apparmor_file_lock                 |    -/4    |          |    -/2    |          |          |   -/6    |    -/1     |   2/4    |          |   2/10    |
 | apparmor_ptrace_access_check       |           |          |    -/1    |          |   -/1    |          |    1/-     |   2/2    |          |    1/-    |
 | apparmor_ptrace_traceme            |    -/1    |          |           |          |          |          |            |   1/1    |          |    1/-    |
-| apparmor_capable                   |           |          |           |          |          |          |            |   1/-    |          |           |
+| apparmor_capable                   |           |          |           |          |   -/1    |          |            |   1/1    |          |           |
 | apparmor_task_setrlimit            |           |          |           |          |          |          |            |          |          |    1/-    |
 | ------                             |           |          |           |          |          |          |            |          |          |           |
 | **_SELINUX_**                      |           |          |           |          |          |          |            |          |          |           |
