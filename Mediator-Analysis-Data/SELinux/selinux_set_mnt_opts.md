@@ -1,0 +1,72 @@
+| Source (name [type])           | Field (index [id]) | Source Location                         | Label at Source             |
+|--------------------------------|--------------------|-----------------------------------------|-----------------------------|
+| current                        |                    | security/selinux/hooks.c:621            | subject, dynamic, external  |
+| sb                             |                    | security/selinux/hooks.c:616            | object, dynamic, input      |
+| opts                           |                    | security/selinux/hooks.c:616            | operation, dynamic, input   |
+| 2 [FSCONTEXT_MNT]              |                    | security/selinux/hooks.c:695            | operation, static, mediator |
+| 1 [CONTEXT_MNT]                |                    | security/selinux/hooks.c:695            | operation, static, mediator |
+| 4 [ROOTCONTEXT_MNT]            |                    | security/selinux/hooks.c:695            | operation, static, mediator |
+| 8 [DEFCONTEXT_MNT]             |                    | security/selinux/hooks.c:695            | operation, static, mediator |
+| 12 [PAGE_SHIFT]                |                    | include/asm-generic/getorder.h:18       | all, static, external       |
+| 64 [BITS_PER_LONG]             |                    | include/asm-generic/getorder.h:19       | all, static, external       |
+| 8192 [KMALLOC_MAX_CACHE_SIZE]  |                    | include/linux/slab.h:415                | all, static, external       |
+| 16 [ZERO_SIZE_PTR]             |                    | include/linux/slab.h:422                | all, static, external       |
+| 1 [GFP_DMA]                    |                    | include/linux/slab.h:418                | all, static, external       |
+| 8 [KMALLOC_MIN_SIZE]           |                    | include/linux/slab.h:252                | all, static, external       |
+| 64 [KMALLOC_MIN_SIZE]          |                    | include/linux/slab.h:255                | all, static, external       |
+| 192 [KMALLOC_MIN_SIZE]         |                    | include/linux/slab.h:257                | all, static, external       |
+| 3 [KMALLOC_SHIFT_LOW]          |                    | include/linux/slab.h:253                | all, static, external       |
+| 32768 [__GFP_ZERO]             |                    | include/linux/slab.h:578                | all, static, external       |
+| "selinux" [XATTR_NAME_SELINUX] |                    | security/selinux/hooks.c:1344           | all, static, external       |
+| "selinux" [XATTR_NAME_SELINUX] |                    | security/selinux/hooks.c:1350           | all, static, external       |
+| "selinux" [XATTR_NAME_SELINUX] |                    | security/selinux/hooks.c:1365           | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:1388           | all, static, external       |
+| -34 [ERANGE]                   |                    | security/selinux/hooks.c:1346           | all, static, external       |
+| 1 [GFP_NOFS]                   |                    | security/selinux/hooks.c:1337           | all, static, external       |
+| 1 [GFP_NOFS]                   |                    | security/selinux/hooks.c:1357           | all, static, external       |
+| 1 [GFP_NOFS]                   |                    | security/selinux/hooks.c:1383           | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:1339           | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:1359           | all, static, external       |
+| -61 [ENODATA]                  |                    | security/selinux/hooks.c:1370           | all, static, external       |
+| 49152 [S_IFSOCK]               |                    | security/selinux/hooks.c:1140           | all, static, external       |
+| 4096 [S_IFIFO]                 |                    | security/selinux/hooks.c:1152           | all, static, external       |
+| 16384 [S_IFDIR]                |                    | security/selinux/hooks.c:1148           | all, static, external       |
+| 8192 [S_IFCHR]                 |                    | security/selinux/hooks.c:1150           | all, static, external       |
+| 40960 [S_IFLNK]                |                    | security/selinux/hooks.c:1142           | all, static, external       |
+| 24576 [S_IFBLK]                |                    | security/selinux/hooks.c:1146           | all, static, external       |
+| 61440[S_IFMT]                  |                    | security/selinux/hooks.c:1139           | all, static, external       |
+| 32768 [S_IFREG]                |                    | security/selinux/hooks.c:1144           | all, static, external       |
+| 0 [SIZE_MAX]                   |                    | include/linux/slab.h:522                | all, static, external       |
+| "selinux" [XATTR_NAME_SELINUX] |                    | security/selinux/hooks.c:442            | all, static, external       |
+| -95 [EOPNOTSUPP]               |                    | security/selinux/hooks.c:439            | all, static, external       |
+| -95 [EOPNOTSUPP]               |                    | security/selinux/hooks.c:444            | all, static, external       |
+| -61 [ENODATA]                  |                    | security/selinux/hooks.c:443            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:946            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:959            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:972            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:985            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:998            | all, static, external       |
+| 5 [NUM_SEL_MNT_OPTS]           |                    | security/selinux/hooks.c:1006           | all, static, external       |
+| 5 [NUM_SEL_MNT_OPTS]           |                    | security/selinux/hooks.c:1010           | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:952            | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:965            | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:978            | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:991            | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:1005           | all, static, external       |
+| 5 [GFP_ATOMIC]                 |                    | security/selinux/hooks.c:1006           | all, static, external       |
+| 5 [GFP_ATOMIC]                 |                    | security/selinux/hooks.c:1010           | all, static, external       |
+| 12 [PAGE_SIZE]                 |                    | security/selinux/hooks.c:1249           | all, static, external       |
+| 208 [GFP_KERNEL]               |                    | security/selinux/hooks.c:1245           | all, static, external       |
+| -12 [ENOMEM]                   |                    | security/selinux/hooks.c:1247           | all, static, external       |
+| 4194304 [MS_KERNMOUNT]         |                    | security/selinux/hooks.c:2615           | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:642            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:650            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:727            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:808            | all, static, external       |
+| -22 [EINVAL]                   |                    | security/selinux/hooks.c:829            | all, static, external       |
+| 1 [SECURITY_LSM_NATIVE_LABELS] |                    | security/selinux/hooks.c:770            | all, static, external       |
+| 1 [SECURITY_LSM_NATIVE_LABELS] |                    | security/selinux/hooks.c:772            | all, static, external       |
+| 208 [GFP_KERNEL]               |                    | security/selinux/hooks.c:680            | all, static, external       |
+| 0 [FS_BINARY_MOUNTDATA]        |                    | security/selinux/hooks.c:665            | all, static, external       |
+| 0 [FS_BINARY_MOUNTDATA]        |                    | security/selinux/hooks.c:1057           | all, static, external       |
+| "selinux" [XATTR_NAME_SELINUX] |                    | security/selinux/hooks.c:442            | all, static, external       |
