@@ -1,6 +1,6 @@
 \begin{table*}
     \centering
-    \begin{tabular}{r|cc|cccccc|c|ccc|}
+    \begin{tabular}{r||cc||cccccc|c|ccc||c|}
     
     &
     \rotfortyfive{total hooks} &
@@ -14,12 +14,13 @@
     \rotfortyfive{dynamic $\rightarrow$ static} &
     \rotfortyfive{input $\rightarrow$ mediator} &
     \rotfortyfive{external $\rightarrow$ input} &
-    \rotfortyfive{external $\rightarrow$ mediator} \\ \hline
+    \rotfortyfive{external $\rightarrow$ mediator} & 
+    \rotfortyfive{\% of reduction} \\ \hline
     
     
-SELinux    & 173 & 102 &    83/53/52 &      18/0/2 &    90/40/37 &    14/10/13 & 280/196/249 & 386/272/349 &    51/29/34 & 305/197/204 &       0/0/0 & 651/451/559 \\
-Tomoyo     & 28  & 23  &      62/0/5 &      45/0/3 &     20/9/20 &    66/17/36 &      24/2/6 &    86/21/27 &   133/19/42 &  213/39/104 &       0/0/0 &    107/8/17 \\
-AppArmor   & 34  & 20  &     26/0/16 &       1/0/0 &     33/12/0 &       3/2/1 &       9/7/0 &      45/5/0 &       9/7/7 &     45/14/6 &       0/0/0 &    98/36/22 \\ \hline
+SELinux    & 173 & 102 &   83/53 &    18/0 &   90/40 &   14/10 & 280/196 & 386/272 &   51/29 & 305/197 &     0/0 & 651/451 & 33.5\% \\
+Tomoyo     & 28  & 23  &    61/0 &    46/0 &    17/8 &   65/16 &    27/3 &   85/20 &  133/19 &  207/35 &     0/0 &  117/12 & 85.1\% \\
+AppArmor   & 34  & 20  &    26/0 &     1/0 &   34/12 &     3/2 &     9/7 &    45/5 &     9/7 &   46/14 &     0/0 &   98/36 & 69.4\% \\ \hline
     \end{tabular}
     \caption{\label{tab:table-lsm-and-implicit-gap-flows} The number of violations with implicit flows enabled, excluding those already seen in explicit flow only settings.\\ \footnotesize{\textit{}}}
 \end{table*}

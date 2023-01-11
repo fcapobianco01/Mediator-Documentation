@@ -7,21 +7,21 @@
 | **_TOMOYO_**                       |           |          |           |          |          |          |            |          |          |           |
 | tomoyo_bprm_check_security         |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
 | tomoyo_file_fcntl                  |           |          |           |          |          |          |    1/-     |   1/-    |          |    2/-    |
-| tomoyo_file_ioctl                  |           |          |           |          |          |          |    2/-     |   2/-    |          |    1/-    |
-| tomoyo_file_open                   |           |          |           |          |          |          |    1/-     |   2/-    |          |    1/-    |
+| tomoyo_file_ioctl                  |           |          |           |          |          |          |    1/-     |   1/-    |          |    1/-    |
+| tomoyo_file_open                   |           |          |           |          |          |          |    1/-     |   1/-    |          |    2/-    |
 | tomoyo_path_truncate               |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
 | tomoyo_path_unlink                 |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
 | tomoyo_path_mkdir                  |           |          |           |          |          |          |    1/-     |   1/-    |          |    2/-    |
 | tomoyo_path_rmdir                  |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
 | tomoyo_path_symlink                |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
-| tomoyo_path_mknod                  |           |          |           |          |          |          |    4/-     |   2/-    |          |    2/-    |
+| tomoyo_path_mknod                  |           |          |           |          |          |          |            |          |          |    6/-    |
 | tomoyo_path_link                   |           |          |           |          |          |          |            |          |          |    1/-    |
 | tomoyo_path_rename                 |           |          |           |          |          |          |            |          |          |    1/-    |
 | tomoyo_inode_getattr               |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
-| tomoyo_path_chmod                  |           |          |           |          |          |          |    1/-     |   1/-    |          |    1/-    |
-| tomoyo_path_chown                  |           |          |    -/1    |   -/1    |   -/2    |   -/4    |    -/1     |   2/3    |          |    1/8    |
+| tomoyo_path_chmod                  |           |          |           |          |          |          |    1/-     |   1/-    |          |    2/-    |
+| tomoyo_path_chown                  |           |          |           |          |   -/3    |   -/3    |    2/1     |   2/3    |          |    1/8    |
 | tomoyo_path_chroot                 |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
-| tomoyo_sb_mount                    |           |          |           |          |          |   -/2    |    1/2     |   1/4    |          |           |
+| tomoyo_sb_mount                    |           |          |           |          |          |   -/2    |    1/2     |          |          |    1/4    |
 | tomoyo_sb_umount                   |           |          |           |          |          |   -/1    |            |          |          |    1/-    |
 | tomoyo_sb_pivotroot                |           |          |           |          |          |          |            |          |          |    1/-    |
 | tomoyo_socket_bind                 |           |          |    -/2    |   -/4    |          |   -/2    |    4/4     |   12/8   |          |    2/-    |
