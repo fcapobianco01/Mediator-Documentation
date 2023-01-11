@@ -14,9 +14,19 @@ We record here a series of hook function which returns success in special scenar
   - [Common set for relaxed noninterference](#common-set-for-relaxed-noninterference)
   - [Common set for relaxed noninterference (NEW)](#common-set-for-relaxed-noninterference-new)
     - [Config file parts](#config-file-parts)
-    - [AppArmor and Tomoyo](#apparmor-and-tomoyo)
-    - [SELinux](#selinux-2)
+    - [AppArmor](#apparmor-1)
       - [Return 0](#return-0)
+      - [Relaxed NI - Safe Case II](#relaxed-ni---safe-case-ii)
+      - [True gaps](#true-gaps)
+      - [Non-branching related](#non-branching-related)
+    - [Tomoyo](#tomoyo-1)
+      - [Return 0](#return-0-1)
+      - [Relaxed NI - Safe Case II](#relaxed-ni---safe-case-ii-1)
+      - [True gaps](#true-gaps-1)
+      - [Non-branching related](#non-branching-related-1)
+    - [SELinux](#selinux-2)
+      - [Relaxed NI annotation](#relaxed-ni-annotation)
+      - [Return 0](#return-0-2)
       - [Valid flows](#valid-flows)
       - [Non-implicit related](#non-implicit-related)
       - [False positives](#false-positives)
@@ -285,6 +295,7 @@ Tomoyo
     { "file": "security/tomoyo/file.c", "line": 853 },
     { "file": "security/tomoyo/file.c", "line": 898 },
     { "file": "security/tomoyo/file.c", "line": 899 },
+    { "file": "security/tomoyo/mount.c", "line": 94 },
     { "file": "security/tomoyo/mount.c", "line": 102 },
     { "file": "security/tomoyo/mount.c", "line": 122 },
     { "file": "security/tomoyo/mount.c", "line": 132 },
@@ -383,62 +394,127 @@ SELinux
   ],
 ```
 
-### AppArmor and Tomoyo
+### AppArmor
 
-| Category | return 0      | valid flows   | non-implicit related | false positives |
-| -------- | :------------ | :------------ | :------------------- | :-------------- |
-| AppArmor | lsm.c,100     | file.h,200    | apparmor.h,117       |                 |
-|          | lsm.c,109     | file.h,202    |                      |                 |
-|          | lsm.c,145     | file.h,205    |                      |                 |
-|          | lsm.c,229     | file.h,208    |                      |                 |
-|          | lsm.c,253     | file.h,210    |                      |                 |
-|          | lsm.c,288     | lsm.c,463     |                      |                 |
-|          | lsm.c,327     | lsm.c,477     |                      |                 |
-|          | lsm.c,396     | lsm.c,483     |                      |                 |
-|          | lsm.c,434     | lsm.c,485     |                      |                 |
-|          | lsm.c,435     | lsm.c,501     |                      |                 |
-|          | lsm.c,447     |               |                      |                 |
-|          | lsm.c,448     |               |                      |                 |
-|          | lsm.c,474     |               |                      |                 |
-| Tomoyo   | file.c,761    | file.c,762    | network.c,478        |                 |
-|          | file.c,565    | mount.c,112   | uidgid.h,50          |                 |
-|          | file.c,750    | mount.c,115   |                      |                 |
-|          | file.c,701    | network.c,527 |                      |                 |
-|          | file.c,702    |               |                      |                 |
-|          | file.c,758    |               |                      |                 |
-|          | file.c,797    |               |                      |                 |
-|          | file.c,798    |               |                      |                 |
-|          | file.c,814    |               |                      |                 |
-|          | file.c,853    |               |                      |                 |
-|          | file.c,852    |               |                      |                 |
-|          | file.c,898    |               |                      |                 |
-|          | file.c,899    |               |                      |                 |
-|          | mount.c,102   |               |                      |                 |
-|          | mount.c,122   |               |                      |                 |
-|          | mount.c,132   |               |                      |                 |
-|          | mount.c,138   |               |                      |                 |
-|          | mount.c,147   |               |                      |                 |
-|          | tomoyo.c,126  |               |                      |                 |
-|          | tomoyo.c,315  |               |                      |                 |
-|          | tomoyo.c,382  |               |                      |                 |
-|          | network.c,473 |               |                      |                 |
-|          | network.c,474 |               |                      |                 |
-|          | network.c,509 |               |                      |                 |
-|          | network.c,548 |               |                      |                 |
-|          | network.c,549 |               |                      |                 |
-|          | network.c,560 |               |                      |                 |
-|          | network.c,596 |               |                      |                 |
-|          | network.c,517 |               |                      |                 |
+#### Return 0 
+```c
+lsm.c,229
+lsm.c,253
+lsm.c,288
+lsm.c,327
+lsm.c,396
+lsm.c,434
+lsm.c,435
+lsm.c,447
+lsm.c,448
+lsm.c,474
+```
 
+#### Relaxed NI - Safe Case II
+```c
+lsm.c,100
+lsm.c,109
+lsm.c,145
+```
 
+#### True gaps
+```c
+file.h,200
+file.h,202
+file.h,205
+file.h,208
+file.h,210
+lsm.c,463
+lsm.c,477
+lsm.c,483
+lsm.c,485
+lsm.c,501
+```
+
+#### Non-branching related
+```c
+apparmor.h,117
+```
+This happened to be a coincidence of capturing the `tobool` in the `mediated_filesystem` function calls scattered in the code. A failed check indicates a returning 0 scenario, but the branch is not at the location above. So it's not possible to annotate those branches from the source location above. Rather, we need to annotate the following source locations in a more aggressive way.
+```c
+lsm.c,308
+lsm.c,323
+lsm.c,349
+lsm.c,361
+lsm.c,369
+lsm.c,382
+lsm.c,435
+```
+
+### Tomoyo
+
+#### Return 0 
+```c
+file.c,565
+file.c,701
+file.c,702
+file.c,750
+file.c,758
+file.c,761
+file.c,797
+file.c,798
+file.c,852
+file.c,853
+file.c,898
+file.c,899
+tomoyo.c,315
+tomoyo.c,382
+network.c,473
+network.c,474
+network.c,509
+network.c,517
+network.c,548
+network.c,549
+network.c,596
+```
+
+#### Relaxed NI - Safe Case II
+```c
+file.c,814
+tomoyo.c,126
+mount.c,94
+mount.c,102
+mount.c,122
+mount.c,132
+mount.c,138
+mount.c,147
+network.c,560
+```
+
+#### True gaps
+```c
+file.c,762
+mount.c,112
+mount.c,115
+network.c,527
+```
+
+#### Non-branching related
+```c
+network.c,478
+uidgid.h,50
+```
 
 ### SELinux
 
+#### Relaxed NI annotation
+
+In a CFG, we annotate a branch if there are no two paths after it that calls the same sink function or its wrapper.
+
 #### Return 0 
+
+In a CFG, a return 0 statement is a return statement that 1) returns a zero, and 2) there is no sink call before it. 
+
+Among all return 0 statements, some of them are conditionals. And we annotate those conditionals. But this is a different annotation from the previous ones.
 
 Note: Some cases are not returning 0s, but are early returns which I think should be put in this category.
 
-```txt
+```c
 include/linux/slab.h,522    - Subsequent code has no sink call, but is complicated
 hooks.c,636
 hooks.c,647                 - Removed some FPs, rest are also false positives
@@ -520,7 +596,7 @@ xfrm.c,202
 
 They are true positive flows which affects sink argument values.
 
-```txt
+```c
 hooks.c,144
 hooks.c,159
 hooks.c,1683      - Failing branch check leads to another branch where only one path goes to another sink
@@ -582,7 +658,7 @@ xfrm.h,35
 
 `cmp` and `tobool` variables not related to implicit flows. Rarely exists, but do show up in some code patterns.
 
-```txt
+```c
 hooks.c,1776
 hooks.c,1815
 hooks.c,1845
@@ -594,6 +670,7 @@ hooks.c,1848
 
 Just simple false positive from DSA messing up stuff.
 
+```c
 hooks.c,443       - Latent false positives, lookup selinux_sb_kern_mount gaps
 hooks.c,647       - Removed some FPs, rest are also false positives
 hooks.c,666       - Removed some FPs, rest are also false positives
@@ -603,3 +680,4 @@ hooks.c,1346      - Latent false positives, lookup selinux_sb_kern_mount gaps
 hooks.c,1370      - Latent false positives, lookup selinux_sb_kern_mount gaps
 hooks.c,1388      - Latent false positives, lookup selinux_sb_kern_mount gaps
 hooks.c,1454      - Latent false positives, lookup selinux_sb_kern_mount gaps
+```
