@@ -30,18 +30,18 @@
 | tomoyo_socket_sendmsg              |           |          |    -/2    |   -/4    |          |   -/2    |    4/4     |   12/8   |          |    2/-    |
 | ------                             |           |          |           |          |          |          |            |          |          |           |
 | **_APPARMOR_**                     |           |          |           |          |          |          |            |          |          |           |
-| apparmor_path_link                 |           |          |    -/1    |          |          |          |            |   3/1    |          |    1/-    |
+| apparmor_path_link                 |           |          |           |          |          |          |            |   3/-    |          |    1/-    |
 | apparmor_path_unlink               |           |          |           |          |          |          |            |   3/-    |          |    1/-    |
 | apparmor_path_rmdir                |           |          |           |          |          |          |            |   3/-    |          |    1/-    |
 | apparmor_path_symlink              |           |          |    2/-    |          |          |          |            |   2/-    |          |    5/-    |
 | apparmor_path_mkdir                |           |          |    2/-    |          |          |          |            |   2/-    |          |    5/-    |
 | apparmor_path_mknod                |           |          |    2/-    |          |          |          |            |   4/-    |          |    3/-    |
-| apparmor_path_rename               |           |          |    -/4    |          |   -/2    |   -/4    |            |   12/4   |          |    2/6    |
-| apparmor_path_chmod                |           |          |    -/2    |          |          |          |            |   2/1    |          |    1/3    |
-| apparmor_path_chown                |           |          |    -/2    |          |          |          |            |   2/1    |          |    1/1    |
+| apparmor_path_rename               |           |          |           |          |          |          |            |   12/-   |          |    2/-    |
+| apparmor_path_chmod                |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
+| apparmor_path_chown                |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
 | apparmor_path_truncate             |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
-| apparmor_inode_getattr             |           |          |    -/2    |          |          |          |            |   3/1    |          |    1/3    |
-| apparmor_file_open                 |           |          |    -/1    |   -/1    |   -/5    |   4/1    |    -/1     |   1/1    |          |   10/13   |
+| apparmor_inode_getattr             |           |          |           |          |          |          |            |   3/-    |          |    1/-    |
+| apparmor_file_open                 |           |          |           |          |          |   4/-    |    -/1     |   1/1    |          |   10/4    |
 | apparmor_file_permission           |           |          |           |          |          |          |    1/-     |   3/-    |          |    1/-    |
 | apparmor_mmap_file                 |           |          |           |          |          |          |    -/2     |   2/2    |          |    3/4    |
 | apparmor_file_mprotect             |           |          |           |   -/1    |          |          |    -/3     |   2/2    |          |    3/5    |
