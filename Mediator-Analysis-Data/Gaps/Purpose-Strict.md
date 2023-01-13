@@ -5,25 +5,25 @@
 | Function                           | sub > obj | sub > op | obj > sub | obj > op | op > sub | op > obj | dyn > stat | in > med | ext > in | ext > med |
 | ---------------------------------- | :-------: | :------: | :-------: | :------: | :------: | :------: | :--------: | :------: | :------: | :-------: |
 | **_TOMOYO_**                       |           |          |           |          |          |          |            |          |          |           |
-| tomoyo_bprm_check_security         |    -/2    |   -/2    |           |   -/2    |          |          |    -/4     |   1/4    |          |    1/2    |
-| tomoyo_file_fcntl                  |    -/1    |   -/1    |           |   -/1    |   -/5    |   -/5    |    1/4     |   1/10   |          |    2/7    |
-| tomoyo_file_ioctl                  |    -/1    |   -/2    |           |   -/2    |          |          |    1/4     |   1/3    |          |    1/3    |
-| tomoyo_file_open                   |    -/2    |   -/2    |           |   -/2    |   -/1    |   -/1    |    1/4     |   1/4    |          |    2/4    |
-| tomoyo_path_truncate               |    -/2    |   -/1    |           |   -/1    |          |   -/2    |    -/2     |   -/3    |          |    1/3    |
-| tomoyo_path_unlink                 |    -/2    |   -/1    |           |   -/2    |          |   -/2    |    -/3     |   -/6    |          |    1/3    |
-| tomoyo_path_mkdir                  |    -/1    |   -/2    |           |   -/2    |          |   -/1    |    1/4     |   1/3    |          |    2/3    |
-| tomoyo_path_rmdir                  |    -/2    |   -/1    |           |   -/2    |          |   -/2    |    -/3     |   -/6    |          |    1/3    |
-| tomoyo_path_symlink                |    -/2    |   -/1    |           |   -/3    |          |   -/2    |    -/4     |   -/9    |          |    1/3    |
-| tomoyo_path_mknod                  |    -/2    |   -/4    |           |   -/4    |          |   -/2    |    -/8     |   -/6    |          |   6/10    |
-| tomoyo_path_link                   |    -/4    |   -/2    |           |          |          |   -/2    |    -/2     |          |          |    1/3    |
-| tomoyo_path_rename                 |    -/4    |   -/2    |           |          |          |   -/2    |    -/2     |          |          |    1/3    |
-| tomoyo_inode_getattr               |    -/2    |   -/1    |           |   -/2    |          |   -/2    |    -/3     |   -/6    |          |    1/3    |
-| tomoyo_path_chmod                  |    -/1    |   -/2    |           |   -/2    |          |   -/1    |    1/4     |   1/3    |          |    2/3    |
-| tomoyo_path_chown                  |    -/1    |   -/2    |    -/1    |   -/2    |   -/5    |   -/5    |    2/6     |   2/10   |          |   1/11    |
-| tomoyo_path_chroot                 |    -/2    |   -/1    |           |   -/1    |          |   -/2    |    -/2     |   -/3    |          |    1/3    |
-| tomoyo_sb_mount                    |           |          |           |   -/4    |          |   -/2    |    1/6     |   -/8    |          |    1/4    |
-| tomoyo_sb_umount                   |    -/2    |   -/1    |           |   -/1    |          |   -/2    |    -/2     |   -/3    |          |    1/3    |
-| tomoyo_sb_pivotroot                |    -/4    |   -/2    |           |          |          |   -/2    |    -/2     |          |          |    1/3    |
+| tomoyo_bprm_check_security         |    -/2    |   -/2    |           |   -/2    |          |          |    -/4     |   2/5    |          |    1/2    |
+| tomoyo_file_fcntl                  |    -/1    |   -/1    |           |   -/2    |   -/5    |   -/5    |    1/5     |   2/11   |          |    2/7    |
+| tomoyo_file_ioctl                  |    -/1    |   -/2    |           |   -/2    |          |          |    1/4     |   2/3    |          |    1/3    |
+| tomoyo_file_open                   |    -/2    |   -/2    |           |   -/2    |   -/1    |   -/1    |    1/4     |   2/5    |          |    2/4    |
+| tomoyo_path_truncate               |    -/2    |   -/1    |           |   -/2    |          |   -/2    |    -/3     |   1/5    |          |    1/3    |
+| tomoyo_path_unlink                 |    -/2    |   -/1    |           |   -/3    |          |   -/2    |    -/4     |   1/8    |          |    1/3    |
+| tomoyo_path_mkdir                  |    -/1    |   -/2    |           |   -/2    |          |   -/1    |    1/4     |   2/3    |          |    2/3    |
+| tomoyo_path_rmdir                  |    -/2    |   -/1    |           |   -/3    |          |   -/2    |    -/4     |   1/8    |          |    1/3    |
+| tomoyo_path_symlink                |    -/2    |   -/1    |           |   -/4    |          |   -/2    |    -/5     |   1/11   |          |    1/3    |
+| tomoyo_path_mknod                  |    -/2    |   -/4    |           |   -/4    |          |   -/2    |    -/8     |   2/6    |          |   6/10    |
+| tomoyo_path_link                   |    -/4    |   -/2    |           |          |          |   -/2    |    -/2     |   2/-    |          |    1/3    |
+| tomoyo_path_rename                 |    -/4    |   -/2    |           |          |          |   -/2    |    -/2     |   2/-    |          |    1/3    |
+| tomoyo_inode_getattr               |    -/2    |   -/1    |           |   -/3    |          |   -/2    |    -/4     |   1/8    |          |    1/3    |
+| tomoyo_path_chmod                  |    -/1    |   -/2    |           |   -/2    |          |   -/1    |    1/4     |   2/3    |          |    2/3    |
+| tomoyo_path_chown                  |    -/1    |   -/2    |    -/2    |   -/4    |   -/5    |   -/5    |    2/8     |   3/13   |          |   1/11    |
+| tomoyo_path_chroot                 |    -/2    |   -/1    |           |   -/2    |          |   -/2    |    -/3     |   1/5    |          |    1/3    |
+| tomoyo_sb_mount                    |           |          |           |   -/4    |          |   -/2    |    1/6     |   2/8    |          |    1/4    |
+| tomoyo_sb_umount                   |    -/2    |   -/1    |           |   -/2    |          |   -/2    |    -/3     |   1/5    |          |    1/3    |
+| tomoyo_sb_pivotroot                |    -/4    |   -/2    |           |          |          |   -/2    |    -/2     |   2/-    |          |    1/3    |
 | tomoyo_socket_bind                 |    -/6    |   -/4    |    -/4    |   -/8    |   -/4    |   -/12   |    4/16    |  12/30   |          |   2/10    |
 | tomoyo_socket_connect              |    -/6    |   -/4    |    -/4    |   -/8    |   -/4    |   -/12   |    4/16    |  12/30   |          |   2/10    |
 | tomoyo_socket_listen               |    -/6    |   -/4    |    -/4    |   -/8    |   -/4    |   -/12   |    4/16    |  12/30   |          |   2/10    |

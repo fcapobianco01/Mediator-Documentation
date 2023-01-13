@@ -1,272 +1,325 @@
 [tomoyo_inode_getattr]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x6712a90 "{CE0x6712a90|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
-CE0x644ef70 "{CE0x644ef70|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x67b7d80 "{CE0x67b7d80|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x6a0d990 "{CE0x6a0d990|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x7e8d1a0 "{CE0x7e8d1a0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x7ed9560 "{CE0x7ed9560|tomoyo_init_request_info:domain.addr.0}"
-CE0x58143e0 "{CE0x58143e0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x58e4720 "{CE0x58e4720|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
+CE0x4bdad10 "{CE0x4bdad10|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x55ed6c0 "{CE0x55ed6c0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x5b1d5a0 "{CE0x5b1d5a0|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5aa8650 "{CE0x5aa8650|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x5b8cae0 "{CE0x5b8cae0|tomoyo_init_request_info:domain.addr.0}"
+CE0x5844720 "{CE0x5844720|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]
+CE0x493c4f0 "{CE0x493c4f0|tomoyo_path_perm:buf|security/tomoyo/file.c, 792|*SummSource*}"
+CE0x493c480 "{CE0x493c480|tomoyo_path_perm:buf|security/tomoyo/file.c, 792}"
+CE0x7078130 "{CE0x7078130|tomoyo_path_permission:filename|Function::tomoyo_path_permission&Arg::filename::}"
+CE0x58ee960 "{CE0x58ee960|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_31,32_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 
 implicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
-CE0x4bb8560 "{CE0x4bb8560|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::|*SummSource*}"
-CE0x4ae09c0 "{CE0x4ae09c0|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::}"
-CE0x4b50870 "{CE0x4b50870|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_8,16_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
-CE0x66a5060 "{CE0x66a5060|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
-CE0x697dff0 "{CE0x697dff0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 792|security/tomoyo/file.c, 794|security/tomoyo/file.c,802}"
-CE0x6a6da30 "{CE0x6a6da30|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
-CE0x4c8c820 "{CE0x4c8c820|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x67a9670 "{CE0x67a9670|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x58e4720 "{CE0x58e4720|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
+CE0x4bdad10 "{CE0x4bdad10|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x55ed6c0 "{CE0x55ed6c0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x5b1d5a0 "{CE0x5b1d5a0|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5aa8650 "{CE0x5aa8650|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x5b8cae0 "{CE0x5b8cae0|tomoyo_init_request_info:domain.addr.0}"
+CE0x6ff0b70 "{CE0x6ff0b70|tomoyo_init_request_info:ns|security/tomoyo/util.c,1010}"
+CE0x5c1ede0 "{CE0x5c1ede0|tomoyo_init_request_info:tmp12|security/tomoyo/util.c,1010}"
+CE0x59c66c0 "{CE0x59c66c0|tomoyo_get_mode:ns|Function::tomoyo_get_mode&Arg::ns::}"
+CE0x57ba3d0 "{CE0x57ba3d0|COLLAPSED:_CRE:_elem_0:default:}"
+CE0x3be8230 "{CE0x3be8230|tomoyo_get_mode:tmp24|security/tomoyo/util.c,986}"
+CE0x3be8910 "{CE0x3be8910|tomoyo_get_mode:mode.1}"
+CE0x3d5c0d0 "{CE0x3d5c0d0|tomoyo_get_mode:conv15|security/tomoyo/util.c,987}"
+CE0x3c79060 "{CE0x3c79060|tomoyo_get_mode:and|security/tomoyo/util.c,987}"
+CE0x3c79230 "{CE0x3c79230|tomoyo_get_mode:retval.0}"
+CE0x5a2b9f0 "{CE0x5a2b9f0|_ret_i32_%retval.0,_!dbg_!38935|security/tomoyo/util.c,988}"
+CE0x5c1f350 "{CE0x5c1f350|tomoyo_init_request_info:call4|security/tomoyo/util.c,1010}"
+CE0x5a2bf50 "{CE0x5a2bf50|tomoyo_init_request_info:conv|security/tomoyo/util.c,1010}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x3c7dc80 "{CE0x3c7dc80|tomoyo_path_permission:tmp7|*LoadInst*|security/tomoyo/file.c,565}"
+CE0x3c7df00 "{CE0x3c7df00|tomoyo_path_permission:conv3|security/tomoyo/file.c,565}"
+CE0x5a5a960 "{CE0x5a5a960|tomoyo_path_permission:cmp|security/tomoyo/file.c,565}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x5919380 "{CE0x5919380|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
-CE0x4bb8560 "{CE0x4bb8560|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::|*SummSource*}"
-CE0x4ae09c0 "{CE0x4ae09c0|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::}"
-CE0x4b50870 "{CE0x4b50870|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_8,16_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
-CE0x66a5060 "{CE0x66a5060|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
-CE0x697dff0 "{CE0x697dff0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 792|security/tomoyo/file.c, 794|security/tomoyo/file.c,802}"
-CE0x6a6da30 "{CE0x6a6da30|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
-CE0x4c8c820 "{CE0x4c8c820|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x7f759f0 "{CE0x7f759f0|tomoyo_path_permission:bb}"
-CE0x686abb0 "{CE0x686abb0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CE0x66613e0 "{CE0x66613e0|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
-CE0x6661760 "{CE0x6661760|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
-CE0x6825dd0 "{CE0x6825dd0|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
-CE0x58399b0 "{CE0x58399b0|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
-CE0x6848c40 "{CE0x6848c40|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
-CE0x7edb2c0 "{CE0x7edb2c0|tomoyo_path_perm:if.end6}"
-CE0x69098d0 "{CE0x69098d0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x58e4720 "{CE0x58e4720|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
+CE0x4bdad10 "{CE0x4bdad10|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x55ed6c0 "{CE0x55ed6c0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x5b1d5a0 "{CE0x5b1d5a0|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5aa8650 "{CE0x5aa8650|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x5b8cae0 "{CE0x5b8cae0|tomoyo_init_request_info:domain.addr.0}"
+CE0x6ff0b70 "{CE0x6ff0b70|tomoyo_init_request_info:ns|security/tomoyo/util.c,1010}"
+CE0x5c1ede0 "{CE0x5c1ede0|tomoyo_init_request_info:tmp12|security/tomoyo/util.c,1010}"
+CE0x59c66c0 "{CE0x59c66c0|tomoyo_get_mode:ns|Function::tomoyo_get_mode&Arg::ns::}"
+CE0x57ba3d0 "{CE0x57ba3d0|COLLAPSED:_CRE:_elem_0:default:}"
+CE0x3be8230 "{CE0x3be8230|tomoyo_get_mode:tmp24|security/tomoyo/util.c,986}"
+CE0x3be8910 "{CE0x3be8910|tomoyo_get_mode:mode.1}"
+CE0x3d5c0d0 "{CE0x3d5c0d0|tomoyo_get_mode:conv15|security/tomoyo/util.c,987}"
+CE0x3c79060 "{CE0x3c79060|tomoyo_get_mode:and|security/tomoyo/util.c,987}"
+CE0x3c79230 "{CE0x3c79230|tomoyo_get_mode:retval.0}"
+CE0x5a2b9f0 "{CE0x5a2b9f0|_ret_i32_%retval.0,_!dbg_!38935|security/tomoyo/util.c,988}"
+CE0x5c1f350 "{CE0x5c1f350|tomoyo_init_request_info:call4|security/tomoyo/util.c,1010}"
+CE0x5a2bf50 "{CE0x5a2bf50|tomoyo_init_request_info:conv|security/tomoyo/util.c,1010}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x4914b20 "{CE0x4914b20|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
+CE0x4914ea0 "{CE0x4914ea0|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
+CE0x4943e60 "{CE0x4943e60|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
+CE0x489de10 "{CE0x489de10|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
+CE0x560f3e0 "{CE0x560f3e0|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
+CE0x5812190 "{CE0x5812190|tomoyo_path_perm:if.end6}"
+CE0x5898350 "{CE0x5898350|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
-CE0x4bb8560 "{CE0x4bb8560|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::|*SummSource*}"
-CE0x4ae09c0 "{CE0x4ae09c0|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::}"
-CE0x4b50870 "{CE0x4b50870|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_8,16_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
-CE0x66a5060 "{CE0x66a5060|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
-CE0x697dff0 "{CE0x697dff0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 792|security/tomoyo/file.c, 794|security/tomoyo/file.c,802}"
-CE0x6a6da30 "{CE0x6a6da30|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
-CE0x4c8c820 "{CE0x4c8c820|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x678e760 "{CE0x678e760|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_25,26_}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
-
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
------------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x68d19c0 "{CE0x68d19c0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/tomoyo/common.h,1205}"
-CE0x644ef70 "{CE0x644ef70|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x67b7d80 "{CE0x67b7d80|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x6a0d990 "{CE0x6a0d990|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x7e8d1a0 "{CE0x7e8d1a0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x7ed9560 "{CE0x7ed9560|tomoyo_init_request_info:domain.addr.0}"
-CE0x6a92270 "{CE0x6a92270|tomoyo_init_request_info:ns|security/tomoyo/util.c,1010}"
-CE0x800c6c0 "{CE0x800c6c0|tomoyo_init_request_info:tmp12|security/tomoyo/util.c,1010}"
-CE0x80126a0 "{CE0x80126a0|tomoyo_get_mode:ns|Function::tomoyo_get_mode&Arg::ns::}"
-CE0x58fa760 "{CE0x58fa760|COLLAPSED:_CRE:_elem_0:default:}"
-CE0x4a03fa0 "{CE0x4a03fa0|tomoyo_get_mode:tmp24|security/tomoyo/util.c,986}"
-CE0x4a04680 "{CE0x4a04680|tomoyo_get_mode:mode.1}"
-CE0x4a49d00 "{CE0x4a49d00|tomoyo_get_mode:conv15|security/tomoyo/util.c,987}"
-CE0x4bbc770 "{CE0x4bbc770|tomoyo_get_mode:and|security/tomoyo/util.c,987}"
-CE0x4bbc940 "{CE0x4bbc940|tomoyo_get_mode:retval.0}"
-CE0x596e420 "{CE0x596e420|_ret_i32_%retval.0,_!dbg_!38935|security/tomoyo/util.c,988}"
-CE0x800cc30 "{CE0x800cc30|tomoyo_init_request_info:call4|security/tomoyo/util.c,1010}"
-CE0x596e980 "{CE0x596e980|tomoyo_init_request_info:conv|security/tomoyo/util.c,1010}"
-CE0x686abb0 "{CE0x686abb0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CE0x7e95290 "{CE0x7e95290|tomoyo_path_permission:tmp7|*LoadInst*|security/tomoyo/file.c,565}"
-CE0x7e954c0 "{CE0x7e954c0|tomoyo_path_permission:conv3|security/tomoyo/file.c,565}"
-CE0x4b8b620 "{CE0x4b8b620|tomoyo_path_permission:cmp|security/tomoyo/file.c,565}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x67a9670 "{CE0x67a9670|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
-CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
-
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
------------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x68d19c0 "{CE0x68d19c0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/tomoyo/common.h,1205}"
-CE0x644ef70 "{CE0x644ef70|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x67b7d80 "{CE0x67b7d80|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x6a0d990 "{CE0x6a0d990|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x7e8d1a0 "{CE0x7e8d1a0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x7ed9560 "{CE0x7ed9560|tomoyo_init_request_info:domain.addr.0}"
-CE0x6a92270 "{CE0x6a92270|tomoyo_init_request_info:ns|security/tomoyo/util.c,1010}"
-CE0x800c6c0 "{CE0x800c6c0|tomoyo_init_request_info:tmp12|security/tomoyo/util.c,1010}"
-CE0x80126a0 "{CE0x80126a0|tomoyo_get_mode:ns|Function::tomoyo_get_mode&Arg::ns::}"
-CE0x58fa760 "{CE0x58fa760|COLLAPSED:_CRE:_elem_0:default:}"
-CE0x4a03fa0 "{CE0x4a03fa0|tomoyo_get_mode:tmp24|security/tomoyo/util.c,986}"
-CE0x4a04680 "{CE0x4a04680|tomoyo_get_mode:mode.1}"
-CE0x4a49d00 "{CE0x4a49d00|tomoyo_get_mode:conv15|security/tomoyo/util.c,987}"
-CE0x4bbc770 "{CE0x4bbc770|tomoyo_get_mode:and|security/tomoyo/util.c,987}"
-CE0x4bbc940 "{CE0x4bbc940|tomoyo_get_mode:retval.0}"
-CE0x596e420 "{CE0x596e420|_ret_i32_%retval.0,_!dbg_!38935|security/tomoyo/util.c,988}"
-CE0x800cc30 "{CE0x800cc30|tomoyo_init_request_info:call4|security/tomoyo/util.c,1010}"
-CE0x596e980 "{CE0x596e980|tomoyo_init_request_info:conv|security/tomoyo/util.c,1010}"
-CE0x686abb0 "{CE0x686abb0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CE0x66613e0 "{CE0x66613e0|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
-CE0x6661760 "{CE0x6661760|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
-CE0x6825dd0 "{CE0x6825dd0|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
-CE0x58399b0 "{CE0x58399b0|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
-CE0x6848c40 "{CE0x6848c40|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
-CE0x7edb2c0 "{CE0x7edb2c0|tomoyo_path_perm:if.end6}"
-CE0x69098d0 "{CE0x69098d0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
-
-
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
------------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x6712a90 "{CE0x6712a90|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
-CE0x644ef70 "{CE0x644ef70|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x67b7d80 "{CE0x67b7d80|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x6a0d990 "{CE0x6a0d990|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x7e8d1a0 "{CE0x7e8d1a0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x7ed9560 "{CE0x7ed9560|tomoyo_init_request_info:domain.addr.0}"
-CE0x58143e0 "{CE0x58143e0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x58e4720 "{CE0x58e4720|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
+CE0x4bdad10 "{CE0x4bdad10|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x55ed6c0 "{CE0x55ed6c0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x5b1d5a0 "{CE0x5b1d5a0|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5aa8650 "{CE0x5aa8650|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x5b8cae0 "{CE0x5b8cae0|tomoyo_init_request_info:domain.addr.0}"
+CE0x5844720 "{CE0x5844720|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x68d19c0 "{CE0x68d19c0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/tomoyo/common.h,1205}"
-CE0x644ef70 "{CE0x644ef70|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x67b7d80 "{CE0x67b7d80|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x6a0d990 "{CE0x6a0d990|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x7e8d1a0 "{CE0x7e8d1a0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x7ed9560 "{CE0x7ed9560|tomoyo_init_request_info:domain.addr.0}"
-CE0x6a92270 "{CE0x6a92270|tomoyo_init_request_info:ns|security/tomoyo/util.c,1010}"
-CE0x800c6c0 "{CE0x800c6c0|tomoyo_init_request_info:tmp12|security/tomoyo/util.c,1010}"
-CE0x80126a0 "{CE0x80126a0|tomoyo_get_mode:ns|Function::tomoyo_get_mode&Arg::ns::}"
-CE0x58fa760 "{CE0x58fa760|COLLAPSED:_CRE:_elem_0:default:}"
-CE0x4a03fa0 "{CE0x4a03fa0|tomoyo_get_mode:tmp24|security/tomoyo/util.c,986}"
-CE0x4a04680 "{CE0x4a04680|tomoyo_get_mode:mode.1}"
-CE0x4a49d00 "{CE0x4a49d00|tomoyo_get_mode:conv15|security/tomoyo/util.c,987}"
-CE0x4bbc770 "{CE0x4bbc770|tomoyo_get_mode:and|security/tomoyo/util.c,987}"
-CE0x4bbc940 "{CE0x4bbc940|tomoyo_get_mode:retval.0}"
-CE0x596e420 "{CE0x596e420|_ret_i32_%retval.0,_!dbg_!38935|security/tomoyo/util.c,988}"
-CE0x800cc30 "{CE0x800cc30|tomoyo_init_request_info:call4|security/tomoyo/util.c,1010}"
-CE0x596e980 "{CE0x596e980|tomoyo_init_request_info:conv|security/tomoyo/util.c,1010}"
-CE0x686abb0 "{CE0x686abb0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CE0x7e95290 "{CE0x7e95290|tomoyo_path_permission:tmp7|*LoadInst*|security/tomoyo/file.c,565}"
-CE0x7e954c0 "{CE0x7e954c0|tomoyo_path_permission:conv3|security/tomoyo/file.c,565}"
-CE0x4b8b620 "{CE0x4b8b620|tomoyo_path_permission:cmp|security/tomoyo/file.c,565}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x678e760 "{CE0x678e760|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_25,26_}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x58e4720 "{CE0x58e4720|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
+CE0x4bdad10 "{CE0x4bdad10|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x55ed6c0 "{CE0x55ed6c0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x5b1d5a0 "{CE0x5b1d5a0|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5aa8650 "{CE0x5aa8650|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x5b8cae0 "{CE0x5b8cae0|tomoyo_init_request_info:domain.addr.0}"
+CE0x6ff0b70 "{CE0x6ff0b70|tomoyo_init_request_info:ns|security/tomoyo/util.c,1010}"
+CE0x5c1ede0 "{CE0x5c1ede0|tomoyo_init_request_info:tmp12|security/tomoyo/util.c,1010}"
+CE0x59c66c0 "{CE0x59c66c0|tomoyo_get_mode:ns|Function::tomoyo_get_mode&Arg::ns::}"
+CE0x57ba3d0 "{CE0x57ba3d0|COLLAPSED:_CRE:_elem_0:default:}"
+CE0x3be8230 "{CE0x3be8230|tomoyo_get_mode:tmp24|security/tomoyo/util.c,986}"
+CE0x3be8910 "{CE0x3be8910|tomoyo_get_mode:mode.1}"
+CE0x3d5c0d0 "{CE0x3d5c0d0|tomoyo_get_mode:conv15|security/tomoyo/util.c,987}"
+CE0x3c79060 "{CE0x3c79060|tomoyo_get_mode:and|security/tomoyo/util.c,987}"
+CE0x3c79230 "{CE0x3c79230|tomoyo_get_mode:retval.0}"
+CE0x5a2b9f0 "{CE0x5a2b9f0|_ret_i32_%retval.0,_!dbg_!38935|security/tomoyo/util.c,988}"
+CE0x5c1f350 "{CE0x5c1f350|tomoyo_init_request_info:call4|security/tomoyo/util.c,1010}"
+CE0x5a2bf50 "{CE0x5a2bf50|tomoyo_init_request_info:conv|security/tomoyo/util.c,1010}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x3c7dc80 "{CE0x3c7dc80|tomoyo_path_permission:tmp7|*LoadInst*|security/tomoyo/file.c,565}"
+CE0x3c7df00 "{CE0x3c7df00|tomoyo_path_permission:conv3|security/tomoyo/file.c,565}"
+CE0x5a5a960 "{CE0x5a5a960|tomoyo_path_permission:cmp|security/tomoyo/file.c,565}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x58ee5a0 "{CE0x58ee5a0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_29,30_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x5919380 "{CE0x5919380|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x3b7fab0 "{CE0x3b7fab0|tomoyo_path_permission:bb}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x4914b20 "{CE0x4914b20|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
+CE0x4914ea0 "{CE0x4914ea0|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
+CE0x4943e60 "{CE0x4943e60|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
+CE0x489de10 "{CE0x489de10|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
+CE0x560f3e0 "{CE0x560f3e0|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
+CE0x5812190 "{CE0x5812190|tomoyo_path_perm:if.end6}"
+CE0x5898350 "{CE0x5898350|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]
+CE0x493c4f0 "{CE0x493c4f0|tomoyo_path_perm:buf|security/tomoyo/file.c, 792|*SummSource*}"
+CE0x493c480 "{CE0x493c480|tomoyo_path_perm:buf|security/tomoyo/file.c, 792}"
+CE0x7078130 "{CE0x7078130|tomoyo_path_permission:filename|Function::tomoyo_path_permission&Arg::filename::}"
+CE0x58ee5a0 "{CE0x58ee5a0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_29,30_}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 -----------
 CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]
-CE0x4916540 "{CE0x4916540|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::|*SummSource*}"
-CE0x4c2d5c0 "{CE0x4c2d5c0|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::}"
-CE0x7e51610 "{CE0x7e51610|tomoyo_path_perm:conv8|security/tomoyo/file.c,807}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x7f759f0 "{CE0x7f759f0|tomoyo_path_permission:bb}"
-CE0x686abb0 "{CE0x686abb0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CE0x66613e0 "{CE0x66613e0|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
-CE0x6661760 "{CE0x6661760|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
-CE0x6825dd0 "{CE0x6825dd0|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
-CE0x58399b0 "{CE0x58399b0|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
-CE0x6848c40 "{CE0x6848c40|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
-CE0x7edb2c0 "{CE0x7edb2c0|tomoyo_path_perm:if.end6}"
-CE0x69098d0 "{CE0x69098d0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x47b27a0 "{CE0x47b27a0|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::|*SummSource*}"
+CE0x47b2700 "{CE0x47b2700|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::}"
+CE0x576d140 "{CE0x576d140|tomoyo_path_perm:conv8|security/tomoyo/file.c,807}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x3b7fab0 "{CE0x3b7fab0|tomoyo_path_permission:bb}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x4914b20 "{CE0x4914b20|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
+CE0x4914ea0 "{CE0x4914ea0|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
+CE0x4943e60 "{CE0x4943e60|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
+CE0x489de10 "{CE0x489de10|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
+CE0x560f3e0 "{CE0x560f3e0|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
+CE0x5812190 "{CE0x5812190|tomoyo_path_perm:if.end6}"
+CE0x5898350 "{CE0x5898350|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
 CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
 CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]
-CE0x4916540 "{CE0x4916540|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::|*SummSource*}"
-CE0x4c2d5c0 "{CE0x4c2d5c0|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::}"
-CE0x7e51610 "{CE0x7e51610|tomoyo_path_perm:conv8|security/tomoyo/file.c,807}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x678e760 "{CE0x678e760|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_25,26_}"
+CE0x47b27a0 "{CE0x47b27a0|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::|*SummSource*}"
+CE0x47b2700 "{CE0x47b2700|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::}"
+CE0x576d140 "{CE0x576d140|tomoyo_path_perm:conv8|security/tomoyo/file.c,807}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x58ee5a0 "{CE0x58ee5a0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_29,30_}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
 -----------
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]
-CE0x4c1e840 "{CE0x4c1e840|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::|*SummSource*}"
-CE0x4bb8990 "{CE0x4bb8990|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::}"
-CE0x4bb8a00 "{CE0x4bb8a00|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
-CE0x66a5060 "{CE0x66a5060|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
-CE0x697dff0 "{CE0x697dff0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 792|security/tomoyo/file.c, 794|security/tomoyo/file.c,802}"
-CE0x6a6da30 "{CE0x6a6da30|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
-CE0x4c8c820 "{CE0x4c8c820|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x67a9670 "{CE0x67a9670|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
+CE0x3c8d9c0 "{CE0x3c8d9c0|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::|*SummSource*}"
+CE0x3d7a8b0 "{CE0x3d7a8b0|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::}"
+CE0x3d57490 "{CE0x3d57490|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
+CE0x49c4570 "{CE0x49c4570|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x5919380 "{CE0x5919380|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
 CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
 
 
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 -----------
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]
-CE0x4c1e840 "{CE0x4c1e840|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::|*SummSource*}"
-CE0x4bb8990 "{CE0x4bb8990|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::}"
-CE0x4bb8a00 "{CE0x4bb8a00|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
-CE0x66a5060 "{CE0x66a5060|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
-CE0x697dff0 "{CE0x697dff0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 792|security/tomoyo/file.c, 794|security/tomoyo/file.c,802}"
-CE0x6a6da30 "{CE0x6a6da30|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
-CE0x4c8c820 "{CE0x4c8c820|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x7f759f0 "{CE0x7f759f0|tomoyo_path_permission:bb}"
-CE0x686abb0 "{CE0x686abb0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CE0x66613e0 "{CE0x66613e0|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
-CE0x6661760 "{CE0x6661760|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
-CE0x6825dd0 "{CE0x6825dd0|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
-CE0x58399b0 "{CE0x58399b0|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
-CE0x6848c40 "{CE0x6848c40|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
-CE0x7edb2c0 "{CE0x7edb2c0|tomoyo_path_perm:if.end6}"
-CE0x69098d0 "{CE0x69098d0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x3c8d9c0 "{CE0x3c8d9c0|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::|*SummSource*}"
+CE0x3d7a8b0 "{CE0x3d7a8b0|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::}"
+CE0x3d57490 "{CE0x3d57490|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
+CE0x49c4570 "{CE0x49c4570|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x3b7fab0 "{CE0x3b7fab0|tomoyo_path_permission:bb}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x4914b20 "{CE0x4914b20|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
+CE0x4914ea0 "{CE0x4914ea0|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
+CE0x4943e60 "{CE0x4943e60|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
+CE0x489de10 "{CE0x489de10|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
+CE0x560f3e0 "{CE0x560f3e0|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
+CE0x5812190 "{CE0x5812190|tomoyo_path_perm:if.end6}"
+CE0x5898350 "{CE0x5898350|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
 
 
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]
-CE0x4c1e840 "{CE0x4c1e840|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::|*SummSource*}"
-CE0x4bb8990 "{CE0x4bb8990|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::}"
-CE0x4bb8a00 "{CE0x4bb8a00|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
-CE0x66a5060 "{CE0x66a5060|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
-CE0x697dff0 "{CE0x697dff0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 792|security/tomoyo/file.c, 794|security/tomoyo/file.c,802}"
-CE0x6a6da30 "{CE0x6a6da30|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
-CE0x4c8c820 "{CE0x4c8c820|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
-CE0x6a6b410 "{CE0x6a6b410|tomoyo_path_perm:sw.epilog}"
-CE0x4bdb720 "{CE0x4bdb720|tomoyo_path_permission:entry}"
-CE0x4a9e740 "{CE0x4a9e740|tomoyo_path_permission:if.end}"
-CE0x678e760 "{CE0x678e760|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_25,26_}"
+CE0x3c8d9c0 "{CE0x3c8d9c0|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::|*SummSource*}"
+CE0x3d7a8b0 "{CE0x3d7a8b0|tomoyo_inode_getattr:mnt|Function::tomoyo_inode_getattr&Arg::mnt::}"
+CE0x3d57490 "{CE0x3d57490|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
+CE0x49c4570 "{CE0x49c4570|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x58ee5a0 "{CE0x58ee5a0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_29,30_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
+CE0x3c8dbe0 "{CE0x3c8dbe0|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::|*SummSource*}"
+CE0x3e0ab90 "{CE0x3e0ab90|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::}"
+CE0x3d57560 "{CE0x3d57560|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_8,16_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
+CE0x49c4570 "{CE0x49c4570|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x5919380 "{CE0x5919380|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_40,41_}"
+CONST[source:0(mediator),value:0(static)][purpose:{operation}][SnkIdx:3]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
+CE0x3c8dbe0 "{CE0x3c8dbe0|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::|*SummSource*}"
+CE0x3e0ab90 "{CE0x3e0ab90|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::}"
+CE0x3d57560 "{CE0x3d57560|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_8,16_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
+CE0x49c4570 "{CE0x49c4570|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x3b7fab0 "{CE0x3b7fab0|tomoyo_path_permission:bb}"
+CE0x5793210 "{CE0x5793210|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_76,77_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CE0x4914b20 "{CE0x4914b20|tomoyo_init_request_info:tmp13|*LoadInst*|security/tomoyo/util.c,1011}"
+CE0x4914ea0 "{CE0x4914ea0|tomoyo_init_request_info:conv6|security/tomoyo/util.c,1011}"
+CE0x4943e60 "{CE0x4943e60|_ret_i32_%conv6,_!dbg_!38926|security/tomoyo/util.c,1011}"
+CE0x489de10 "{CE0x489de10|tomoyo_path_perm:call|security/tomoyo/file.c,797}"
+CE0x560f3e0 "{CE0x560f3e0|tomoyo_path_perm:cmp|security/tomoyo/file.c,798}"
+CE0x5812190 "{CE0x5812190|tomoyo_path_perm:if.end6}"
+CE0x5898350 "{CE0x5898350|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:2]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
+CE0x3c8dbe0 "{CE0x3c8dbe0|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::|*SummSource*}"
+CE0x3e0ab90 "{CE0x3e0ab90|tomoyo_inode_getattr:dentry|Function::tomoyo_inode_getattr&Arg::dentry::}"
+CE0x3d57560 "{CE0x3d57560|8:_%struct.vfsmount*,_16:_%struct.dentry*,_168:_%struct.tomoyo_path_info*,_:_SCMRE_8,16_|*MultipleSource*|security/tomoyo/tomoyo.c, 149|security/tomoyo/tomoyo.c,149}"
+CE0x49c4570 "{CE0x49c4570|tomoyo_get_realpath:call|security/tomoyo/file.c,150}"
+CE0x577e0d0 "{CE0x577e0d0|0:_i8*,_:_SCMRE_0,8_|*MultipleSource*|security/tomoyo/file.c, 794|security/tomoyo/file.c, 792|security/tomoyo/file.c,802}"
+CE0x49e7660 "{CE0x49e7660|tomoyo_path_perm:tmp23|security/tomoyo/file.c,814}"
+CE0x49e7930 "{CE0x49e7930|tomoyo_path_perm:tobool|security/tomoyo/file.c,814}"
+CE0x5993770 "{CE0x5993770|tomoyo_path_perm:sw.epilog}"
+CE0x7056890 "{CE0x7056890|tomoyo_path_permission:entry}"
+CE0x5783250 "{CE0x5783250|tomoyo_path_permission:if.end}"
+CE0x58ee5a0 "{CE0x58ee5a0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_29,30_}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 

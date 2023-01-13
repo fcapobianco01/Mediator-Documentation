@@ -1,44 +1,64 @@
 [tomoyo_inode_getattr]
 
 explicit:
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x5b2a630 "{CE0x5b2a630|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
-CE0x5b2b170 "{CE0x5b2b170|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x6e4d0e0 "{CE0x6e4d0e0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x5c63f70 "{CE0x5c63f70|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x85116e0 "{CE0x85116e0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x5c37f10 "{CE0x5c37f10|tomoyo_init_request_info:domain.addr.0}"
-CE0x83c6dc0 "{CE0x83c6dc0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]
+CE0x651c960 "{CE0x651c960|tomoyo_path_perm:buf|security/tomoyo/file.c, 792|*SummSource*}"
+CE0x651c890 "{CE0x651c890|tomoyo_path_perm:buf|security/tomoyo/file.c, 792}"
+CE0x60977b0 "{CE0x60977b0|tomoyo_path_permission:filename|Function::tomoyo_path_permission&Arg::filename::}"
+CE0x6214690 "{CE0x6214690|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_24,25_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x60f44d0 "{CE0x60f44d0|128:_i8*,_1208:_%struct.file*,_:_CMRE_128,136_|*MultipleSource*|security/tomoyo/common.h,1205|security/tomoyo/common.h,1205}"
+CE0x60f5010 "{CE0x60f5010|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x5180560 "{CE0x5180560|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x6474030 "{CE0x6474030|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5227c90 "{CE0x5227c90|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x52421c0 "{CE0x52421c0|tomoyo_init_request_info:domain.addr.0}"
+CE0x6214060 "{CE0x6214060|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
 
 implicit:
-CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]
-CE0x510c9e0 "{CE0x510c9e0|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::|*SummSource*}"
-CE0x5b5f180 "{CE0x5b5f180|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::}"
-CE0x6f24530 "{CE0x6f24530|tomoyo_path_perm:conv8|security/tomoyo/file.c,807}"
-CE0x85d0600 "{CE0x85d0600|tomoyo_path_perm:sw.epilog}"
-CE0x6de94f0 "{CE0x6de94f0|tomoyo_path_permission:entry}"
-CE0x4e8b950 "{CE0x4e8b950|tomoyo_path_permission:if.end}"
-CE0x6cafda0 "{CE0x6cafda0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_30,31_}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x62ebdb0 "{CE0x62ebdb0|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/tomoyo/common.h,1205}"
+CE0x60f5010 "{CE0x60f5010|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
+CE0x5180560 "{CE0x5180560|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
+CE0x6474030 "{CE0x6474030|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
+CE0x5227c90 "{CE0x5227c90|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
+CE0x52421c0 "{CE0x52421c0|tomoyo_init_request_info:domain.addr.0}"
+CE0x6214060 "{CE0x6214060|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:16]
+CE0x651c960 "{CE0x651c960|tomoyo_path_perm:buf|security/tomoyo/file.c, 792|*SummSource*}"
+CE0x651c890 "{CE0x651c890|tomoyo_path_perm:buf|security/tomoyo/file.c, 792}"
+CE0x60977b0 "{CE0x60977b0|tomoyo_path_permission:filename|Function::tomoyo_path_permission&Arg::filename::}"
+CE0x79f46c0 "{CE0x79f46c0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_30,31_}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:16]
-CE0x696d360 "{CE0x696d360|COLLAPSED:_GCRE_current_task_external_global_%struct.task_struct*:_elem_0::|security/tomoyo/common.h,1205}"
-CE0x5b2b170 "{CE0x5b2b170|tomoyo_domain:tmp22|security/tomoyo/common.h,1205}"
-CE0x6e4d0e0 "{CE0x6e4d0e0|tomoyo_domain:tmp23|security/tomoyo/common.h,1205}"
-CE0x5c63f70 "{CE0x5c63f70|_ret_%struct.tomoyo_domain_info*_%tmp23,_!dbg_!38929|security/tomoyo/common.h,1205}"
-CE0x85116e0 "{CE0x85116e0|tomoyo_init_request_info:call|security/tomoyo/util.c,1005}"
-CE0x5c37f10 "{CE0x5c37f10|tomoyo_init_request_info:domain.addr.0}"
-CE0x83c6dc0 "{CE0x83c6dc0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_16,24_|*MultipleSource*|security/tomoyo/file.c, 787|security/tomoyo/file.c,787|Function::tomoyo_init_request_info&Arg::r::|security/tomoyo/file.c,800}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+CONST[source:0(mediator),value:0(static)][purpose:{operation}][SrcIdx:15]
+CE0x43c2a10 "{CE0x43c2a10|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::|*SummSource*}"
+CE0x43c2970 "{CE0x43c2970|tomoyo_path_perm:operation|Function::tomoyo_path_perm&Arg::operation::}"
+CE0x6201aa0 "{CE0x6201aa0|tomoyo_path_perm:conv8|security/tomoyo/file.c,807}"
+CE0x51b4d80 "{CE0x51b4d80|tomoyo_path_perm:sw.epilog}"
+CE0x6104c80 "{CE0x6104c80|tomoyo_path_permission:entry}"
+CE0x4590e90 "{CE0x4590e90|tomoyo_path_permission:if.end}"
+CE0x79f46c0 "{CE0x79f46c0|0:_%struct.tomoyo_obj_info*,_16:_%struct.tomoyo_domain_info*,_24:_%struct.tomoyo_path_info*,_40:_i8,_72:_i8,_75:_i8,_76:_i8,_77:_i8,_:_SCMRE_30,31_}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
