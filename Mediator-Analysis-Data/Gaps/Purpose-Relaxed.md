@@ -14,7 +14,7 @@
 | tomoyo_path_mkdir                  |           |          |           |          |          |          |    1/-     |   2/-    |          |    2/-    |
 | tomoyo_path_rmdir                  |           |          |           |          |          |   -/1    |            |   1/-    |          |    1/-    |
 | tomoyo_path_symlink                |           |          |           |          |          |   -/1    |            |   1/-    |          |    1/-    |
-| tomoyo_path_mknod                  |           |          |           |          |          |          |            |   2/-    |          |    6/-    |
+| tomoyo_path_mknod                  |           |          |           |          |          |          |            |   4/-    |          |    6/-    |
 | tomoyo_path_link                   |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
 | tomoyo_path_rename                 |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
 | tomoyo_inode_getattr               |           |          |           |          |          |   -/1    |            |   1/-    |          |    1/-    |
@@ -24,10 +24,10 @@
 | tomoyo_sb_mount                    |           |          |           |          |          |   -/2    |    1/2     |   2/-    |          |    1/4    |
 | tomoyo_sb_umount                   |           |          |           |          |          |   -/1    |            |   1/-    |          |    1/-    |
 | tomoyo_sb_pivotroot                |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
-| tomoyo_socket_bind                 |           |          |    -/2    |   -/4    |          |   -/2    |    4/4     |   12/8   |          |    2/-    |
-| tomoyo_socket_connect              |           |          |    -/2    |   -/4    |          |   -/2    |    4/4     |   12/8   |          |    2/-    |
-| tomoyo_socket_listen               |           |          |    -/2    |   -/4    |          |   -/2    |    4/4     |   12/8   |          |    2/-    |
-| tomoyo_socket_sendmsg              |           |          |    -/2    |   -/4    |          |   -/2    |    4/4     |   12/8   |          |    2/-    |
+| tomoyo_socket_bind                 |           |          |    -/1    |   -/2    |          |   -/1    |    4/2     |   7/4    |          |    2/-    |
+| tomoyo_socket_connect              |           |          |    -/1    |   -/2    |          |   -/1    |    4/2     |   7/4    |          |    2/-    |
+| tomoyo_socket_listen               |           |          |    -/1    |   -/2    |          |   -/1    |    4/2     |   7/4    |          |    2/-    |
+| tomoyo_socket_sendmsg              |           |          |    -/1    |   -/2    |          |   -/1    |    4/2     |   7/4    |          |    2/-    |
 | ------                             |           |          |           |          |          |          |            |          |          |           |
 | **_APPARMOR_**                     |           |          |           |          |          |          |            |          |          |           |
 | apparmor_path_link                 |           |          |           |          |          |          |            |   3/-    |          |    1/-    |
