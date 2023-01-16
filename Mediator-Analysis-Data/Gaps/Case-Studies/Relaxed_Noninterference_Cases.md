@@ -1,266 +1,52 @@
 # Relaxed Noninterference Cases
 
-We record here a series of hook function which returns success in special scenarios
-
 - [Relaxed Noninterference Cases](#relaxed-noninterference-cases)
-  - [SELinux](#selinux)
-    - [`selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`](#selinux_sem_semctl-selinux_shm_shmctl-selinux_msg_queue_msgctl)
-    - [Lines removed with relaxed noninterference update](#lines-removed-with-relaxed-noninterference-update)
-  - [*Case-by-case details*](#case-by-case-details)
-    - [old relaxed - new relaxed](#old-relaxed---new-relaxed)
-    - [SELinux](#selinux-1)
-    - [Tomoyo](#tomoyo)
+  - [General Approach](#general-approach)
+    - [Return 0](#return-0)
+    - [Safe Relaxed Noninterference Case IIs](#safe-relaxed-noninterference-case-iis)
+  - [Common set of annotations for relaxed noninterference](#common-set-of-annotations-for-relaxed-noninterference)
+  - [Categorization of branches which create information flow gaps](#categorization-of-branches-which-create-information-flow-gaps)
     - [AppArmor](#apparmor)
-  - [Common set for relaxed noninterference](#common-set-for-relaxed-noninterference)
-  - [Common set for relaxed noninterference (NEW)](#common-set-for-relaxed-noninterference-new)
-    - [Config file parts](#config-file-parts)
-    - [AppArmor](#apparmor-1)
-      - [Return 0](#return-0)
+      - [Return 0](#return-0-1)
       - [Relaxed NI - Safe Case II](#relaxed-ni---safe-case-ii)
       - [True gaps](#true-gaps)
       - [Non-branching related](#non-branching-related)
-    - [Tomoyo](#tomoyo-1)
-      - [Return 0](#return-0-1)
+    - [Tomoyo](#tomoyo)
+      - [Return 0](#return-0-2)
       - [Relaxed NI - Safe Case II](#relaxed-ni---safe-case-ii-1)
       - [True gaps](#true-gaps-1)
       - [Non-branching related](#non-branching-related-1)
-    - [SELinux](#selinux-2)
-      - [Relaxed NI annotation](#relaxed-ni-annotation)
-      - [Return 0](#return-0-2)
+    - [SELinux](#selinux)
+      - [Return 0](#return-0-3)
+      - [Relaxed NI - Safe Case II](#relaxed-ni---safe-case-ii-2)
+      - [True gaps](#true-gaps-2)
+      - [Non-branching related](#non-branching-related-2)
+      - [False positives](#false-positives)
       - [Valid flows](#valid-flows)
       - [Non-implicit related](#non-implicit-related)
-      - [False positives](#false-positives)
+  - [*Case-by-case notes*](#case-by-case-notes)
+    - [`selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`](#selinux_sem_semctl-selinux_shm_shmctl-selinux_msg_queue_msgctl)
+    - [Lines removed with relaxed noninterference update](#lines-removed-with-relaxed-noninterference-update)
+    - [old relaxed - new relaxed](#old-relaxed---new-relaxed)
+    - [SELinux](#selinux-1)
+    - [Tomoyo](#tomoyo-1)
+    - [AppArmor](#apparmor-1)
 
-## SELinux
+## General Approach
 
-### `selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`
+There are two categories of source code lines which we need to annotate with relaxed noninterference, [return 0 cases](#return-0) and [safe case IIs](#safe-relaxed-noninterference-case-iis).
 
-Returning 0 when `cmd` is not in the set of expected values.
+### Return 0 
 
-### Lines removed with relaxed noninterference update
+In a CFG, a return 0 statement is a return statement that 1) returns a zero, and 2) there is no sink call before it. Among all return 0 statements, some of them are conditionals, and we choose to annotate those conditional branches. We choose to annotate these scenarios because they are already reported as a relaxed NI case I violation. They wouldn't affect the subsequent analysis on case II violations.
 
-```json
-1611
-1683
-1694
-3350
-```
+### Safe Relaxed Noninterference Case IIs
 
-189 total relaxed annotations for previous version.
-117 for tomoyo, reduced to 31.
+In a CFG, we annotate a branch if there are no two paths after it that calls the same sink function or its wrapper, given they are safe based on relaxed NI case II.
 
-## *Case-by-case details*
+## Common set of annotations for relaxed noninterference
 
-`selinux_syslog` Should this one be annotated? current are the same, but appear at different places.
-
-`selinux_inode_link` This is a FP because of the implicit assignment in IR at 1797
-
-`file_map_prot_check` Visit this function.
-
-`selinux_file_mprotect` 3328 questionable.
-
-`selinux_quotactl` 2036, explicitly states */\* let the kernel handle invalid cmds \*/*
-
-`selinux_netlink_send` always return 0 on 5069
-
-`selinux_sb_kern_mount` 2614, */\* Allow all mounts performed by the kernel \*/*
-
-`selinux_task_setrlimit` return explicit 0 when the old_limit equals new_limit on their max value.
-
-`apparmor_file_lock` lsm.c:463, in theory, this branch should not be relaxed, but...
-
-`may_create`
-
-questionable `selinux` lines/hooks: 1565, 5519, 1728, 1731, 2885, 4724, `selinux_inode_setxattr`, `selinux_socket_bind`(4068, 4073)
-
-### old relaxed - new relaxed
-
-### SELinux
-
-confirmed - `selinux_secmark_enabled(), selinux_authorizable_xfrm(x), IS_PRIVATE(inode)`, family of `capable`
-
-```json
-1611
-3253
-3165
-5519
-2852
-5783
-```
-
-questionable
-
-```json
-1683
-1694
-3169
-4724
-4374
-4401
-3628
-```
-
-should be removed without question
-
-```json
-1565
-3350
-1902
-1904
-1905
-1945
-1874
-5488
-5490
-4058
-4068
-4073
-4048
-```
-
-### Tomoyo
-
-confirmed - `tomoyo_init_request_info`
-
-```json
-750
-565
-797
-898
-899
-
-```
-
-questionable
-
-```json
-315 - tomoyo.c
-379 - tomoyo.c
-382 - tomoyo.c
-596 - network.c
-509,517 - network.c
-```
-
-should be removed without question
-
-```json
-126
-807
-110-117 - mount.c
-```
-
-### AppArmor
-
-confirmed - `mediated_filesystem`, `unconfined`, `cap_ptrace_access_check`, `cap_ptrace_traceme`
-
-```json
-434, 435
-438
-447
-396
-382
-369
-349
-```
-
-questionable
-
-```json
-448
-```
-
-should be removed without question
-
-```json
-463
-477
-483
-485
-```
-
-## Common set for relaxed noninterference
-
-```json
-AppArmor
-  "implicit_whitelist": [
-    { "file": "security/apparmor/lsm.c", "line": 100 },
-    { "file": "security/apparmor/lsm.c", "line": 109 },
-    { "file": "security/apparmor/lsm.c", "line": 145 }
-  ],
-
-Tomoyo
-  "implicit_whitelist": [
-    { "file": "security/tomoyo/file.c", "line": 151 },
-    { "file": "security/tomoyo/file.c", "line": 814 },
-    { "file": "security/tomoyo/mount.c", "line": 94 },
-    { "file": "security/tomoyo/mount.c", "line": 102 },
-    { "file": "security/tomoyo/mount.c", "line": 122 },
-    { "file": "security/tomoyo/mount.c", "line": 132 },
-    { "file": "security/tomoyo/mount.c", "line": 138 },
-    { "file": "security/tomoyo/mount.c", "line": 147 },
-    { "file": "security/tomoyo/network.c", "line": 560 }
-  ],
-
-SELinux
-  "implicit_whitelist": [
-    { "file": "security/selinux/hooks.c", "line": 1728 },
-    { "file": "security/selinux/hooks.c", "line": 1731 },
-    { "file": "security/selinux/hooks.c", "line": 1823 },
-    { "file": "security/selinux/hooks.c", "line": 1827 },
-    { "file": "security/selinux/hooks.c", "line": 1841 },
-    { "file": "security/selinux/hooks.c", "line": 1942 },
-    { "file": "security/selinux/hooks.c", "line": 1959 },
-    { "file": "security/selinux/hooks.c", "line": 2008 },
-    { "file": "security/selinux/hooks.c", "line": 2917 },
-    { "file": "security/selinux/hooks.c", "line": 2919 },
-    { "file": "security/selinux/hooks.c", "line": 2922 },
-    { "file": "security/selinux/hooks.c", "line": 2948 },
-    { "file": "security/selinux/hooks.c", "line": 2951 },
-    { "file": "security/selinux/hooks.c", "line": 2959 },
-    { "file": "security/selinux/hooks.c", "line": 2963 },
-    { "file": "security/selinux/hooks.c", "line": 2990 },
-    { "file": "security/selinux/hooks.c", "line": 2995 },
-    { "file": "security/selinux/hooks.c", "line": 3000 },
-    { "file": "security/selinux/hooks.c", "line": 3328 },
-    { "file": "security/selinux/hooks.c", "line": 3597 },
-    { "file": "security/selinux/hooks.c", "line": 3608 },
-    { "file": "security/selinux/hooks.c", "line": 3639 },
-    { "file": "security/selinux/hooks.c", "line": 4039 },
-    { "file": "security/selinux/hooks.c", "line": 4076 },
-    { "file": "security/selinux/hooks.c", "line": 4138 },
-    { "file": "security/selinux/hooks.c", "line": 4166 },
-    { "file": "security/selinux/hooks.c", "line": 4315 },
-    { "file": "security/selinux/hooks.c", "line": 4319 },
-    { "file": "security/selinux/hooks.c", "line": 4323 },
-    { "file": "security/selinux/hooks.c", "line": 4344 },
-    { "file": "security/selinux/hooks.c", "line": 4355 },
-    { "file": "security/selinux/hooks.c", "line": 4398 },
-    { "file": "security/selinux/hooks.c", "line": 4405 },
-    { "file": "security/selinux/hooks.c", "line": 4409 },
-    { "file": "security/selinux/hooks.c", "line": 4415 },
-    { "file": "security/selinux/hooks.c", "line": 4421 },
-    { "file": "security/selinux/hooks.c", "line": 4717 },
-    { "file": "security/selinux/hooks.c", "line": 5070 },
-    { "file": "security/selinux/hooks.c", "line": 5244 },
-    { "file": "security/selinux/hooks.c", "line": 5254 },
-    { "file": "security/selinux/hooks.c", "line": 5258 },
-    { "file": "security/selinux/hooks.c", "line": 5284 },
-    { "file": "security/selinux/hooks.c", "line": 5567 },
-    { "file": "security/selinux/hooks.c", "line": 5590 },
-    { "file": "security/selinux/xfrm.c", "line": 89 },
-    { "file": "security/selinux/xfrm.c", "line": 90 },
-    { "file": "security/selinux/xfrm.c", "line": 91 },
-    { "file": "security/selinux/xfrm.c", "line": 95 },
-    { "file": "security/selinux/xfrm.c", "line": 99 },
-    { "file": "security/selinux/xfrm.c", "line": 108 }
-  ],
-```
-
-## Common set for relaxed noninterference (NEW)
-
-This is the version where the return 0 cases are annotated to avoid affecting case 2 of relaxed NI.
-
-### Config file parts
+This is the version where the return 0 cases are annotated to avoid affecting safe relaxed NI case 2's. The JSON object should be put into the config files in their corresponding LSMs.
 
 ```json
 AppArmor
@@ -331,9 +117,12 @@ SELinux
     { "file": "security/selinux/hooks.c", "line": 734 },
     { "file": "security/selinux/hooks.c", "line": 1060 },
     { "file": "security/selinux/hooks.c", "line": 1246 },
+    { "file": "security/selinux/hooks.c", "line": 1370 },
     { "file": "security/selinux/hooks.c", "line": 1611 },
+    { "file": "security/selinux/hooks.c", "line": 1683 },
     { "file": "security/selinux/hooks.c", "line": 1694 },
     { "file": "security/selinux/hooks.c", "line": 1731 },
+    { "file": "security/selinux/hooks.c", "line": 1829 },
     { "file": "security/selinux/hooks.c", "line": 1843 },
     { "file": "security/selinux/hooks.c", "line": 1942 },
     { "file": "security/selinux/hooks.c", "line": 1959 },
@@ -345,6 +134,9 @@ SELinux
     { "file": "security/selinux/hooks.c", "line": 2857 },
     { "file": "security/selinux/hooks.c", "line": 2869 },
     { "file": "security/selinux/hooks.c", "line": 2888 },
+    { "file": "security/selinux/hooks.c", "line": 2917 },
+    { "file": "security/selinux/hooks.c", "line": 2919 },
+    { "file": "security/selinux/hooks.c", "line": 2944 },
     { "file": "security/selinux/hooks.c", "line": 2948 },
     { "file": "security/selinux/hooks.c", "line": 2959 },
     { "file": "security/selinux/hooks.c", "line": 2990 },
@@ -354,23 +146,32 @@ SELinux
     { "file": "security/selinux/hooks.c", "line": 3165 },
     { "file": "security/selinux/hooks.c", "line": 3169 },
     { "file": "security/selinux/hooks.c", "line": 3170 },
+    { "file": "security/selinux/hooks.c", "line": 3241 },
+    { "file": "security/selinux/hooks.c", "line": 3242 },
     { "file": "security/selinux/hooks.c", "line": 3253 },
     { "file": "security/selinux/hooks.c", "line": 3277 },
     { "file": "security/selinux/hooks.c", "line": 3280 },
+    { "file": "security/selinux/hooks.c", "line": 3308 },
+    { "file": "security/selinux/hooks.c", "line": 3309 },
+    { "file": "security/selinux/hooks.c", "line": 3318 },
     { "file": "security/selinux/hooks.c", "line": 3328 },
     { "file": "security/selinux/hooks.c", "line": 3597 },
     { "file": "security/selinux/hooks.c", "line": 3608 },
     { "file": "security/selinux/hooks.c", "line": 3628 },
     { "file": "security/selinux/hooks.c", "line": 3639 },
+    { "file": "security/selinux/hooks.c", "line": 3992 },
     { "file": "security/selinux/hooks.c", "line": 4048 },
     { "file": "security/selinux/hooks.c", "line": 4076 },
     { "file": "security/selinux/hooks.c", "line": 4109 },
+    { "file": "security/selinux/hooks.c", "line": 4144 },
+    { "file": "security/selinux/hooks.c", "line": 4145 },
     { "file": "security/selinux/hooks.c", "line": 4155 },
     { "file": "security/selinux/hooks.c", "line": 4160 },
     { "file": "security/selinux/hooks.c", "line": 4166 },
     { "file": "security/selinux/hooks.c", "line": 4315 },
     { "file": "security/selinux/hooks.c", "line": 4323 },
     { "file": "security/selinux/hooks.c", "line": 4344 },
+    { "file": "security/selinux/hooks.c", "line": 4347 },
     { "file": "security/selinux/hooks.c", "line": 4355 },
     { "file": "security/selinux/hooks.c", "line": 4374 },
     { "file": "security/selinux/hooks.c", "line": 4390 },
@@ -380,12 +181,16 @@ SELinux
     { "file": "security/selinux/hooks.c", "line": 4717 },
     { "file": "security/selinux/hooks.c", "line": 4724 },
     { "file": "security/selinux/hooks.c", "line": 5070 },
+    { "file": "security/selinux/hooks.c", "line": 5237 },
     { "file": "security/selinux/hooks.c", "line": 5244 },
     { "file": "security/selinux/hooks.c", "line": 5493 },
     { "file": "security/selinux/hooks.c", "line": 5519 },
     { "file": "security/selinux/hooks.c", "line": 5656 },
     { "file": "security/selinux/hooks.c", "line": 5567 },
+    { "file": "security/selinux/hooks.c", "line": 5636 },
+    { "file": "security/selinux/hooks.c", "line": 5671 },
     { "file": "security/selinux/hooks.c", "line": 5675 },
+    { "file": "security/selinux/hooks.c", "line": 5594 },
     { "file": "security/selinux/hooks.c", "line": 5783 },
     { "file": "security/selinux/xfrm.c", "line": 89 },
     { "file": "security/selinux/xfrm.c", "line": 90 },
@@ -401,9 +206,11 @@ SELinux
   ],
 ```
 
+## Categorization of branches which create information flow gaps
+
 ### AppArmor
 
-#### Return 0 
+#### Return 0
 ```c
 lsm.c,229
 lsm.c,253
@@ -455,7 +262,7 @@ lsm.c,435
 
 ### Tomoyo
 
-#### Return 0 
+#### Return 0
 ```c
 file.c,565
 file.c,701
@@ -509,17 +316,163 @@ uidgid.h,50
 
 ### SELinux
 
-#### Relaxed NI annotation
+#### Return 0
+```c
+hooks.c,1611
+hooks.c,3253
+hooks.c,3165
+hooks.c,3169
+hooks.c,3170
+hooks.c,2852
+hooks.c,2857
+hooks.c,5783
+hooks.c,2888
+hooks.c,5493
+hooks.c,3280
+hooks.c,4724
+hooks.c,2019
+hooks.c,2615
+hooks.c,4144
+hooks.c,4145
+hooks.c,4374
+hooks.c,4355
+hooks.c,3628
+xfrm.c,144
+xfrm.c,192
+```
 
-In a CFG, we annotate a branch if there are no two paths after it that calls the same sink function or its wrapper.
+#### Relaxed NI - Safe Case II
+```c
+include/linux/slab.h,522
+hooks.c,2008
+hooks.c,1683
+hooks.c,1694
+hooks.c,3309
+hooks.c,3308
+hooks.c,3241
+hooks.c,3242
+hooks.c,3318
+hooks.c,3328
+hooks.c,1731
+hooks.c,2869
+hooks.c,5519
+hooks.c,2919
+hooks.c,3055
+hooks.c,1829
+hooks.c,1843
+hooks.c,3639
+hooks.c,2944
+hooks.c,2948
+hooks.c,2917
+hooks.c,2990
+hooks.c,3000
+hooks.c,5244
+hooks.c,5237
+hooks.c,4717
+hooks.c,1942
+hooks.c,1959
+hooks.c,647
+hooks.c,1370
+hooks.c,1060
+hooks.c,2611
+hooks.c,1246
+hooks.c,734
+hooks.c,636
+hooks.c,666
+hooks.c,5567
+hooks.c,5594
+hooks.c,4048
+hooks.c,4109
+hooks.c,4160
+hooks.c,4166
+hooks.c,3992
+hooks.c,4398
+hooks.c,4323
+hooks.c,4315
+hooks.c,4344
+hooks.c,4409
+hooks.c,3608
+hooks.c,3597
+hooks.c,4347
+hooks.c,5671
+hooks.c,5636
+xfrm.c,108
+xfrm.c,89
+xfrm.c,184
 
-#### Return 0 
+hooks.c,5640
+```
 
-In a CFG, a return 0 statement is a return statement that 1) returns a zero, and 2) there is no sink call before it. 
+#### True gaps
+```c
+hooks.c,159
+hooks.c,144
+hooks.c,3350
+hooks.c,3258
+hooks.c,3311
+hooks.c,3312
+hooks.c,3314
+hooks.c,1904
+hooks.c,1905
+hooks.c,1886
+hooks.c,1882
+hooks.c,1890
+hooks.c,1880
+hooks.c,3151
+hooks.c,3403
+hooks.c,1874
+hooks.c,1838
+hooks.c,1848
+hooks.c,1776
+hooks.c,2896
+hooks.c,2885
+hooks.c,2963
+hooks.c,5488
+hooks.c,5490
+hooks.c,2641
+hooks.c,1945
+hooks.c,5600
+hooks.c,5580
+hooks.c,4058
+hooks.c,4068
+hooks.c,4153
+hooks.c,4169
+hooks.c,3747
+hooks.c,3661
+hooks.c,3665
+hooks.c,1888
+hooks.c,1728
+hooks.c,5578
+hooks.c,4401
+hooks.c,3790
+hooks.c,3731
+hooks.c,3261
+hooks.c,3316
+xfrm.c,411
+xfrm.c,415
+xfrm.h,35
+```
 
-Among all return 0 statements, some of them are conditionals. And we annotate those conditionals. But this is a different annotation from the previous ones.
+#### Non-branching related
+```c
+hooks.c,1815
+hooks.c,1845
+hooks.c,3296
+```
 
-Note: Some cases are not returning 0s, but are early returns which I think should be put in this category.
+#### False positives
+
+Just simple false positive from DSA messing up stuff.
+
+```c
+hooks.c,666       - Removed some FPs, rest are also false positives
+hooks.c,443       - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,674       - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,770       - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1346      - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1388      - Latent false positives, lookup selinux_sb_kern_mount gaps
+hooks.c,1454      - Latent false positives, lookup selinux_sb_kern_mount gaps
+```
 
 ```c
 include/linux/slab.h,522    - Subsequent code has no sink call, but is complicated
@@ -673,18 +626,147 @@ hooks.c,1848
 ```
 
 
-#### False positives
+## *Case-by-case notes*
 
-Just simple false positive from DSA messing up stuff.
+### `selinux_sem_semctl`, `selinux_shm_shmctl`, `selinux_msg_queue_msgctl`
 
-```c
-hooks.c,443       - Latent false positives, lookup selinux_sb_kern_mount gaps
-hooks.c,647       - Removed some FPs, rest are also false positives
-hooks.c,666       - Removed some FPs, rest are also false positives
-hooks.c,674       - Latent false positives, lookup selinux_sb_kern_mount gaps
-hooks.c,770       - Latent false positives, lookup selinux_sb_kern_mount gaps
-hooks.c,1346      - Latent false positives, lookup selinux_sb_kern_mount gaps
-hooks.c,1370      - Latent false positives, lookup selinux_sb_kern_mount gaps
-hooks.c,1388      - Latent false positives, lookup selinux_sb_kern_mount gaps
-hooks.c,1454      - Latent false positives, lookup selinux_sb_kern_mount gaps
+Returning 0 when `cmd` is not in the set of expected values.
+
+### Lines removed with relaxed noninterference update
+
+```json
+1611
+1683
+1694
+3350
+```
+
+189 total relaxed annotations for previous version.
+117 for tomoyo, reduced to 31.
+
+`selinux_syslog` Should this one be annotated? current are the same, but appear at different places.
+
+`selinux_inode_link` This is a FP because of the implicit assignment in IR at 1797
+
+`file_map_prot_check` Visit this function.
+
+`selinux_file_mprotect` 3328 questionable.
+
+`selinux_quotactl` 2036, explicitly states */\* let the kernel handle invalid cmds \*/*
+
+`selinux_netlink_send` always return 0 on 5069
+
+`selinux_sb_kern_mount` 2614, */\* Allow all mounts performed by the kernel \*/*
+
+`selinux_task_setrlimit` return explicit 0 when the old_limit equals new_limit on their max value.
+
+`apparmor_file_lock` lsm.c:463, in theory, this branch should not be relaxed, but...
+
+`may_create`
+
+questionable `selinux` lines/hooks: 1565, 5519, 1728, 1731, 2885, 4724, `selinux_inode_setxattr`, `selinux_socket_bind`(4068, 4073)
+
+### old relaxed - new relaxed
+
+### SELinux
+
+confirmed - `selinux_secmark_enabled(), selinux_authorizable_xfrm(x), IS_PRIVATE(inode)`, family of `capable`
+
+```json
+1611
+3253
+3165
+5519
+2852
+5783
+```
+
+questionable
+
+```json
+1683
+1694
+3169
+4724
+4374
+4401
+3628
+```
+
+should be removed without question
+
+```json
+1565
+3350
+1902
+1904
+1905
+1945
+1874
+5488
+5490
+4058
+4068
+4073
+4048
+```
+
+### Tomoyo
+
+confirmed - `tomoyo_init_request_info`
+
+```json
+750
+565
+797
+898
+899
+
+```
+
+questionable
+
+```json
+315 - tomoyo.c
+379 - tomoyo.c
+382 - tomoyo.c
+596 - network.c
+509,517 - network.c
+```
+
+should be removed without question
+
+```json
+126
+807
+110-117 - mount.c
+```
+
+### AppArmor
+
+confirmed - `mediated_filesystem`, `unconfined`, `cap_ptrace_access_check`, `cap_ptrace_traceme`
+
+```json
+434, 435
+438
+447
+396
+382
+369
+349
+```
+
+questionable
+
+```json
+448
+```
+
+should be removed without question
+
+```json
+463
+477
+483
+485
 ```
