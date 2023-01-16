@@ -1,9 +1,9 @@
 | Source  [type]                  | Field (index [id]) | Source Location                   | Label at Source             |
-|---------------------------------|--------------------|-----------------------------------|-----------------------------|
+| ------------------------------- | ------------------ | --------------------------------- | --------------------------- |
 | 1 [TOMOYO_TYPE_MKDIR]           |                    | security/tomoyo/tomoyo.c:192      | operation, static, mediator |
-| path                            |                    | security/tomoyo/tomoyo.c:188      | object, dynamic, input      |
-| dentry                          |                    | security/tomoyo/tomoyo.c:188      | object, dynamic, input      |
-| mode                            |                    | security/tomoyo/tomoyo.c:188      | operation, dynamic, input   |
+| parent [path]                   |                    | security/tomoyo/tomoyo.c:188      | object, dynamic, input      |
+| dentry [dentry]                 |                    | security/tomoyo/tomoyo.c:188      | object, dynamic, input      |
+| mode [umode_t]                  |                    | security/tomoyo/tomoyo.c:188      | operation, dynamic, input   |
 | 0 [TOMOYO_CONFIG_DISABLED]      |                    | security/tomoyo/file.c:702        | all, static, mediator       |
 | 3 [TOMOYO_CONFIG_ENFORCING]     |                    | security/tomoyo/file.c:721        | all, static, mediator       |
 | 2 [TOMOYO_TYPE_PATH_NUMBER_ACL] |                    | security/tomoyo/file.c:710        | all, static, mediator       |

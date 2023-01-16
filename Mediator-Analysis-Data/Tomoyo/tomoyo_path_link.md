@@ -1,9 +1,9 @@
 | Source                        | Field Index | Location                          | Label at Source             |
-|-------------------------------|-------------|-----------------------------------|-----------------------------|
+| ----------------------------- | ----------- | --------------------------------- | --------------------------- |
 | 0 [TOMOYO_TYPE_LINK]          |             | security/tomoyo/tomoyo.c:280      | operation, static, mediator |
-| path                          |             | security/tomoyo/tomoyo.c:275      | object, dynamic, input      |
-| dentry                        |             | security/tomoyo/tomoyo.c:275      | object, dynamic, input      |
-| dentry                        |             | security/tomoyo/tomoyo.c:275      | object, dynamic, input      |
+| new_dir [path]                |             | security/tomoyo/tomoyo.c:275      | object, dynamic, input      |
+| old_dentry [dentry]           |             | security/tomoyo/tomoyo.c:275      | object, dynamic, input      |
+| new_dentry [dentry]           |             | security/tomoyo/tomoyo.c:275      | object, dynamic, input      |
 | 0 [TOMOYO_TYPE_RENAME]        |             | security/tomoyo/common.h:909      | operation, static, mediator |
 | 1 [TOMOYO_TYPE_LINK]          |             | security/tomoyo/common.h:910      | operation, static, mediator |
 | 2 [TOMOYO_TYPE_PIVOT_ROOT]    |             | security/tomoyo/common.h:915      | operation, static, mediator |

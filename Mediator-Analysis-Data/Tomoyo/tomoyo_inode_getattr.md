@@ -1,8 +1,8 @@
 | Source  [type]                | Field (index [id]) | Source Location                   | Label at Source             |
-|-------------------------------|--------------------|-----------------------------------|-----------------------------|
-| 5 [TOMOYO_TYPE_GETATTR]       |                    | security/tomoyo/tomoyo.c:150      | operation, static, mediator | 
-| dentry                        |                    | security/tomoyo/tomoyo.c:147      | object, dynamic, input      | 
-| vfsmount                      |                    | security/tomoyo/tomoyo.c:147      | object, dynamic, input      |
+| ----------------------------- | ------------------ | --------------------------------- | --------------------------- |
+| 5 [TOMOYO_TYPE_GETATTR]       |                    | security/tomoyo/tomoyo.c:150      | operation, static, mediator |
+| dentry [dentry]               |                    | security/tomoyo/tomoyo.c:147      | object, dynamic, input      |
+| mnt [vfsmount]                |                    | security/tomoyo/tomoyo.c:147      | object, dynamic, input      |
 | 8 [TOMOYO_TYPE_SYMLINK]       |                    | security/tomoyo/file.c:812        | operation, static, mediator |
 | 6 [TOMOYO_TYPE_RMDIR]         |                    | security/tomoyo/file.c:808        | operation, static, mediator |
 | 9 [TOMOYO_TYPE_CHROOT]        |                    | security/tomoyo/file.c:809        | operation, static, mediator |

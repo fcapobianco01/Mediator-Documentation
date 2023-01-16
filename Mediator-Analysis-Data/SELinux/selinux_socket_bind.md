@@ -1,17 +1,17 @@
 | Source (name [type])              | Field (index [id]) | Source Location                   | Label at Source             |
-|-----------------------------------|--------------------|-----------------------------------|-----------------------------|
+| --------------------------------- | ------------------ | --------------------------------- | --------------------------- |
 | current                           |                    | security/selinux/hooks.c:4038     | subject, dynamic, external  |
 | sock                              | 23 [sk_protocol]   | security/selinux/hooks.c:4032     | object, dynamic, input      |
 | sock                              | 59 [sk_security]   | security/selinux/hooks.c:4032     | subject, dynamic, input     |
-| 1024 [SOCKET__BIND]               |                    | security/selinux/hooks.c:4137     | operation, static, mediator |
-| 2097152 [SOCKET__NAME_BIND]       |                    | security/selinux/hooks.c:4137     | operation, static, mediator |
-| 15 [SECCLASS_TCP_SOCKET]          |                    | security/selinux/hooks.c:4170     | all, static, mediator       |
-| 16 [SECCLASS_UDP_SOCKET]          |                    | security/selinux/hooks.c:4170     | all, static, mediator       |
-| 44 [SECCLASS_DCCP_SOCKET]         |                    | security/selinux/hooks.c:4170     | all, static, mediator       |
-| 33554432 [TCP_SOCKET__NODE_BIND]  |                    | security/selinux/hooks.c:4170     | all, static, mediator       |
-| 4194304 [UDP_SOCKET__NODE_BIND]   |                    | security/selinux/hooks.c:4170     | all, static, mediator       |
-| 4194304 [DCCP_SOCKET__NODE_BIND]  |                    | security/selinux/hooks.c:4145     | all, static, mediator       |
-| 4194304 [RAWIP_SOCKET__NODE_BIND] |                    | security/selinux/hooks.c:4145     | all, static, mediator       |
+| 1024 [SOCKET__BIND]               |                    | security/selinux/hooks.c:4038     | operation, static, mediator |
+| 2097152 [SOCKET__NAME_BIND]       |                    | security/selinux/hooks.c:4084     | operation, static, mediator |
+| 15 [SECCLASS_TCP_SOCKET]          |                    | security/selinux/hooks.c:4091     | all, static, mediator       |
+| 16 [SECCLASS_UDP_SOCKET]          |                    | security/selinux/hooks.c:4095     | all, static, mediator       |
+| 44 [SECCLASS_DCCP_SOCKET]         |                    | security/selinux/hooks.c:4099     | all, static, mediator       |
+| 33554432 [TCP_SOCKET__NODE_BIND]  |                    | security/selinux/hooks.c:4092     | all, static, mediator       |
+| 4194304 [UDP_SOCKET__NODE_BIND]   |                    | security/selinux/hooks.c:4096     | all, static, mediator       |
+| 4194304 [DCCP_SOCKET__NODE_BIND]  |                    | security/selinux/hooks.c:4100     | all, static, mediator       |
+| 4194304 [RAWIP_SOCKET__NODE_BIND] |                    | security/selinux/hooks.c:4104     | all, static, mediator       |
 | 12 [PAGE_SHIFT]                   |                    | include/asm-generic/getorder.h:18 | all, static, external       |
 | 64 [BITS_PER_LONG]                |                    | include/asm-generic/getorder.h:19 | all, static, external       |
 | 8192 [KMALLOC_MAX_CACHE_SIZE]     |                    | include/linux/slab.h:415          | all, static, external       |

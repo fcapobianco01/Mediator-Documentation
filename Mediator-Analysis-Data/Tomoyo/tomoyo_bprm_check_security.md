@@ -1,6 +1,7 @@
 | Source (name [type])          | Field (index [id]) | Source Location                   | Label at Source             |
-|-------------------------------|--------------------|-----------------------------------|-----------------------------|
-| bprm [linux_binprm]           | 8 [cred]           | security/tomoyo/tomoyo.c:118      | object, dynamic, input      |
+| ----------------------------- | ------------------ | --------------------------------- | --------------------------- |
+| bprm [linux_binprm]           | 8 [cred]           | security/tomoyo/tomoyo.c:118      | subject, dynamic, input     |
+| bprm [linux_binprm]           | 7 [file]           | security/tomoyo/tomoyo.c:118      | object, dynamic, input      |
 | 1 [TOMOYO_TYPE_READ]          |                    | security/tomoyo/file.c:759        | operation, static, mediator |
 | 2 [TOMOYO_TYPE_APPEND]        |                    | security/tomoyo/file.c:762        | operation, static, mediator |
 | 3 [TOMOYO_TYPE_WRITE]         |                    | security/tomoyo/file.c:762        | operation, static, mediator |

@@ -1,10 +1,10 @@
 | Source  [type]                | Field (index [id]) | Source Location                   | Label at Source             |
-|-------------------------------|--------------------|-----------------------------------|-----------------------------|
+| ----------------------------- | ------------------ | --------------------------------- | --------------------------- |
 | 1 [TOMOYO_TYPE_READ]          |                    | security/tomoyo/file.c:759        | operation, static, mediator |
 | 2 [TOMOYO_TYPE_APPEND]        |                    | security/tomoyo/file.c:762        | operation, static, mediator |
 | 3 [TOMOYO_TYPE_WRITE]         |                    | security/tomoyo/file.c:762        | operation, static, mediator |
-| f [file]                      | 6 [f_flags]        | security/tomoyo/tomoyo.c:329      | operation, dynamic, input   |
-| f [file]                      | 1 [f_path]         | security/tomoyo/tomoyo.c:329      | object, dynamic, input      |
+| file [file]                   | 6 [f_flags]        | security/tomoyo/tomoyo.c:312      | operation, dynamic, input   |
+| file [file]                   | 1 [f_path]         | security/tomoyo/tomoyo.c:312      | object, dynamic, input      |
 | cmd                           |                    | security/tomoyo/tomoyo.c:312      | operation, dynamic, input   |
 | arg                           |                    | security/tomoyo/tomoyo.c:312      | operation, dynamic, input   |
 | 1 [TOMOYO_MAC_FILE_OPEN]      |                    | security/tomoyo/file.c:751        | all, static, mediator       |

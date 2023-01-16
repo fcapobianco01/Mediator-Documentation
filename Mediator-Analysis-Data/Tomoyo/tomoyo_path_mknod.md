@@ -1,14 +1,14 @@
 | Source  [type]                  | Field (index [id]) | Source Location                   | Label at Source             |
-|---------------------------------|--------------------|-----------------------------------|-----------------------------|
+| ------------------------------- | ------------------ | --------------------------------- | --------------------------- |
 | 1 [TOMOYO_TYPE_MKCHAR]          |                    | security/tomoyo/tomoyo.c:245      | operation, static, mediator |
 | 0 [TOMOYO_TYPE_MKBLOCK]         |                    | security/tomoyo/tomoyo.c:248      | operation, static, mediator |
 | 2 [TOMOYO_TYPE_MKFIFO]          |                    | security/tomoyo/tomoyo.c:257      | operation, static, mediator |
 | 3 [TOMOYO_TYPE_MKSOCK]          |                    | security/tomoyo/tomoyo.c:260      | operation, static, mediator |
 | 0 [TOMOYO_TYPE_CREATE]          |                    | security/tomoyo/tomoyo.c:240      | operation, static, mediator |
-| path                            |                    | security/tomoyo/tomoyo.c:239      | object, dynamic, input      |
-| dentry                          |                    | security/tomoyo/tomoyo.c:239      | object, dynamic, input      |
-| mode                            |                    | security/tomoyo/tomoyo.c:239      | operation, dynamic, input   |
-| dev                             |                    | security/tomoyo/tomoyo.c:239      | operation, dynamic, input   |
+| parent                          |                    | security/tomoyo/tomoyo.c:236      | object, dynamic, input      |
+| dentry                          |                    | security/tomoyo/tomoyo.c:236      | object, dynamic, input      |
+| mode                            |                    | security/tomoyo/tomoyo.c:236      | operation, dynamic, input   |
+| dev                             |                    | security/tomoyo/tomoyo.c:236      | operation, dynamic, input   |
 | 0 [TOMOYO_CONFIG_DISABLED]      |                    | security/tomoyo/file.c:702        | all, static, mediator       |
 | 3 [TOMOYO_CONFIG_ENFORCING]     |                    | security/tomoyo/file.c:721        | all, static, mediator       |
 | 2 [TOMOYO_TYPE_PATH_NUMBER_ACL] |                    | security/tomoyo/file.c:710        | all, static, mediator       |
