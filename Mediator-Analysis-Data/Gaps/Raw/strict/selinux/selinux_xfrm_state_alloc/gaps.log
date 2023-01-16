@@ -1,76 +1,94 @@
 [selinux_xfrm_state_alloc]
 
 explicit:
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]
-CE0x470d310 "{CE0x470d310|COLLAPSED:_CMRE:_elem_0::|security/selinux/xfrm.c,90}"
-CE0x4790120 "{CE0x4790120|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111}"
-CE0x4790700 "{CE0x4790700|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111|*SummSink*}"
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x5b76580 "{CE0x5b76580|4:_i32,_:_CR_4,8_|*MultipleSource*|security/selinux/xfrm.c,111|security/selinux/xfrm.c,85|security/selinux/xfrm.c,85}"
+CE0x5b76400 "{CE0x5b76400|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
+CE0x5bca0a0 "{CE0x5bca0a0|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
+CE0x5b2a3e0 "{CE0x5b2a3e0|COLLAPSED:_CMRE:_elem_0::|security/selinux/xfrm.c,90}"
+CE0x5bcaa30 "{CE0x5bcaa30|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111}"
+CE0x5bcb010 "{CE0x5bcb010|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 
 implicit:
-CONST[source:0(mediator),value:0(static)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
-CONST[source:0(mediator),value:0(static)][purpose:{object}][SrcIdx:14]
-CE0x46c5cf0 "{CE0x46c5cf0|selinux_xfrm_alloc_user:gfp|Function::selinux_xfrm_alloc_user&Arg::gfp::|*SummSource*}"
-CE0x46c5c80 "{CE0x46c5c80|selinux_xfrm_alloc_user:gfp|Function::selinux_xfrm_alloc_user&Arg::gfp::}"
-CE0x46e7a20 "{CE0x46e7a20|selinux_xfrm_alloc_user:call40|security/selinux/xfrm.c,107}"
-CE0x46effb0 "{CE0x46effb0|selinux_xfrm_alloc_user:tobool41|security/selinux/xfrm.c,108}"
-CE0x46b7a60 "{CE0x46b7a60|selinux_xfrm_alloc_user:if.end43}"
-CE0x472e340 "{CE0x472e340|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
-CE0x478f730 "{CE0x478f730|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
+CE0x5b2a3e0 "{CE0x5b2a3e0|COLLAPSED:_CMRE:_elem_0::|security/selinux/xfrm.c,90}"
+CE0x5bcaa30 "{CE0x5bcaa30|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111}"
+CE0x5bcb010 "{CE0x5bcb010|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
+
+
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+-----------
+CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:14]
+CE0x5b2a3e0 "{CE0x5b2a3e0|COLLAPSED:_CMRE:_elem_0::|security/selinux/xfrm.c,90}"
+CE0x5b05700 "{CE0x5b05700|selinux_xfrm_alloc_user:call40|security/selinux/xfrm.c,107}"
+CE0x5b275f0 "{CE0x5b275f0|selinux_xfrm_alloc_user:tobool41|security/selinux/xfrm.c,108}"
+CE0x5ae74b0 "{CE0x5ae74b0|selinux_xfrm_alloc_user:if.end43}"
+CE0x5b76400 "{CE0x5b76400|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
+CE0x5bca0a0 "{CE0x5bca0a0|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+
+
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+-----------
+CONST[source:2(external),value:2(dynamic)][purpose:{subject}][SrcIdx:17]
+CE0x5b76580 "{CE0x5b76580|4:_i32,_:_CR_4,8_|*MultipleSource*|security/selinux/xfrm.c,111|security/selinux/xfrm.c,85|security/selinux/xfrm.c,85}"
+CE0x5b76400 "{CE0x5b76400|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
+CE0x5bca0a0 "{CE0x5bca0a0|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
+CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+
+
+CONST[source:0(mediator),value:0(static)][purpose:{object}][SrcIdx:15]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
+-----------
+CONST[source:0(mediator),value:0(static)][purpose:{object}][SrcIdx:15]
+CE0x5b00760 "{CE0x5b00760|selinux_xfrm_alloc_user:gfp|Function::selinux_xfrm_alloc_user&Arg::gfp::|*SummSource*}"
+CE0x5b006f0 "{CE0x5b006f0|selinux_xfrm_alloc_user:gfp|Function::selinux_xfrm_alloc_user&Arg::gfp::}"
+CE0x5b05700 "{CE0x5b05700|selinux_xfrm_alloc_user:call40|security/selinux/xfrm.c,107}"
+CE0x5b275f0 "{CE0x5b275f0|selinux_xfrm_alloc_user:tobool41|security/selinux/xfrm.c,108}"
+CE0x5ae74b0 "{CE0x5ae74b0|selinux_xfrm_alloc_user:if.end43}"
+CE0x5b76400 "{CE0x5b76400|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
+CE0x5bca0a0 "{CE0x5bca0a0|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 -----------
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]
-CE0x470d310 "{CE0x470d310|COLLAPSED:_CMRE:_elem_0::|security/selinux/xfrm.c,90}"
-CE0x4790120 "{CE0x4790120|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111}"
-CE0x4790700 "{CE0x4790700|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111|*SummSink*}"
+CE0x5ae5b50 "{CE0x5ae5b50|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::|*SummSource*}"
+CE0x5ad8d70 "{CE0x5ad8d70|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::}"
+CE0x5ad9f50 "{CE0x5ad9f50|selinux_xfrm_state_alloc:security|security/selinux/xfrm.c,337}"
+CE0x5b0e0c0 "{CE0x5b0e0c0|selinux_xfrm_alloc_user:ctxp|Function::selinux_xfrm_alloc_user&Arg::ctxp::}"
+CE0x5b39690 "{CE0x5b39690|selinux_xfrm_alloc_user:cmp|security/selinux/xfrm.c,89}"
+CE0x5ae74b0 "{CE0x5ae74b0|selinux_xfrm_alloc_user:if.end43}"
+CE0x5bcaa30 "{CE0x5bcaa30|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111}"
+CE0x5bcb010 "{CE0x5bcb010|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
 
 
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 -----------
 CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:13]
-CE0x470d310 "{CE0x470d310|COLLAPSED:_CMRE:_elem_0::|security/selinux/xfrm.c,90}"
-CE0x46e7a20 "{CE0x46e7a20|selinux_xfrm_alloc_user:call40|security/selinux/xfrm.c,107}"
-CE0x46effb0 "{CE0x46effb0|selinux_xfrm_alloc_user:tobool41|security/selinux/xfrm.c,108}"
-CE0x46b7a60 "{CE0x46b7a60|selinux_xfrm_alloc_user:if.end43}"
-CE0x472e340 "{CE0x472e340|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
-CE0x478f730 "{CE0x478f730|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:12]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:12]
-CE0x4693cd0 "{CE0x4693cd0|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::|*SummSource*}"
-CE0x469d450 "{CE0x469d450|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::}"
-CE0x469ef60 "{CE0x469ef60|selinux_xfrm_state_alloc:security|security/selinux/xfrm.c,337}"
-CE0x46d3650 "{CE0x46d3650|selinux_xfrm_alloc_user:ctxp|Function::selinux_xfrm_alloc_user&Arg::ctxp::}"
-CE0x46f3880 "{CE0x46f3880|selinux_xfrm_alloc_user:cmp|security/selinux/xfrm.c,89}"
-CE0x46b7a60 "{CE0x46b7a60|selinux_xfrm_alloc_user:if.end43}"
-CE0x4790120 "{CE0x4790120|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111}"
-CE0x4790700 "{CE0x4790700|selinux_xfrm_alloc_user:tmp65|security/selinux/xfrm.c,111|*SummSink*}"
-CONST[source:0(mediator),value:2(dynamic)][purpose:{object}][SnkIdx:1]
-
-
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:12]  ->  CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
------------
-CONST[source:1(input),value:2(dynamic)][purpose:{object}][SrcIdx:12]
-CE0x4693cd0 "{CE0x4693cd0|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::|*SummSource*}"
-CE0x469d450 "{CE0x469d450|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::}"
-CE0x469ef60 "{CE0x469ef60|selinux_xfrm_state_alloc:security|security/selinux/xfrm.c,337}"
-CE0x46d3650 "{CE0x46d3650|selinux_xfrm_alloc_user:ctxp|Function::selinux_xfrm_alloc_user&Arg::ctxp::}"
-CE0x46f3880 "{CE0x46f3880|selinux_xfrm_alloc_user:cmp|security/selinux/xfrm.c,89}"
-CE0x46b7a60 "{CE0x46b7a60|selinux_xfrm_alloc_user:if.end43}"
-CE0x472e340 "{CE0x472e340|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
-CE0x478f730 "{CE0x478f730|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
+CE0x5ae5b50 "{CE0x5ae5b50|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::|*SummSource*}"
+CE0x5ad8d70 "{CE0x5ad8d70|selinux_xfrm_state_alloc:x|Function::selinux_xfrm_state_alloc&Arg::x::}"
+CE0x5ad9f50 "{CE0x5ad9f50|selinux_xfrm_state_alloc:security|security/selinux/xfrm.c,337}"
+CE0x5b0e0c0 "{CE0x5b0e0c0|selinux_xfrm_alloc_user:ctxp|Function::selinux_xfrm_alloc_user&Arg::ctxp::}"
+CE0x5b39690 "{CE0x5b39690|selinux_xfrm_alloc_user:cmp|security/selinux/xfrm.c,89}"
+CE0x5ae74b0 "{CE0x5ae74b0|selinux_xfrm_alloc_user:if.end43}"
+CE0x5b76400 "{CE0x5b76400|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111}"
+CE0x5bca0a0 "{CE0x5bca0a0|selinux_xfrm_alloc_user:tmp64|security/selinux/xfrm.c,111|*SummSink*}"
 CONST[source:0(mediator),value:2(dynamic)][purpose:{subject}][SnkIdx:0]
 
 

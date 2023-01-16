@@ -49,7 +49,7 @@
 | apparmor_ptrace_access_check       |           |          |    -/1    |          |   -/1    |          |    1/-     |   2/2    |          |    1/-    |
 | apparmor_ptrace_traceme            |    -/1    |          |           |          |          |          |            |   1/1    |          |    1/-    |
 | apparmor_capable                   |           |          |    -/1    |          |   -/1    |          |            |   1/2    |          |           |
-| apparmor_task_setrlimit            |           |          |           |          |          |          |            |          |          |    1/-    |
+| apparmor_task_setrlimit            |    -/2    |          |           |          |          |          |            |   2/-    |          |    1/1    |
 | ------                             |           |          |           |          |          |          |            |          |          |           |
 | **_SELINUX_**                      |           |          |           |          |          |          |            |          |          |           |
 | selinux_ptrace_access_check        |           |          |    -/2    |          |   -/4    |   -/4    |            |   2/6    |          |    2/4    |
@@ -57,21 +57,21 @@
 | selinux_capget                     |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
 | selinux_capset                     |    1/-    |          |    1/-    |          |          |          |            |   4/-    |          |           |
 | selinux_capable                    |    2/2    |   -/2    |           |          |   -/2    |   -/6    |    2/2     |   6/10   |          |    2/2    |
-| selinux_quotactl                   |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_quotactl                   |           |          |    -/1    |          |   -/1    |   -/1    |            |   1/3    |          |    1/-    |
 | selinux_quota_on                   |           |          |    -/1    |          |          |          |            |   2/1    |          |    1/-    |
-| selinux_syslog                     |           |          |           |          |   -/1    |          |            |   1/1    |          |    1/-    |
+| selinux_syslog                     |           |          |           |          |   -/1    |          |            |   -/1    |          |    2/-    |
 | selinux_vm_enough_memory           |    4/4    |   -/4    |           |          |   2/2    |   2/8    |    -/4     |          |          |   12/16   |
 | selinux_netlink_send               |           |          |    -/2    |   -/2    |   -/2    |   -/4    |    1/2     |   2/6    |          |    1/4    |
-| selinux_sb_kern_mount              |    8/2    |          |    4/1    |          |  57/38   |  57/38   |            |   8/2    |          |  122/78   |
+| selinux_sb_kern_mount              |    8/2    |          |    4/1    |          |  62/38   |  62/38   |            |   8/2    |          |  122/78   |
 | selinux_sb_statfs                  |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
 | selinux_mount                      |           |          |    -/1    |          |   -/2    |   -/3    |            |   3/1    |          |    2/5    |
 | selinux_umount                     |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
-| selinux_set_mnt_opts               |    6/2    |          |    6/2    |          |  40/20   |  40/20   |            |   12/4   |          |   86/42   |
-| selinux_inode_create               |    1/1    |          |    -/3    |          |          |          |            |   3/8    |          |    4/1    |
+| selinux_set_mnt_opts               |    6/2    |          |    6/2    |          |  46/22   |  46/22   |            |   12/4   |          |   86/42   |
+| selinux_inode_create               |    1/1    |          |    -/3    |          |          |          |            |   2/5    |          |    4/1    |
 | selinux_inode_link                 |           |          |           |          |          |   -/2    |            |   3/-    |          |    2/-    |
 | selinux_inode_unlink               |           |          |           |          |          |   -/2    |    1/1     |   3/-    |          |    2/-    |
-| selinux_inode_symlink              |    1/1    |          |    -/3    |          |          |          |            |   3/8    |          |    4/1    |
-| selinux_inode_mkdir                |    1/1    |          |    -/3    |          |          |          |            |   3/8    |          |    4/1    |
+| selinux_inode_symlink              |    1/1    |          |    -/3    |          |          |          |            |   2/5    |          |    4/1    |
+| selinux_inode_mkdir                |    1/1    |          |    -/3    |          |          |          |            |   2/5    |          |    4/1    |
 | selinux_inode_rmdir                |           |          |           |          |          |   -/2    |            |   3/-    |          |    2/-    |
 | selinux_inode_mknod                |    1/1    |          |    -/2    |          |          |          |            |   2/5    |          |    4/1    |
 | selinux_inode_rename               |           |          |           |   2/2    |          |          |    2/2     |   14/4   |          |    5/-    |
@@ -86,14 +86,14 @@
 | selinux_inode_removexattr          |           |          |    -/2    |          |   2/3    |   -/10   |            |   2/4    |          |   3/13    |
 | selinux_inode_getsecurity          |    4/4    |   -/4    |           |          |   -/2    |   -/6    |    -/4     |          |          |   8/12    |
 | selinux_file_permission            |    -/6    |   -/2    |    -/2    |   -/1    |   -/13   |   -/24   |    -/4     |   3/9    |          |   4/46    |
-| selinux_file_ioctl                 |    4/2    |          |    -/1    |          |   -/4    |   4/3    |            |   3/6    |          |    9/3    |
-| selinux_mmap_file                  |    2/6    |          |    -/3    |   -/1    |   -/27   |   -/36   |    -/4     |   3/29   |          |   6/49    |
-| selinux_mmap_addr                  |    2/-    |          |    -/2    |          |   -/2    |   -/2    |            |   -/2    |          |    2/2    |
+| selinux_file_ioctl                 |    4/2    |          |    -/1    |          |   -/5    |   4/5    |            |   3/6    |          |    9/3    |
+| selinux_mmap_file                  |    2/6    |          |    -/3    |   -/1    |   -/31   |   -/42   |    -/4     |   3/29   |          |   6/49    |
+| selinux_mmap_addr                  |    2/-    |          |    -/1    |          |   -/1    |   -/1    |            |   -/2    |          |    2/2    |
 | selinux_file_mprotect              |    6/8    |   -/2    |    -/6    |   -/1    |   5/49   |   6/57   |    -/5     |   4/38   |          |   22/90   |
 | selinux_file_lock                  |    -/6    |          |    -/1    |          |   -/1    |   -/2    |            |   3/1    |          |    2/3    |
-| selinux_file_fcntl                 |    -/6    |          |    -/2    |          |   -/8    |   -/12   |            |   3/12   |          |   2/13    |
+| selinux_file_fcntl                 |    -/6    |          |    -/2    |          |   -/9    |   -/14   |            |   3/12   |          |   2/13    |
 | selinux_file_send_sigiotask        |           |          |           |          |          |          |    -/1     |   2/1    |          |           |
-| selinux_file_receive               |    -/6    |          |    -/1    |   -/1    |   -/4    |   -/8    |    -/1     |   3/2    |          |   4/14    |
+| selinux_file_receive               |    -/6    |          |    -/1    |   -/1    |   -/6    |   -/12   |    -/1     |   3/2    |          |   4/14    |
 | selinux_file_open                  |           |          |    -/1    |          |          |          |    -/2     |   3/3    |          |    1/2    |
 | selinux_task_create                |    1/-    |          |    1/-    |          |          |          |            |          |          |    4/-    |
 | selinux_kernel_act_as              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
@@ -111,11 +111,11 @@
 | selinux_task_movememory            |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
 | selinux_task_kill                  |    -/2    |          |           |          |          |          |    1/2     |   4/5    |          |    1/-    |
 | selinux_task_wait                  |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
-| selinux_ipc_permission             |           |          |           |          |   -/3    |   -/6    |    -/1     |   2/4    |          |    1/8    |
+| selinux_ipc_permission             |           |          |           |          |   -/7    |   -/14   |    -/1     |   2/4    |          |    1/8    |
 | selinux_msg_queue_alloc_security   |    1/-    |          |           |          |          |   1/-    |            |   1/-    |          |    3/-    |
 | selinux_msg_queue_associate        |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
 | selinux_msg_queue_msgctl           |           |          |           |          |   -/2    |   -/2    |    -/1     |   2/5    |          |    2/-    |
-| selinux_msg_queue_msgsnd           |    -/6    |          |    1/1    |          |          |          |            |   4/4    |          |    2/4    |
+| selinux_msg_queue_msgsnd           |    -/6    |          |    1/1    |          |   -/1    |   -/3    |            |   4/4    |          |    2/4    |
 | selinux_msg_queue_msgrcv           |           |          |           |          |          |          |            |   4/-    |          |           |
 | selinux_shm_alloc_security         |    1/-    |          |           |          |          |   1/-    |            |   1/-    |          |    3/-    |
 | selinux_shm_associate              |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
@@ -130,9 +130,9 @@
 | selinux_inode_getsecctx            |    4/4    |   -/4    |           |          |   -/2    |   -/6    |    -/4     |          |          |   8/12    |
 | selinux_socket_unix_stream_connect |           |          |           |          |          |          |            |   3/-    |          |           |
 | selinux_socket_unix_may_send       |           |          |           |          |          |          |            |   3/-    |          |           |
-| selinux_socket_create              |    2/-    |          |           |          |          |          |            |          |          |    2/-    |
+| selinux_socket_create              |    1/1    |          |    -/1    |          |          |          |            |          |          |    2/-    |
 | selinux_socket_bind                |           |          |    2/2    |   -/2    |   6/2    |   -/16   |    -/2     |   6/10   |          |   7/22    |
-| selinux_socket_connect             |           |          |    1/2    |   1/2    |   1/1    |   -/4    |    1/2     |   5/9    |          |    2/7    |
+| selinux_socket_connect             |           |          |    1/4    |   2/3    |   1/1    |   -/4    |    1/2     |   5/9    |          |    2/7    |
 | selinux_socket_listen              |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
 | selinux_socket_accept              |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
 | selinux_socket_sendmsg             |           |          |           |          |          |          |            |   2/-    |          |    1/-    |
@@ -147,10 +147,10 @@
 | selinux_tun_dev_create             |    1/-    |          |           |          |          |          |            |          |          |    2/-    |
 | selinux_tun_dev_attach_queue       |           |          |           |          |          |          |            |   1/-    |          |    1/-    |
 | selinux_tun_dev_open               |    2/-    |          |           |          |          |          |            |   1/-    |          |    4/-    |
-| selinux_xfrm_policy_alloc          |           |          |    -/3    |          |          |          |            |   2/4    |          |           |
-| selinux_xfrm_policy_delete         |           |          |    -/1    |          |          |          |            |   1/1    |          |           |
-| selinux_xfrm_state_alloc           |           |          |    -/3    |          |          |          |            |   1/3    |          |           |
-| selinux_xfrm_state_delete          |           |          |    -/1    |          |          |          |            |   1/1    |          |           |
+| selinux_xfrm_policy_alloc          |           |          |    -/3    |          |          |          |            |   2/4    |          |    1/-    |
+| selinux_xfrm_policy_delete         |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
+| selinux_xfrm_state_alloc           |           |          |    -/3    |          |          |          |            |   1/3    |          |    1/-    |
+| selinux_xfrm_state_delete          |           |          |    -/1    |          |          |          |            |   1/1    |          |    1/-    |
 | selinux_xfrm_policy_lookup         |           |          |           |          |          |          |            |   2/-    |          |           |
 | selinux_xfrm_state_pol_flow_match  |           |          |    -/2    |          |          |          |            |   2/3    |          |           |
 | selinux_key_permission             |           |          |           |          |   -/1    |   -/1    |    1/-     |   3/2    |          |           |
