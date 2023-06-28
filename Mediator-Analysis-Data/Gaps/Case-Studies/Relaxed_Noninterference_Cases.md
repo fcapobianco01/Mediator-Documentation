@@ -36,7 +36,7 @@
 
 There are two categories of source code lines which we need to annotate with relaxed noninterference, [return 0 cases](#return-0) and [safe case IIs](#safe-relaxed-noninterference-case-iis).
 
-### Return 0 
+### Return 0
 
 In a CFG, a return 0 statement is a return statement that 1) returns a zero, and 2) there is no sink call before it. Among all return 0 statements, some of them are conditionals, and we choose to annotate those conditional branches. We choose to annotate these scenarios because they are already reported as a relaxed NI case I violation. They wouldn't affect the subsequent analysis on case II violations.
 
@@ -211,6 +211,7 @@ SELinux
 ### AppArmor
 
 #### Return 0
+
 ```c
 lsm.c,229
 lsm.c,253
@@ -224,7 +225,42 @@ lsm.c,448
 lsm.c,474
 ```
 
+```c
+lsm.c:229 
+  [common_perm_rm]
+    apparmor_path_unlink
+    apparmor_path_rmdir
+
+lsm.c:253 
+  [common_perm_create]
+    apparmor_path_mkdir    
+    apparmor_path_mknod
+    apparmor_path_symlink
+
+lsm.c:288
+  apparmor_path_truncate
+
+lsm.c:327
+  apparmor_path_rename
+
+lsm.c:396
+  apparmor_file_open
+
+lsm.c:434, 435  - One branch, two conditions
+lsm.c:447, 448  - Another branch in the same function
+  [common_file_perm]
+    apparmor_file_permission
+    apparmor_file_lock
+    [common_mmap]
+      apparmor_mmap_file
+      apparmor_file_mprotect
+
+lsm.c:474       - See case above, already covered.
+  [common_mmap]
+```
+
 #### Relaxed NI - Safe Case II
+
 ```c
 lsm.c,100
 lsm.c,109
@@ -232,6 +268,7 @@ lsm.c,145
 ```
 
 #### True gaps
+
 ```c
 file.h,200
 file.h,202
@@ -246,10 +283,13 @@ lsm.c,501
 ```
 
 #### Non-branching related
+
 ```c
 apparmor.h,117
 ```
+
 This happened to be a coincidence of capturing the `tobool` in the `mediated_filesystem` function calls scattered in the code. A failed check indicates a returning 0 scenario, but the branch is not at the location above. So it's not possible to annotate those branches from the source location above. Rather, we need to annotate the following source locations in a more aggressive way.
+
 ```c
 lsm.c,308
 lsm.c,323
@@ -263,6 +303,7 @@ lsm.c,435
 ### Tomoyo
 
 #### Return 0
+
 ```c
 file.c,565
 file.c,701
@@ -287,7 +328,74 @@ network.c,549
 network.c,596
 ```
 
+```c
+file.c:565
+  [tomoyo_path_permission]
+    [tomoyo_check_open_permission]
+      tomoyo_bprm_check_security
+      tomoyo_file_fcntl
+      tomoyo_file_open
+    [tomoyo_path_perm]
+      tomoyo_inode_getattr
+      tomoyo_path_truncate
+      tomoyo_path_unlink
+      tomoyo_path_rmdir
+      tomoyo_path_symlink
+      tomoyo_path_chroot
+      tomoyo_sb_umount
+
+file.c:701,702
+  [tomoyo_path_number_perm]
+    tomoyo_file_ioctl
+    tomoyo_path_chmod
+    tomoyo_path_chown
+    tomoyo_path_mkdir
+    tomoyo_path_mknod
+
+file.c:750 - covered above
+file.c:758
+file.c:761
+  [tomoyo_check_open_permission]
+
+file.c:797,798 - covered above
+  [tomoyo_path_perm]
+
+file.c:852,853
+  tomoyo_mkdev_perm
+
+file.c:898,899
+  [tomoyo_path2_perm]
+    tomoyo_path_link
+    tomoyo_path_rename
+    tomoyo_sb_pivotroot
+
+tomoyo.c:315
+  tomoyo_file_fcntl
+
+tomoyo.c:382
+  tomoyo_path_chown
+
+network.c:473,474
+network.c:509
+network.c:517
+  [tomoyo_inet_entry]
+    [tomoyo_check_inet_address]
+      tomoyo_socket_bind_permission
+      tomoyo_socket_connect_permission
+      tomoyo_socket_listen_permission
+      tomoyo_socket_sendmsg_permission
+
+network.c:548,549
+  [tomoyo_unix_entry]
+    [tomoyo_check_unix_address]
+      SAME FOUR HOOKS
+
+network.c:596 - covered above
+  [tomoyo_check_unix_address]
+```
+
 #### Relaxed NI - Safe Case II
+
 ```c
 file.c,814
 tomoyo.c,126
@@ -301,6 +409,7 @@ network.c,560
 ```
 
 #### True gaps
+
 ```c
 file.c,762
 mount.c,112
@@ -309,6 +418,7 @@ network.c,527
 ```
 
 #### Non-branching related
+
 ```c
 network.c,478
 uidgid.h,50
@@ -317,6 +427,7 @@ uidgid.h,50
 ### SELinux
 
 #### Return 0
+
 ```c
 hooks.c,1611
 hooks.c,3253
@@ -341,7 +452,87 @@ xfrm.c,144
 xfrm.c,192
 ```
 
+```c
+hooks.c:1611
+  [inode_has_perm]
+    [dentry_has_perm]
+      selinux_quota_on
+      selinux_inode_readlink
+      selinux_inode_follow_link
+      selinux_inode_setattr
+      selinux_inode_setotherxattr
+      selinux_inode_getxattr
+      selinux_inode_listxattr
+    [path_has_perm]
+      selinux_mount
+      selinux_inode_getattr
+    [file_path_has_perm]
+      selinux_file_open
+    [file_has_perm]
+      [selinux_revalidate_file_permission]
+        selinux_file_permission
+      selinux_file_ioctl
+      [file_map_prot_check]
+        selinux_mmap_file
+        selinux_file_mprotect
+      selinux_file_mprotect
+      selinux_file_lock
+      selinux_file_fcntl
+      selinux_file_receive
+
+hooks.c:3253 - covered
+  [file_map_prot_check]
+
+hooks.c:3165
+hooks.c:3169,3170
+  selinux_file_permission
+  
+hooks.c:2852
+hooks.c:2857
+  selinux_inode_permission
+
+hooks.c:2888
+  selinux_inode_setattr
+  
+hooks.c:5783
+  selinux_key_permission
+
+hooks.c:5493
+  selinux_ipc_permission
+
+hooks.c:3280
+  selinux_mmap_addr
+
+hooks.c:4724
+  [selinux_nlmsg_perm]
+    selinux_netlink_send
+
+hooks.c:2019
+  selinux_quotactl
+
+hooks.c:2615
+  selinux_sb_kern_mount
+
+hooks.c:4144,4145
+  selinux_socket_connect
+
+hooks.c:4374
+  selinux_socket_sock_rcv_skb
+  
+hooks.c:3628
+  selinux_task_setrlimit
+
+xfrm.c:144
+  [selinux_xfrm_delete]
+    selinux_xfrm_policy_delete
+    selinux_xfrm_state_delete
+
+xfrm.c:192
+  selinux_xfrm_state_pol_flow_match
+```
+
 #### Relaxed NI - Safe Case II
+
 ```c
 include/linux/slab.h,522
 hooks.c,2008
@@ -404,6 +595,7 @@ hooks.c,5640
 ```
 
 #### True gaps
+
 ```c
 hooks.c,159
 hooks.c,144
@@ -454,6 +646,7 @@ xfrm.h,35
 ```
 
 #### Non-branching related
+
 ```c
 hooks.c,1815
 hooks.c,1845
@@ -624,7 +817,6 @@ hooks.c,1815
 hooks.c,1845
 hooks.c,1848
 ```
-
 
 ## *Case-by-case notes*
 
